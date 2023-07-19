@@ -1,0 +1,57 @@
+:root, html {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: var(--secondary);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  width: 100vw;
+  height: 100vh;
+
+  --primary: #d14f34;
+  --secondary: #1a213d;
+}
+
+body {
+  margin: 0;
+}
+
+
+footer {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  width: 100%;
+  height: 100px;
+  background-color: var(--primary);
+
+  .clock {
+    position: absolute;
+    right: 0;
+    font-size: 4rem;
+    font-weight: 600;
+    color: #fff;
+    width: 250px;
+    height: calc(100% - 2px);
+    background-color: var(--secondary); 
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 3rem; 
+    font-weight: 600;
+    color: #fff;
+  }
+}
