@@ -19,6 +19,7 @@ export default function Router() {
 
     return (
         <Routes>
+            <Route path="/" element={<Ecran id="ecran1" nom="Titan" />} />
             {
                 ecrans.map((ecran) => <Route key={ecran.id} path={`/${ecran.id}`} element={<Ecran id={ecran.id} nom={ecran.nom}  />} />)
             }
