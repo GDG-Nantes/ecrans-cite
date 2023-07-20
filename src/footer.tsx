@@ -12,6 +12,6 @@ export const Footer: React.FC<{nom: string}> = ({nom}) => {
   
     return <footer>
         <h1>{nom}</h1>
-        <div className='clock'>{format(time, 'HH:mm')}</div>
+        <div className='clock'>{format(time, 'HH:mm:ss')}</div>
     </footer>
   }
