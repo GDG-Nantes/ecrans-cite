@@ -1,4 +1,5 @@
 export function getPlanning(idEcran: string) {
+    console.log(idEcran)
     return Promise.resolve({
         talks: [
             {
