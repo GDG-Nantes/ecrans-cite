@@ -1,8 +1,7 @@
 // Un router react-router-dom v6 avec 2 routes "ecran1" et "ecran2" qui affichent un composant "Ecran1" et "Ecran2" respectivement.
 
-import { format } from "date-fns";
-import React from "react";
-import { Outlet, Route, Routes } from "react-router-dom";
+
+import { Route, Routes } from "react-router-dom";
 import { Ecran } from "./ecran";
 
 export default function Router() {
