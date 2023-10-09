@@ -1,0 +1,178 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	/* Purple variants */
+	--purple-50: #f3e8ff;
+	--purple-100: #e0aaff;
+	--purple-200: #c77dff;
+	--purple-300: #9d4edd;
+	--purple-400: #7b2cbf;
+	--purple-450: rgba(157, 78, 221, 0.5);
+	--purple-500: #5a189a;
+	--purple-600: #3c096c;
+	--purple-700: #240046;
+	--purple-850: #19003b;
+	--purple-800: #10002b;
+	--purple-900: #0e001c;
+	/* Grey variants */
+	--grey-10: #f3f3f3;
+	--grey-50: #eaeaea;
+	--grey-100: #bab6be;
+	--grey-500: #565656;
+	/* Status variants*/
+	--red-50: #f3ad9e;
+	--red-200: #d73453;
+	--red-300: #772119;
+	--green-50: #d3e6d0;
+	--green-100: #2f942f;
+	--green-200: #438a3e;
+	--green-300: #336b2e;
+
+	/* App variables */
+	--color-primary: var(--purple-200);
+	--color-link: var(--purple-100);
+	--color-background: var(--purple-900);
+	--color-separator: var(--grey-100);
+	--color-text: white;
+
+	--color-btn-text: var(--purple-900);
+	--color-btn-background: white;
+	--color-btn-disabled-background: var(--grey-500);
+	--color-btn-disabled-text: var(--grey-100);
+
+	--btn-gradient: linear-gradient(203deg, var(--purple-300), var(--purple-500));
+	--btn-shadow: rgba(90, 24, 154, 0.5) 0px 0px 10px 0px,
+		rgba(182, 111, 239, 0.5) 0px 0px 20px 0px;
+
+	--color-input-background: #eaeaea;
+
+	--switch-background: var(--purple-500);
+	--switch-unselected: var(--grey-100);
+	--switch-border: var(--grey-100);
+
+	--color-error: var(--red-200);
+	--color-error-text: white;
+	--color-success: var(--green-100);
+	--color-success-text: white;
+	--color-download-btn-background: var(--green-50);
+
+	--color-logo: white;
+
+	--separator: linear-gradient(
+			90deg,
+			transparent,
+			var(--color-separator),
+			transparent
+		)
+		1;
+
+	--card-border: var(--purple-700);
+	--card-border-hover: conic-gradient(
+		var(--purple-500),
+		var(--purple-500),
+		var(--purple-600),
+		var(--purple-700),
+		var(--purple-600),
+		var(--purple-500),
+		var(--purple-500),
+		var(--purple-600),
+		var(--purple-700),
+		var(--purple-600),
+		var(--purple-500),
+		var(--purple-500)
+	);
+	--card-background: var(--purple-800);
+	--card-background-hover: var(--purple-850);
+
+	--github-card-background: var(--purple-100);
+	--github-card-text: var(--purple-900);
+}
+
+[data-theme='light'] {
+	--color-error: var(--red-50);
+	--color-error-text: var(--red-300);
+	--color-success: var(--green-50);
+	--color-success-text: var(--green-300);
+	--color-download-btn-background: var(--green-200);
+
+	--color-primary: var(--purple-300);
+	--color-link: var(--purple-300);
+	--color-background: white;
+	--color-separator: var(--purple-450);
+	--color-text: var(--purple-900);
+
+	--color-btn-text: white;
+	--color-btn-background: var(--purple-600);
+
+	--switch-background: var(--purple-50);
+	--switch-unselected: var(--grey-500);
+	--switch-border: var(--grey-100);
+
+	--color-logo: var(--purple-600);
+
+	--card-border: var(--grey-50);
+	--card-border-hover: conic-gradient(
+		var(--purple-100),
+		var(--purple-100),
+		var(--purple-50),
+		#fff,
+		var(--purple-50),
+		var(--purple-100),
+		var(--purple-100),
+		var(--purple-50),
+		#fff,
+		var(--purple-50),
+		var(--purple-100),
+		var(--purple-100)
+	);
+	--card-background: white;
+	--card-background-hover: white;
+
+	--github-card-background: var(--purple-400);
+	--github-card-text: var(--purple-50);
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background-color: var(--color-background);
+	color: var(--color-text);
+
+	&[data-lock-scroll] {
+		overflow: hidden;
+	}
+}
+
+a {
+	color: var(--color-link);
+}
+
+button {
+	position: relative;
+	display: block;
+	padding: 0.4rem 1.5rem;
+	border-radius: 0.5rem;
+	font-size: 1rem;
+	text-align: center;
+	transition: all 0.3s ease;
+
+	&:hover {
+		cursor: pointer;
+	}
+
+	&[disabled] {
+		background: var(--color-btn-disabled-background);
+		color: var(--color-btn-disabled-text);
+
+		&:hover {
+			cursor: not-allowed;
+			background: var(--color-btn-disabled-background);
+			color: var(--color-btn-disabled-text);
+			border: 3px solid transparent;
+		}
+	}
+}
