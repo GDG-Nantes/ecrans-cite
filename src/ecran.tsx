@@ -10,6 +10,26 @@ import {defaultTalkValues} from './data/defaultValues.js';
 import {Player} from '@remotion/player';
 import styles from './styles/app/layout/main.module.css';
 
+function formatTalkToShortvid(session) {
+    var sessionDateStart
+    if(session.startsAt?.startsWith("2023-10-20")) {
+    sessionDateStart = "20 Octobre"
+    } else if(session.startsAt?.startsWith("2023-10-19")) {
+    sessionDateStart = "19 Octobre"
+    }
+    const dateStart = new Date(session.startsAt)
+    const sessionTimeStart = dateStart.getHours() + "h" + dateStart.getMinutes().toString().padStart(2, '0')
+    return {
+        title: session.title,
+        speakers: session.speakers.map((speaker) => {
+            return { name: speaker.name, picture: speaker.photoUrl }
+        }),
+        date: sessionDateStart,
+        time: sessionTimeStart,
+        location: session.room?.name,
+    }
+} 
+
 export const Ecran: React.FC<{id: string, nom: string}> = ({ id, nom }) => {
 
     const {data: planning, error} = useQuery(['planning'], () => getPlanning(id))
@@ -18,7 +38,15 @@ export const Ecran: React.FC<{id: string, nom: string}> = ({ id, nom }) => {
         return <div>Erreur</div>
     }
 
-    const talkEnCours = planning?.talks?.find(talk => parseISO(talk.heureDebut) < new Date() && parseISO(talk.heureFin) > new Date())
+    //const talkEnCours = planning?.talks?.find(talk => parseISO(talk.heureDebut) < new Date() && parseISO(talk.heureFin) > new Date())
+
+    //TODO : avoir le bon talk au bon moment
+    const talk = planning?.data?.sessions?.nodes[26]
+    console.log(talk?.speakers[0]?.name);
+    var talkShortVidFormatted = null;
+    if(talk)
+        talkShortVidFormatted = formatTalkToShortvid(talk);
+    console.log(talkShortVidFormatted)
     
     let body = <></>
     // if (talkEnCours) {
@@ -29,8 +57,8 @@ export const Ecran: React.FC<{id: string, nom: string}> = ({ id, nom }) => {
     //     </div>
     // }
     const currentTemplate = {
-		compositionName: 'DevfestNantesPhrase',
-		component: DevfestNantesPhrase,
+		compositionName: 'DevfestNantesLoop',
+		component: DevfestNantesLoop,
 		width: 1280,
 		height: 720,
 		durationInFrames: 350,
@@ -49,7 +77,7 @@ export const Ecran: React.FC<{id: string, nom: string}> = ({ id, nom }) => {
         compositionHeight={currentTemplate.height}
         fps={30}
         component={currentTemplate.component as never}
-        inputProps={defaultTalkValues}
+        inputProps={talkShortVidFormatted}
     />
     return <>
         {body}

@@ -11,7 +11,7 @@ import {
 
 import {BackgroundFiller} from '../../../design/atoms/BackgroundFiller';
 import {DefaultProps} from '../../../types/defaultProps.types';
-import {TalkTitle} from '../campingDesSpeakers/components/TalkTitle';
+import {TalkTitle} from './TalkTitle';
 
 import {Android} from './Android';
 import {Details} from './Details';
