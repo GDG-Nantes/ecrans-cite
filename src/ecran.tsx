@@ -17,7 +17,7 @@ export const Ecran: React.FC<ConfigEcran> = (configEcran) => {
     return <Footer/>
   }
 
-  let body: React.ReactElement = <Footer/>
+  let body: React.ReactElement = <></>
   if (configEcran.tags.includes("room")) {
     const talksSalle = planning
       .filter(talk => talk.room?.name === configEcran.nom)
