@@ -2,6 +2,7 @@ import {loadFont} from '@remotion/google-fonts/LeagueSpartan';
 import {interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
 
 import {Title} from '../../../design/atoms/Title';
+import React from "react";
 
 const {fontFamily} = loadFont();
 

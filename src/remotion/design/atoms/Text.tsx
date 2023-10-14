@@ -1,6 +1,6 @@
 import React, {ReactNode} from 'react';
 
-import {useSelectedFont} from '/src/app/hooks/useSelectedFont';
+import {useSelectedFont} from '../../../app/hooks/useSelectedFont';
 
 export const Text: React.FC<{
 	children: ReactNode;

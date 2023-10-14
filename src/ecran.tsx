@@ -1,97 +1,92 @@
-import { useQuery } from "@tanstack/react-query"
-import { Footer } from "./footer"
-import { getPlanning } from "./service"
-import { parseISO } from "date-fns"
-import {DevfestNantes} from './remotion/compositions/showcases/devfestNantes/DevfestNantes';
+import {useQuery} from "@tanstack/react-query"
+import {Footer} from "./footer"
+import {getPlanning, Talk} from "./service"
 import {DevfestNantesLoop} from './remotion/compositions/showcases/devfestNantes/DevfestNantesLoop';
-import {DevfestNantesPhrase} from './remotion/compositions/showcases/devfestNantes/DevfestNantesPhrase';
-
-import {defaultTalkValues} from './data/defaultValues.js';
 import {Player} from '@remotion/player';
 import styles from './styles/app/layout/main.module.css';
+import {ConfigEcran} from "./Router.tsx";
+import React from "react";
+import {useCurrentDate} from "./helpers.ts";
+import {parseISO} from "date-fns";
 
-function formatTalkToShortvid(session) {
-    var sessionDateStart
-    if(session.startsAt?.startsWith("2023-10-20")) {
+function formatTalkToShortvid(talk: Talk) {
+  let sessionDateStart: string
+  if (talk.startsAt?.startsWith("2023-10-20")) {
     sessionDateStart = "20 Octobre"
-    } else if(session.startsAt?.startsWith("2023-10-19")) {
+  } else {
     sessionDateStart = "19 Octobre"
-    }
-    const dateStart = new Date(session.startsAt)
-    const sessionTimeStart = dateStart.getHours() + "h" + dateStart.getMinutes().toString().padStart(2, '0')
-    return {
-        title: session.title,
-        speakers: session.speakers.map((speaker) => {
-            return { name: speaker.name, picture: speaker.photoUrl }
-        }),
-        date: sessionDateStart,
-        time: sessionTimeStart,
-        location: session.room?.name,
-    }
-} 
-
-export const Ecran: React.FC<{id: string, nom: string}> = ({ id, nom }) => {
-
-    const {data: planning, error} = useQuery(['planning'], () => getPlanning(id))
-
-    if (error) {
-        return <div>Erreur</div>
-    }
-
-    //const talkEnCours = planning?.talks?.find(talk => parseISO(talk.heureDebut) < new Date() && parseISO(talk.heureFin) > new Date())
-
-    //TODO : avoir le bon talk au bon moment
-    const talk = planning?.data?.sessions?.nodes[26]
-    console.log(talk?.speakers[0]?.name);
-    var talkShortVidFormatted = null;
-    if(talk)
-        talkShortVidFormatted = formatTalkToShortvid(talk);
-    console.log(talkShortVidFormatted)
-    
-    let body = <></>
-    // if (talkEnCours) {
-    //     body = <BodyTalkEnCours talk={talkEnCours} />
-    // } else {
-    //     body = <div>
-    //         <h1>Il n'y a pas de talk en cours</h1>
-    //     </div>
-    // }
-    const currentTemplate = {
-		compositionName: 'DevfestNantesLoop',
-		component: DevfestNantesLoop,
-		width: 1280,
-		height: 720,
-		durationInFrames: 350,
-	};
-    body = <Player
-        autoPlay
-        controls={true /* changer en false pour la prod*/}
-        loop
-        className={styles.video}
-        style={{
-            width: '100%',
-            aspectRatio: '16/9',
-        }}
-        durationInFrames={currentTemplate.durationInFrames}
-        compositionWidth={currentTemplate.width}
-        compositionHeight={currentTemplate.height}
-        fps={30}
-        component={currentTemplate.component as never}
-        inputProps={talkShortVidFormatted}
-    />
-    return <>
-        {body}
-        <Footer nom={nom}></Footer>
-    </>
+  }
+  const dateStart = new Date(talk.startsAt)
+  const sessionTimeStart = dateStart.getHours() + "h" + dateStart.getMinutes().toString().padStart(2, '0')
+  return {
+    title: talk.title,
+    speakers: talk.speakers.map((speaker) => {
+      return {name: speaker.name, picture: speaker.photoUrl}
+    }),
+    date: sessionDateStart,
+    time: sessionTimeStart,
+    location: talk.room?.name,
+  }
 }
 
-const BodyTalkEnCours: React.FC<{talk: any}> = ({talk}) => {
-    return <div>
-        <h1>{talk.titre}</h1>
-        <h2>{talk.heureDebut} - {talk.heureFin}</h2>
-        <h2>{talk.salle}</h2>
-        <h2>{talk.description}</h2>
-        {talk.speakers.map((speaker: any) => <div><h2>{speaker.nom}</h2><img style={{height: '100px', width: '100px'}} src={speaker.avatar}/></div>)}
-        
+export const Ecran: React.FC<ConfigEcran> = ({salle}) => {
+
+  const {data: planning, error} = useQuery(['planning'], () => getPlanning())
+  const currentDate = useCurrentDate()
+
+  if (error || planning == null) {
+    return <div>Une erreur s'est produite</div>
+  }
+
+  let body: React.ReactElement
+  if (salle != null) {
+    const talksSalle = planning.filter(talk => talk.room?.name === salle)
+    const talkEnCours = talksSalle.find(talk => parseISO(talk.startsAt).toISOString() <= currentDate.toISOString() && parseISO(talk.endsAt).toISOString() >= currentDate.toISOString())
+
+    // console.log(talkEnCours)
+
+    if (talkEnCours) {
+      body = <TalkRemotion talk={talkEnCours}/>
+    } else {
+      body = (<div> pas de talk en cours
+      </div>)
+    }
+  }
+  else {
+    body = <div> pas de salle
     </div>
+  }
+
+  return <>
+    {body}
+    <Footer/>
+  </>
+}
+
+
+const TalkRemotion: React.FC<{ talk: Talk }> = ({talk}) => {
+
+  const currentTemplate = {
+    compositionName: 'DevfestNantesLoop',
+    component: DevfestNantesLoop,
+    width: 1280,
+    height: 720,
+    durationInFrames: 350,
+  };
+  return <Player
+    autoPlay
+    controls={false}
+    loop
+    className={styles.video}
+    style={{
+      width: '100%',
+      aspectRatio: '16/9',
+    }}
+    durationInFrames={currentTemplate.durationInFrames}
+    compositionWidth={currentTemplate.width}
+    compositionHeight={currentTemplate.height}
+    fps={30}
+    component={currentTemplate.component as never}
+    inputProps={formatTalkToShortvid(talk)}
+  />
 }

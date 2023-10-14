@@ -2,6 +2,7 @@ import {loadFont} from '@remotion/google-fonts/LeagueSpartan';
 import {interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
 
 import {TalkDetails} from '../../../design/molecules/TalkDetails';
+import React from "react";
 
 const {fontFamily} = loadFont();
 

@@ -4,24 +4,49 @@
 import { Route, Routes } from "react-router-dom";
 import { Ecran } from "./ecran";
 
+export type ConfigEcran = {
+    id: string,
+    salle?: 'Titan' | 'Belem' | 'Tour de Bretagne' | 'Hangar' | 'Jules Verne' | 'L\'Atelier' | 'Les Machines'
+}
+
 export default function Router() {
 
-    const ecrans = [
+    const ecrans: ConfigEcran[] = [
         {
-            id: 'ecran1',
-            nom: 'Titan'
+            id: 'titan',
+            salle: 'Titan'
         },
         {
-            id: 'ecran2',
-            nom: 'Bellem'
+            id: 'belem',
+            salle: 'Belem'
+        },
+        {
+            id: 'tour-bretagne',
+            salle: 'Tour de Bretagne'
+        },
+        {
+            id: 'hangar',
+            salle: 'Hangar'
+        },
+        {
+            id: 'jules-verne',
+            salle: 'Jules Verne'
+        },
+        {
+            id: 'atelier',
+            salle: 'L\'Atelier'
+        },
+        {
+            id: 'machines',
+            salle: 'Les Machines'
         }
     ]
 
     return (
         <Routes>
-            <Route path="/" element={<Ecran id="ecran1" nom="Titan" />} />
+            <Route path="/" element={<Ecran id="titan" salle="Titan" />} />
             {
-                ecrans.map((ecran) => <Route key={ecran.id} path={`/${ecran.id}`} element={<Ecran id={ecran.id} nom={ecran.nom}  />} />)
+                ecrans.map((ecran) => <Route key={ecran.id} path={`/${ecran.id}`} element={<Ecran id={ecran.id} salle={ecran.salle}  />} />)
             }
         </Routes>
     );

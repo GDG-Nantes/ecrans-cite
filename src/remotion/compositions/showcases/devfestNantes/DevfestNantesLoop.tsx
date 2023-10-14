@@ -1,4 +1,3 @@
-import React from 'react';
 import {loadFont} from '@remotion/google-fonts/CrimsonText';
 import {
 	AbsoluteFill,
