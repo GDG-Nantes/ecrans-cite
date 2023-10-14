@@ -1,0 +1,45 @@
+.footer {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	gap: 1rem;
+	margin: 2rem;
+	padding-top: 1.5rem;
+	border-top: 1px solid transparent;
+	border-image: linear-gradient(
+			90deg,
+			transparent,
+			var(--color-separator),
+			transparent
+		)
+		1;
+
+	.footerLogo {
+		position: absolute;
+		top: -20px;
+		background: var(--color-background);
+		padding-inline: 20px;
+		width: 80px;
+	}
+
+	.vercelLight {
+		display: block;
+		width: max-content;
+	}
+
+	.bottomBar {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 1rem;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.bottomBar {
+		flex-direction: column;
+	}
+}

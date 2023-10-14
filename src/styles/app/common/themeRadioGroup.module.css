@@ -1,0 +1,36 @@
+.switchThemeGroup {
+	width: max-content;
+	display: flex;
+	gap: 0.5rem;
+	padding: 0.25rem;
+	background: var(--color-background);
+	border: 1px solid var(--switch-border);
+	border-radius: 50px;
+
+	label {
+		padding: 0.4rem;
+		color: var(--switch-unselected);
+		border-radius: 50px;
+
+		input {
+			display: none;
+		}
+
+		&:hover {
+			color: var(--color-text);
+			background: var(--switch-background);
+			cursor: pointer;
+		}
+	}
+
+	.checked {
+		background: var(--switch-background);
+		color: var(--color-text);
+	}
+}
+
+[aria-expanded='false'] {
+	.switchThemeGroup {
+		flex-direction: column;
+	}
+}

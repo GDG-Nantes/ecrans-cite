@@ -1,17 +1,11 @@
 import { format } from "date-fns"
 import React from "react"
+import {useCurrentDate} from "./helpers.ts";
 
-export const Footer: React.FC<{nom: string}> = ({nom}) => {
-    const [time, setTime] = React.useState<Date>(new Date())
-  
-    React.useEffect(() => {
-      setInterval(() => {
-        setTime(new Date())
-      }, 1000)
-    }, [])
-  
+export const Footer: React.FC = () => {
+    const date = useCurrentDate()
+
     return <footer>
-        <h1>{nom}</h1>
-        <div className='clock'>{format(time, 'HH:mm:ss')}</div>
+        <div className='clock'>{format(date, 'HH:mm:ss')}</div>
     </footer>
   }
