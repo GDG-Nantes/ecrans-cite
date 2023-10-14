@@ -1,26 +1,37 @@
-export async function getPlanning(): Promise<Talk[]> {
-    return import('./data.json').then((data) => data.default.data.sessions.nodes) as Promise<Talk[]>;
-}
+import {Talk} from "./types.ts";
+import {ApolloClient, gql, InMemoryCache} from "@apollo/client";
 
-type RoomName = 'Titan' | 'Belem' | 'Tour de Bretagne' | 'Hangar' | 'Jules Verne' | 'L\'Atelier' | 'Les Machines';
+const client = new ApolloClient({
+  uri: 'https://confetti-app.dev/graphql',
+  cache: new InMemoryCache(),
+  headers: {
+    conference: 'devfestnantes2023'
+  }
+});
 
-export type Talk = {
-    title: string
-    startsAt: string
-    endsAt: string
-    description?: string
-    id: string
-    tags: string[]
-    room?: {
-        name: RoomName
-    }
-    speakers: Speaker[]
-    type: string
-}
-
-export type Speaker = {
-    id: string
-    name: string
-    photoUrl: string
-    company?: string
+export async function getPlanning() {
+  return client.query<{ sessions: { nodes: Talk[] } }>({
+    query: gql`query {
+        sessions(first: 1000) {
+            nodes {
+                title
+                startsAt
+                endsAt
+                id
+                tags
+                room {
+                    name
+                }
+                speakers {
+                    id
+                    name
+                    photoUrl
+                    company
+                }
+                type
+            }
+        }
+    }`
+  }).then((data) => data.data.sessions.nodes);
+  // return import('./data.json').then((data) => data.default.data.sessions.nodes) as Promise<Talk[]>;
 }
