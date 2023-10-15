@@ -22,6 +22,8 @@ export const ComposantEcran: React.FC<ConfigEcran> = (configEcran) => {
     return <Footer/>
   }
 
+  const isSalle = configEcran.tags.includes("room");
+
   let body: React.ReactElement = <DefaultRemotion/>
   if (configEcran.id == "A801") {
     body = <GrandEcranTitanRemotion/>
@@ -53,7 +55,7 @@ export const ComposantEcran: React.FC<ConfigEcran> = (configEcran) => {
   } else if (formatISO(currentDate) < "2023-10-19T09:40" && configEcran.nom !== "Jules Verne") {
     body = <PhraseRemotion
       title={"Rendez-vous en Jules Verne pour la Keynote !"}/>
-  } else if (configEcran.tags.includes("room")) {
+  } else if (isSalle) {
     const talksSalle = planning
       .filter(talk => talk.room?.name === configEcran.nom)
       .sort((a, b) => new Date(a.startsAt).getTime() - new Date(b.startsAt).getTime())
@@ -75,7 +77,7 @@ export const ComposantEcran: React.FC<ConfigEcran> = (configEcran) => {
 
   return <>
     {body}
-    <Footer/>
+    <Footer room={isSalle ? configEcran.nom : undefined}/>
   </>
 }
 

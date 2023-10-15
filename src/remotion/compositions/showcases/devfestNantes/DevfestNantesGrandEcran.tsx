@@ -64,7 +64,7 @@ export const DevfestNantesGrandEcran = () => {
         width: "20%",
         height: "50%",
         right: "10%",
-        bottom: "10%"
+        bottom: "5%"
       }}>
         <DirectionComponent large direction={{nom: "Titan", sens: "bas"}}/>
       </div>

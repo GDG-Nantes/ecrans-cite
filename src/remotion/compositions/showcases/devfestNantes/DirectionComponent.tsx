@@ -30,11 +30,12 @@ export const DirectionComponent: React.FC<{ direction: Direction, large?: boolea
     flexDirection: "row",
     justifyContent: "flex-start",
     alignItems: "center",
+    marginTop: "20px"
   }}>
     {fleche}
     <h1 style={{
       fontSize: large ? "4rem" : "3rem",
-      margin: "20px 0 0 50px"
+      margin: "0 0 0 50px"
     }}>
       {direction.nom}
     </h1>

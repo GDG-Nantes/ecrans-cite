@@ -36,28 +36,25 @@ body {
 footer {
   position: fixed;
   top: 0;
+  left: 0;
   display: flex;
-  flex-direction: row;
-  padding: 0 1rem;
-  width: 100%;
-  height: 100px;
+  flex-direction: column;
+  padding: 10px 50px 10px 20px;
+  max-width: 600px;
+  background-color: rgba(4, 9, 33, 0.6);
+  font-size: 4rem;
+  font-weight: 600;
+  border-bottom-right-radius: 50px;
 
-  .clock {
-    position: absolute;
-    left: 0;
-    font-size: 4rem;
-    font-weight: 600;
+  @media screen and (max-width: 500px) {
+    font-size: 1rem;
+    padding: 5px 20px 5px 10px;
+    border-bottom-right-radius: 20px;
+  }
+
+  .clock, .room-name {
     color: #fff;
-    width: 300px;
-    height: calc(100% - 2px);
-    background-color: #00000099;
-    text-align: center;
-
-    @media screen and (max-width: 500px) {
-      font-size: 1.5rem;
-      width: 130px;
-      height: 35px;
-    }
+    text-align: left;
   }
 
   h1 {
