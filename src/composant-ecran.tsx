@@ -22,14 +22,14 @@ export const ComposantEcran: React.FC<ConfigEcran> = (configEcran) => {
     return <Footer/>
   }
 
-  const isSalle = configEcran.tags.includes("room");
+  const isSalle = configEcran.tags?.includes("room");
 
   let body: React.ReactElement = <DefaultRemotion/>
   if (configEcran.id == "A801") {
     body = <GrandEcranTitanRemotion/>
   } else if (configEcran.directions) {
     body = <DirectionRemotion directions={configEcran.directions}/>
-  } else if (configEcran.tags.includes("vestiaire")) {
+  } else if (configEcran.tags?.includes("vestiaire")) {
     body = <PhraseRemotion
       title={"Vestiaire"}
       location={"Galerie Jules Verne"}

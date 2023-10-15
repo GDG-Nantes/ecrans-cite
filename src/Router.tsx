@@ -13,6 +13,7 @@ export default function Router() {
         ECRANS.map((ecran) => <Route key={ecran.id} path={`/${ecran.id}`}
                                      element={<ComposantEcran {...ecran}/>}/>)
       }
+      <Route path={"/*"} element={<ComposantEcran id={"default"} nom={"default"}/>}/>
     </Routes>
   );
 }

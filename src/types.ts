@@ -35,11 +35,11 @@ export type Direction = {
 }
 export type ConfigEcran = {
   id: string,
-  tags: Tag[]
+  tags?: Tag[]
   nom: RoomName | string
-  ratio: string
-  resolution: string
-  orientation: 'portrait' | 'landscape' | 'special',
+  ratio?: string
+  resolution?: string
+  orientation?: 'portrait' | 'landscape' | 'special',
   directions?: Direction[]
 }
 export type Tag =
