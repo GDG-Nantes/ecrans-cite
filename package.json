@@ -7,15 +7,22 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prebuild": "npm run store-build-time",
+    "store-build-time": "node -p \"new Date().toISOString()\"  > public/buildTime.txt"
   },
   "dependencies": {
     "@apollo/client": "^3.8.5",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.14.13",
+    "@mui/material": "^5.14.13",
     "@tanstack/react-query": "^4.29.25",
     "date-fns": "^2.30.0",
     "graphql": "^16.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-icons": "^4.11.0",
     "react-router-dom": "^6.14.2",
     "sass": "^1.63.6"
   },
@@ -39,6 +46,7 @@
     "eslint-plugin-react-refresh": "^0.4.1",
     "remotion": "4.0.46",
     "typescript": "^5.0.2",
-    "vite": "^4.4.0"
+    "vite": "^4.4.0",
+    "vite-tsconfig-paths": "^4.2.1"
   }
 }

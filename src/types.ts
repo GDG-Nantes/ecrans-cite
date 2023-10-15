@@ -29,13 +29,18 @@ export type Speaker = {
 }
 
 
+export type Direction = {
+  nom: string
+  sens: "haut" | "bas" | "gauche" | "droite" | "haut-gauche" | "haut-droite" | "bas-gauche" | "bas-droite"
+}
 export type ConfigEcran = {
   id: string,
   tags: Tag[]
   nom: RoomName | string
   ratio: string
   resolution: string
-  orientation: 'portrait' | 'landscape' | 'special'
+  orientation: 'portrait' | 'landscape' | 'special',
+  directions?: Direction[]
 }
 export type Tag =
   'afterparty'

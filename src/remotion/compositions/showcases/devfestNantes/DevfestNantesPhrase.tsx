@@ -8,9 +8,10 @@ import {TalkTitle} from './TalkTitle';
 import {Android} from './Android';
 import {Dino} from './Dino';
 import {Logo} from './Logo';
+import {Details} from "./Details";
 
 const {fontFamily} = loadFont();
-export const DevfestNantesPhrase = ({title}: DefaultProps) => {
+export const DevfestNantesPhrase = ({title, location, time}: DefaultProps) => {
   const frame = useCurrentFrame();
 
   const SlideDown = interpolate(frame, [300, 330], [0, 650], {
@@ -62,6 +63,7 @@ export const DevfestNantesPhrase = ({title}: DefaultProps) => {
               bottom: '300px',
             }}
           />
+          {location && <Details time={time} location={location}/>}
         </Sequence>
       </div>
     </AbsoluteFill>

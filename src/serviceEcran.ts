@@ -10,63 +10,7 @@ export const ROOMS: RoomName[] = [
   'Les Machines',
 ];
 
-export const ECRANS: ConfigEcran[] = [
-  {
-    id: 'GH',
-    nom: 'Grande Halle',
-    ratio: '16_9',
-    resolution: '1080x1920',
-    orientation: 'portrait',
-    tags: ['defaut', 'sponsors']
-  },
-  {
-    id: 'FB',
-    nom: 'Foyer Bas',
-    ratio: '16_9',
-    resolution: '1920x1080',
-    orientation: 'landscape',
-    tags: ['defaut', 'sponsor', 'goodies']
-  },
-  {
-    id: 'R0',
-    nom: 'Salle R0',
-    ratio: '16_9',
-    resolution: '1920x1080',
-    orientation: 'landscape',
-    tags: ['defaut'],
-  },
-  {
-    id: 'GH3',
-    nom: 'Vers la salle speaker',
-    ratio: '16_9',
-    resolution: '1920x1080',
-    orientation: 'landscape',
-    tags: ['direction'],
-  },
-  {
-    id: 'FH',
-    nom: 'Vers la mezzanine',
-    ratio: '16_9',
-    resolution: '1080x1920',
-    orientation: 'portrait',
-    tags: ['direction'],
-  },
-  {
-    id: 'FB11',
-    nom: 'Podcast google',
-    ratio: '16_9',
-    resolution: '1920x1080',
-    orientation: 'landscape',
-    tags: ['podcast'],
-  },
-  {
-    id: 'FB12',
-    nom: 'Tour de Bretagne',
-    ratio: '16_9',
-    resolution: '1920x1080',
-    orientation: 'landscape',
-    tags: ['room'],
-  },
+export const ECRANS_SALLES: ConfigEcran[] = [
   {
     id: 'FB06',
     nom: 'Les Machines',
@@ -76,20 +20,12 @@ export const ECRANS: ConfigEcran[] = [
     tags: ['room'],
   },
   {
-    id: 'R202',
-    nom: 'R2',
+    id: 'FB12',
+    nom: 'Tour de Bretagne',
     ratio: '16_9',
     resolution: '1920x1080',
     orientation: 'landscape',
-    tags: ['defaut', 'sponsor', 'community', 'lounge', 'devfestsafe', 'google'],
-  },
-  {
-    id: 'FH03',
-    nom: 'vers Belem, l\'atelier, le hangar et le replay Tour de Bretagne',
-    ratio: '16_9',
-    resolution: '1920x1080',
-    orientation: 'landscape',
-    tags: ['direction'],
+    tags: ['room'],
   },
   {
     id: 'FH04',
@@ -108,16 +44,8 @@ export const ECRANS: ConfigEcran[] = [
     tags: ['room'],
   },
   {
-    id: 'FH08',
-    nom: 'Le Hangar',
-    ratio: '16_9',
-    resolution: '1080x1920',
-    orientation: 'portrait',
-    tags: ['room'],
-  },
-  {
     id: 'FH06',
-    nom: 'L\'atelier',
+    nom: 'L\'Atelier',
     ratio: '16_9',
     resolution: '1080x1920',
     orientation: 'portrait',
@@ -125,19 +53,19 @@ export const ECRANS: ConfigEcran[] = [
   },
   {
     id: 'FH07',
-    nom: 'L\'atelier',
+    nom: 'L\'Atelier',
     ratio: '16_9',
     resolution: '1080x1920',
     orientation: 'portrait',
     tags: ['room'],
   },
   {
-    id: 'A801',
-    nom: 'mur LED avant titan',
-    ratio: '34_6',
-    resolution: '4352x768',
-    orientation: 'special',
-    tags: ['special'],
+    id: 'FH08',
+    nom: 'Hangar',
+    ratio: '16_9',
+    resolution: '1080x1920',
+    orientation: 'portrait',
+    tags: ['room'],
   },
   {
     id: 'A802',
@@ -146,6 +74,413 @@ export const ECRANS: ConfigEcran[] = [
     resolution: '1920x1200',
     orientation: 'landscape',
     tags: ['room'],
+  },
+  {
+    id: 'GA01',
+    nom: 'Jules Verne',
+    ratio: '16_9',
+    resolution: '1080x1920',
+    orientation: 'portrait',
+    tags: ['room'],
+  },
+  {
+    id: 'GA02',
+    nom: 'Jules Verne',
+    ratio: '16_9',
+    resolution: '1080x1920',
+    orientation: 'portrait',
+    tags: ['room'],
+  },
+  {
+    id: 'GA03',
+    nom: 'Jules Verne',
+    ratio: '16_9',
+    resolution: '1080x1920',
+    orientation: 'portrait',
+    tags: ['room'],
+  },
+  {
+    id: 'GA04',
+    nom: 'Jules Verne',
+    ratio: '16_9',
+    resolution: '1080x1920',
+    orientation: 'portrait',
+    tags: ['room'],
+  },
+  {
+    id: 'GA05',
+    nom: 'Jules Verne',
+    ratio: '16_9',
+    resolution: '1920x1080',
+    orientation: 'landscape',
+    tags: ['room'],
+  },
+  {
+    id: 'GA06',
+    nom: 'Jules Verne',
+    ratio: '16_9',
+    resolution: '1920x1080',
+    orientation: 'landscape',
+    tags: ['room'],
+  }
+]
+
+export const ECRANS_DIRECTION: ConfigEcran[] = [
+  {
+    id: 'FH01',
+    nom: 'Vers la mezzanine',
+    ratio: '16_9',
+    resolution: '1080x1920',
+    orientation: 'portrait',
+    tags: [],
+    directions: [
+      {
+        nom: 'Belem',
+        sens: 'haut'
+      },
+      {
+        nom: 'Replay Tour Bretagne',
+        sens: 'haut'
+      },
+      {
+        nom: 'L\'Atelier',
+        sens: 'haut'
+      },
+      {
+        nom: 'Hangar',
+        sens: 'haut'
+      }
+    ]
+  },
+  {
+    id: 'FH03',
+    nom: 'vers Belem, l\'atelier, le hangar et le replay Tour de Bretagne',
+    ratio: '16_9',
+    resolution: '1920x1080',
+    orientation: 'landscape',
+    tags: [],
+    directions: [
+      {
+        nom: 'Belem',
+        sens: 'gauche'
+      },
+      {
+        nom: 'Replay Tour Bretagne',
+        sens: 'droite'
+      },
+      {
+        nom: 'L\'Atelier',
+        sens: 'droite'
+      },
+      {
+        nom: 'Hangar',
+        sens: 'droite'
+      }
+    ]
+  },
+  {
+    id: 'FH09',
+    nom: 'vers Terrasse',
+    ratio: '16_9',
+    resolution: '1920x1080',
+    orientation: 'landscape',
+    tags: [],
+    directions: [
+      {
+        nom: 'Terrasse',
+        sens: 'droite'
+      }
+    ]
+  },
+  {
+    id: 'FB01',
+    nom: '',
+    ratio: '16_9',
+    resolution: '1920x1080',
+    orientation: 'landscape',
+    tags: [],
+    directions: [
+      {
+        nom: 'Les Machines',
+        sens: 'gauche'
+      },
+      {
+        nom: 'Tour Bretagne',
+        sens: 'droite'
+      },
+      {
+        nom: 'Goodies',
+        sens: 'gauche'
+      }
+    ]
+  },
+  {
+    id: 'FB02',
+    nom: '',
+    ratio: '16_9',
+    resolution: '1920x1080',
+    orientation: 'landscape',
+    tags: [],
+    directions: [
+      {
+        nom: 'Les Machines',
+        sens: 'gauche'
+      },
+      {
+        nom: 'Tour Bretagne',
+        sens: 'droite'
+      },
+      {
+        nom: 'Goodies',
+        sens: 'droite'
+      }
+    ]
+  },
+  {
+    id: 'FB03',
+    nom: '',
+    ratio: '16_9',
+    resolution: '1920x1080',
+    orientation: 'landscape',
+    tags: [],
+    directions: [
+      {
+        nom: 'Les Machines',
+        sens: 'gauche'
+      }
+    ]
+  },
+  {
+    id: 'FB05',
+    nom: '',
+    ratio: '16_9',
+    resolution: '1920x1080',
+    orientation: 'landscape',
+    tags: [],
+    directions: [
+      {
+        nom: 'Tour Bretagne',
+        sens: 'droite'
+      }
+    ]
+  },
+  {
+    id: 'GH03',
+    nom: 'Vers la salle speaker',
+    ratio: '16_9',
+    resolution: '1920x1080',
+    orientation: 'landscape',
+    tags: [],
+    directions: [{
+      nom: 'Salle speaker',
+      sens: 'bas'
+    }]
+  },
+  {
+    id: 'GG01',
+    nom: 'Vers Grande Hall',
+    ratio: '16_9',
+    resolution: '3840x600',
+    orientation: 'landscape',
+    tags: [],
+    directions: [
+      {
+        nom: 'Grande Halle',
+        sens: 'droite'
+      },
+      {
+        nom: 'Titan',
+        sens: 'gauche'
+      }
+    ]
+  },
+  {
+    id: 'GG02',
+    nom: 'Vers Grande Hall',
+    ratio: '16_9',
+    resolution: '3840x600',
+    orientation: 'landscape',
+    tags: [],
+    directions: [
+      {
+        nom: 'Grande Halle',
+        sens: 'droite'
+      },
+      {
+        nom: 'Titan',
+        sens: 'gauche'
+      }
+    ]
+  },
+  {
+    id: 'R202',
+    nom: 'R2',
+    ratio: '16_9',
+    resolution: '1920x1080',
+    orientation: 'landscape',
+    tags: [],
+    directions: [
+      {
+        nom: 'Devfest Safe',
+        sens: 'bas'
+      },
+      {
+        nom: 'Lounge',
+        sens: 'bas'
+      },
+      {
+        nom: 'Communautés Nantaises',
+        sens: 'bas'
+      }
+    ]
+  },
+  {
+    id: 'A805',
+    nom: 'Ecran escalier 800',
+    ratio: '16_9',
+    resolution: '1080x1920',
+    orientation: 'portrait',
+    tags: [],
+    directions: [
+      {
+        nom: "Titan",
+        sens: "gauche"
+      },
+      {
+        nom: "Grande Hall",
+        sens: "droite"
+      }
+    ]
+  },
+];
+export const ECRANS_AUTRES: ConfigEcran[] = [
+  {
+    id: 'GH1A/B',
+    nom: 'Grande Halle',
+    ratio: '16_9',
+    resolution: '1080x1920',
+    orientation: 'portrait',
+    tags: []
+  },
+  {
+    id: 'GH2A/B',
+    nom: 'Grande Halle',
+    ratio: '16_9',
+    resolution: '1080x1920',
+    orientation: 'portrait',
+    tags: []
+  },
+  {
+    id: 'R001',
+    nom: 'Salle R0',
+    ratio: '16_9',
+    resolution: '1920x1080',
+    orientation: 'landscape',
+    tags: [],
+  },
+  {
+    id: 'R002',
+    nom: 'Salle R0',
+    ratio: '16_9',
+    resolution: '1920x1080',
+    orientation: 'landscape',
+    tags: [],
+  },
+  {
+    id: 'FB04',
+    nom: 'Stockage Foyer Bas',
+    ratio: '16_9',
+    resolution: '1920x1080',
+    orientation: 'portrait',
+    tags: [],
+  },
+  {
+    id: 'FB07',
+    nom: 'Stockage Foyer Bas',
+    ratio: '16_9',
+    resolution: '1920x1080',
+    orientation: 'portrait',
+    tags: [],
+  },
+  {
+    id: 'FB08',
+    nom: 'Stockage Foyer Bas',
+    ratio: '16_9',
+    resolution: '1920x1080',
+    orientation: 'portrait',
+    tags: [],
+  },
+  {
+    id: 'FB09',
+    nom: 'Stockage Foyer Bas',
+    ratio: '16_9',
+    resolution: '1920x1080',
+    orientation: 'portrait',
+    tags: [],
+  },
+  {
+    id: 'FB10',
+    nom: 'Stockage Foyer Bas',
+    ratio: '16_9',
+    resolution: '1920x1080',
+    orientation: 'portrait',
+    tags: [],
+  },
+  {
+    id: 'FB11',
+    nom: 'Podcast google',
+    ratio: '16_9',
+    resolution: '1920x1080',
+    orientation: 'landscape',
+    tags: [],
+  },
+  {
+    id: 'FH02',
+    nom: 'Mobile Foyer Haut',
+    ratio: '16_9',
+    resolution: '1920x1080',
+    orientation: 'portrait',
+    tags: [],
+  },
+  {
+    id: 'FH10',
+    nom: 'Salle Foyer Haut',
+    ratio: '16_9',
+    resolution: '1920x1080',
+    orientation: 'portrait',
+    tags: [],
+  },
+  {
+    id: 'FH11',
+    nom: 'Salle Foyer Haut',
+    ratio: '16_9',
+    resolution: '1920x1080',
+    orientation: 'portrait',
+    tags: [],
+  },
+  {
+    id: 'FH12',
+    nom: 'Salle Foyer Haut',
+    ratio: '16_9',
+    resolution: '1920x1080',
+    orientation: 'portrait',
+    tags: [],
+  },
+  {
+    id: 'FH13',
+    nom: 'Salle Foyer Haut',
+    ratio: '16_9',
+    resolution: '1920x1080',
+    orientation: 'portrait',
+    tags: [],
+  },
+  {
+    id: 'A801',
+    nom: 'mur LED avant titan',
+    ratio: '34_6',
+    resolution: '4352x768',
+    orientation: 'special',
+    tags: ['special'],
   },
   {
     id: 'A803',
@@ -164,36 +499,12 @@ export const ECRANS: ConfigEcran[] = [
     tags: ['defaut', 'sponsor', 'afterparty'],
   },
   {
-    id: 'A805',
-    nom: 'Ecran escalier 800',
-    ratio: '16_9',
-    resolution: '1080x1920',
-    orientation: 'portrait',
-    tags: ['titan', 'sponsor', 'afterparty', 'vestiaire'],
-  },
-  {
-    id: 'GG01',
-    nom: 'Vers Grande Hall',
-    ratio: '16_9',
-    resolution: '3840x600',
-    orientation: 'landscape',
-    tags: ['direction'],
-  },
-  {
-    id: 'GG02',
-    nom: 'Vers Grande Hall',
-    ratio: '16_9',
-    resolution: '3840x600',
-    orientation: 'landscape',
-    tags: ['direction'],
-  },
-  {
     id: 'GG03',
     nom: 'Vestiaire',
     ratio: '16_9',
     resolution: '1920x1080',
     orientation: 'landscape',
-    tags: ['defaut', 'sponsor', 'afterparty', 'vestiaire'],
+    tags: ['vestiaire'],
   },
   {
     id: 'GG04',
@@ -201,7 +512,7 @@ export const ECRANS: ConfigEcran[] = [
     ratio: '16_9',
     resolution: '1920x1080',
     orientation: 'landscape',
-    tags: ['defaut', 'sponsor', 'afterparty', 'vestiaire'],
+    tags: ['vestiaire'],
   },
   {
     id: 'GG05',
@@ -209,46 +520,12 @@ export const ECRANS: ConfigEcran[] = [
     ratio: '16_9',
     resolution: '1920x1080',
     orientation: 'landscape',
-    tags: ['defaut', 'sponsor', 'afterparty'],
+    tags: [],
   },
-  {
-    id: 'GH01',
-    nom: 'Jules Verne',
-    ratio: '16_9',
-    resolution: '1080x1920',
-    orientation: 'portrait',
-    tags: ['room'],
-  },
-  {
-    id: 'GH02',
-    nom: 'Jules Verne',
-    ratio: '16_9',
-    resolution: '1080x1920',
-    orientation: 'portrait',
-    tags: ['room'],
-  },
-  {
-    id: 'GH03',
-    nom: 'Jules Verne',
-    ratio: '16_9',
-    resolution: '1080x1920',
-    orientation: 'portrait',
-    tags: ['room'],
-  },
-  {
-    id: 'GH04',
-    nom: 'Jules Verne',
-    ratio: '16_9',
-    resolution: '1080x1920',
-    orientation: 'portrait',
-    tags: ['room'],
-  },
-  {
-    id: 'GH05',
-    nom: 'Jules Verne',
-    ratio: '16_9',
-    resolution: '1920x1080',
-    orientation: 'landscape',
-    tags: ['room'],
-  }
+];
+
+export const ECRANS: ConfigEcran[] = [
+  ...ECRANS_SALLES,
+  ...ECRANS_DIRECTION,
+  ...ECRANS_AUTRES
 ];

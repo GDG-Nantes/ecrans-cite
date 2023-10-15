@@ -24,6 +24,7 @@
 
   &:has(.superviseur) {
     height: inherit;
+    flex-direction: column;
   }
 }
 
