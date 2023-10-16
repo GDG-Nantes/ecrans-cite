@@ -10,3 +10,7 @@ export type DefaultProps = {
   time?: string;
   location?: string;
 };
+
+export type ComponentDisplayMode = {
+	isTotemDisplayMode?: boolean;
+};
