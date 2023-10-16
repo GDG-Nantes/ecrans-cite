@@ -10,7 +10,8 @@ export const TalkTitle: React.FC<{
 	title: string;
 	style?: React.CSSProperties;
 	delay?: number;
-}> = ({title, style, delay = 0}) => {
+	isTotemDisplayMode?: boolean;
+}> = ({title, style, delay = 0, isTotemDisplayMode}) => {
 	const frame = useCurrentFrame();
 	const {fps} = useVideoConfig();
 
@@ -30,7 +31,7 @@ export const TalkTitle: React.FC<{
 		<Title
 			style={{
 				fontFamily,
-				width: '75%',
+				width: isTotemDisplayMode ? '95%' : '75%',
 				left: '50%',
 				transform: 'translateX(-50%)',
 				fontSize: '50px',
@@ -40,9 +41,10 @@ export const TalkTitle: React.FC<{
 				textShadow: '-2px 0 black, 0 2px black, 2px 0 black, 0 -2px black',
 				position: 'absolute',
 				minHeight: 150,
-				bottom: '130px',
+				bottom: isTotemDisplayMode ? '600px' : '170px',
 				opacity: titleOpacity,
 				filter: `blur(${titleDeblur}px)`,
+				WebkitLineClamp: isTotemDisplayMode ? '10' : '2',
 				...style,
 			}}
 		>

@@ -14,7 +14,7 @@ import {Speaker} from '../../../types/defaultProps.types';
 
 const {fontFamily} = loadFont();
 
-export const Speakers: React.FC<{speakers: Speaker[]}> = ({speakers}) => {
+export const Speakers: React.FC<{speakers: Speaker[], isTotemDisplayMode?: boolean;}> = ({speakers, isTotemDisplayMode}) => {
 	const frame = useCurrentFrame();
 	const {fps} = useVideoConfig();
 
@@ -65,8 +65,8 @@ export const Speakers: React.FC<{speakers: Speaker[]}> = ({speakers}) => {
 								)
 							}
 							avatarStyle={{
-								width: 180,
-								height: 180,
+								width: isTotemDisplayMode? 100 : 180,
+								height: isTotemDisplayMode? 100 : 180,
 								border: 'none',
 								boxShadow: '0 0 0 5px white, 0 0 0 8px #e7804d',
 								top: pictureDrop,
@@ -84,9 +84,9 @@ export const Speakers: React.FC<{speakers: Speaker[]}> = ({speakers}) => {
 										letterSpacing: '0.1rem',
 										position: 'relative',
 										bottom: '-40%',
-										width: 320,
-										height: 100,
-										fontSize: 35,
+										width: isTotemDisplayMode ? 150 : 320,
+										height: isTotemDisplayMode ? 150 : 100,
+										fontSize: isTotemDisplayMode ? 25 : 35,
 										fontWeight: 700,
 										opacity: nameOpacity,
 										filter: `blur(${nameUnblur}px)`,
