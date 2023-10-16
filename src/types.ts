@@ -42,6 +42,18 @@ export type ConfigEcran = {
   orientation?: 'portrait' | 'landscape' | 'special',
   directions?: Direction[]
 }
+export type ConfigAfficheShortVid = {
+  id: string,
+  title: string
+  date: string
+  time: string
+  location: string
+  speakers: SpeakerShortVid[]
+}
+export type SpeakerShortVid = {
+  name: string,
+  picture: string
+}
 export type Tag =
   'afterparty'
   | 'community'

@@ -7,11 +7,12 @@ import React from "react";
 import {useCurrentDate} from "./helpers.ts";
 import {format, formatISO} from "date-fns";
 import {DevfestNantesPhrase} from "./remotion/compositions/showcases/devfestNantes/DevfestNantesPhrase";
-import {ConfigEcran, Direction, Talk} from "src/types";
+import {ConfigAfficheShortVid, ConfigEcran, Direction, Talk} from "src/types";
 import {DefaultProps} from "src/remotion/types/defaultProps.types.ts";
 import {DevfestNantesDirection} from "src/remotion/compositions/showcases/devfestNantes/DevfestNantesDirection.tsx";
 import {DevfestNantesDefault} from "src/remotion/compositions/showcases/devfestNantes/DevfestNantesDefault.tsx";
 import {DevfestNantesGrandEcran} from "src/remotion/compositions/showcases/devfestNantes/DevfestNantesGrandEcran.tsx";
+import {AFFICHES_ZONE} from "./serviceAffichageZone.ts";
 
 export const ComposantEcran: React.FC<ConfigEcran> = (configEcran) => {
 
@@ -23,17 +24,23 @@ export const ComposantEcran: React.FC<ConfigEcran> = (configEcran) => {
   }
 
   const isSalle = configEcran.tags?.includes("room");
-
+  
   let body: React.ReactElement = <DefaultRemotion/>
   if (configEcran.id == "A801") {
     body = <GrandEcranTitanRemotion/>
   } else if (configEcran.directions) {
     body = <DirectionRemotion directions={configEcran.directions}/>
   } else if (configEcran.tags?.includes("vestiaire")) {
-    body = <PhraseRemotion
-      title={"Vestiaire"}
-      location={"Galerie Jules Verne"}
-    />
+    if (currentDate.getDate() == 19) {
+        body = <AffichageZoneRemotion configAffiche={findAfficheZone("vestiaireJ1")}/>
+    } else if (currentDate.getDate() == 20) {
+        body = <AffichageZoneRemotion configAffiche={findAfficheZone("vestiaireJ2")}/>
+    } else {
+      body = <PhraseRemotion
+        title={"Vestiaire"}
+        location={"Galerie Jules Verne"}
+      />
+    }
   } else if (format(currentDate, "HH:mm") > "18:30" && currentDate.getDate() == 19) {
     body = <PhraseRemotion
       title={"Rendez-vous à l'After Party !\nPrenez toutes vos affaires !"}
@@ -49,7 +56,7 @@ export const ComposantEcran: React.FC<ConfigEcran> = (configEcran) => {
       title={"À l'année prochaine !"}/>
   } else if (format(currentDate, "HH:mm") > "17:10" && currentDate.getDate() == 20 && configEcran.nom !== "Jules Verne") {
     body = <PhraseRemotion
-      title={"Rendez-vous à la keynote de cloture !\nPrenez vos affaires !"}
+      title={"Rendez-vous à la keynote de clôture !\nPrenez vos affaires !"}
       location={"Jules Verne"}
       time={"17h20"}/>
   } else if (formatISO(currentDate) < "2023-10-19T09:40" && configEcran.nom !== "Jules Verne") {
@@ -81,6 +88,9 @@ export const ComposantEcran: React.FC<ConfigEcran> = (configEcran) => {
   </>
 }
 
+function findAfficheZone(idAfficheZone: string) {
+  return AFFICHES_ZONE.find(afficheZone => afficheZone.id === idAfficheZone)!;
+}
 
 const TalkRemotion: React.FC<{ talk: Talk }> = ({talk}) => {
   const currentTemplate = {
@@ -129,7 +139,6 @@ function formatTalkToShortvid(talk: Talk) {
 }
 
 const PhraseRemotion: React.FC<DefaultProps> = (props) => {
-
   const currentTemplate = {
     compositionName: 'DevfestNantesPhrase',
     component: DevfestNantesPhrase,
@@ -151,6 +160,30 @@ const PhraseRemotion: React.FC<DefaultProps> = (props) => {
     fps={30}
     component={currentTemplate.component as never}
     inputProps={props}
+  />
+}
+const AffichageZoneRemotion: React.FC<{ configAffiche: ConfigAfficheShortVid }> = ({configAffiche}) => {
+  const currentTemplate = {
+    compositionName: 'DevfestNantesLoop',
+    component: DevfestNantesTalk,
+    width: 1280,
+    height: 720,
+    durationInFrames: 350,
+  };
+  return <Player
+    autoPlay
+    controls={false}
+    loop
+    style={{
+      width: '100%',
+      aspectRatio: '16/9',
+    }}
+    durationInFrames={currentTemplate.durationInFrames}
+    compositionWidth={currentTemplate.width}
+    compositionHeight={currentTemplate.height}
+    fps={30}
+    component={currentTemplate.component as never}
+    inputProps={configAffiche}
   />
 }
 
