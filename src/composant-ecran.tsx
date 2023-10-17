@@ -18,6 +18,7 @@ import {DevfestNantesDefaultTotem} from "./remotion/compositions/showcases/devfe
 import {
   DevfestNantesDirectionTotem
 } from "src/remotion/compositions/showcases/devfestNantes/DevfestNantesDirectionTotem.tsx";
+import {DevfestNantesEcranPlat} from "src/remotion/compositions/showcases/devfestNantes/DevfestNantesEcranPlats.tsx";
 
 export const ComposantEcran: React.FC<ConfigEcran> = (configEcran) => {
 
@@ -35,6 +36,8 @@ export const ComposantEcran: React.FC<ConfigEcran> = (configEcran) => {
   body = <DefaultRemotion portrait={isPortrait}/>
   if (configEcran.id == "A801") {
     body = <GrandEcranTitanRemotion/>
+  } else if (configEcran.id === "GG01" || configEcran.id === "GG02") {
+    body = <EcranPlatGrandeGalerieRemotion/>
   } else if (configEcran.directions) {
     body = <DirectionRemotion directions={configEcran.directions} portrait={isPortrait}/>
   } else if (configEcran.tags?.includes("vestiaire")) {
@@ -259,6 +262,31 @@ const GrandEcranTitanRemotion: React.FC = () => {
     style={{
       width: '100%',
       aspectRatio: '34/6',
+    }}
+    durationInFrames={currentTemplate.durationInFrames}
+    compositionWidth={currentTemplate.width}
+    compositionHeight={currentTemplate.height}
+    fps={30}
+    component={currentTemplate.component as never}
+    inputProps={{}}
+  />
+}
+
+const EcranPlatGrandeGalerieRemotion: React.FC = () => {
+  const currentTemplate = {
+    compositionName: 'DevfestNantesEcranPlat',
+    component: DevfestNantesEcranPlat,
+    width: 3840,
+    height: 600,
+    durationInFrames: 350,
+  };
+  return <Player
+    autoPlay
+    controls={false}
+    loop
+    style={{
+      width: '100%',
+      aspectRatio: '32/5',
     }}
     durationInFrames={currentTemplate.durationInFrames}
     compositionWidth={currentTemplate.width}
