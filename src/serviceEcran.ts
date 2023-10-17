@@ -315,7 +315,21 @@ export const ECRANS_DIRECTION: ConfigEcran[] = [
     ]
   },
   {
-    id: 'R202',
+    id: 'R101',
+    nom: 'R1',
+    ratio: '16_9',
+    resolution: '1920x1080',
+    orientation: 'landscape',
+    tags: [],
+    directions: [
+      {
+        nom: 'Salle Speaker',
+        sens: 'droite'
+      }
+    ]
+  },
+  {
+    id: 'R201',
     nom: 'R2',
     ratio: '16_9',
     resolution: '1920x1080',
@@ -337,7 +351,7 @@ export const ECRANS_DIRECTION: ConfigEcran[] = [
     ]
   },
   {
-    id: 'R2102',
+    id: 'R202',
     nom: 'R2',
     ratio: '16_9',
     resolution: '1920x1080',
@@ -358,20 +372,6 @@ export const ECRANS_DIRECTION: ConfigEcran[] = [
       },
       {
         nom: 'Salles 1er étage',
-        sens: 'droite'
-      }
-    ]
-  },
-  {
-    id: 'R101',
-    nom: 'R1',
-    ratio: '16_9',
-    resolution: '1920x1080',
-    orientation: 'landscape',
-    tags: [],
-    directions: [
-      {
-        nom: 'Salle Speaker',
         sens: 'droite'
       }
     ]
