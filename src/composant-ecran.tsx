@@ -15,6 +15,9 @@ import {DevfestNantesGrandEcran} from "src/remotion/compositions/showcases/devfe
 import {DevfestNantesLoopTotem} from "./remotion/compositions/showcases/devfestNantes/DevfestNantesLoopTotem.tsx";
 import {DevfestNantesPhraseTotem} from "./remotion/compositions/showcases/devfestNantes/DevfestNantesPhraseTotem.tsx";
 import {DevfestNantesDefaultTotem} from "./remotion/compositions/showcases/devfestNantes/DevfestNantesDefaultTotem.tsx";
+import {
+  DevfestNantesDirectionTotem
+} from "src/remotion/compositions/showcases/devfestNantes/DevfestNantesDirectionTotem.tsx";
 
 export const ComposantEcran: React.FC<ConfigEcran> = (configEcran) => {
 
@@ -33,7 +36,7 @@ export const ComposantEcran: React.FC<ConfigEcran> = (configEcran) => {
   if (configEcran.id == "A801") {
     body = <GrandEcranTitanRemotion/>
   } else if (configEcran.directions) {
-    body = <DirectionRemotion directions={configEcran.directions}/>
+    body = <DirectionRemotion directions={configEcran.directions} portrait={isPortrait}/>
   } else if (configEcran.tags?.includes("vestiaire")) {
     body = <PhraseRemotion
       title={"Vestiaire"}
@@ -66,7 +69,7 @@ export const ComposantEcran: React.FC<ConfigEcran> = (configEcran) => {
       portrait={isPortrait}/>
   } else if (formatISO(currentDate) < "2023-10-19T09:40" && configEcran.nom !== "Jules Verne") {
     body = <PhraseRemotion
-      title={"Rendez-vous en Jules Verne pour la Keynote !"}
+      title={"Rendez-vous en Jules Verne pour la Keynote"}
       portrait={isPortrait}/>
   } else if (isSalle) {
     const talksSalle = planning
@@ -179,8 +182,14 @@ const PhraseRemotion: React.FC<DefaultProps & { portrait?: boolean }> = ({portra
   />
 }
 
-const DirectionRemotion: React.FC<{ directions: Direction[] }> = ({directions}) => {
-  const currentTemplate = {
+const DirectionRemotion: React.FC<{ directions: Direction[], portrait: boolean }> = ({directions, portrait}) => {
+  const currentTemplate = portrait ? {
+    compositionName: 'DevfestNantesDirectionTotem',
+    component: DevfestNantesDirectionTotem,
+    width: 720,
+    height: 1280,
+    durationInFrames: 350,
+  } : {
     compositionName: 'DevfestNantesDirection',
     component: DevfestNantesDirection,
     width: 1280,

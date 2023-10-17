@@ -44,6 +44,7 @@ export type ConfigEcran = {
 }
 export type Tag =
   'afterparty'
+  | 'ascenseur'
   | 'community'
   | 'defaut'
   | 'devfestsafe'

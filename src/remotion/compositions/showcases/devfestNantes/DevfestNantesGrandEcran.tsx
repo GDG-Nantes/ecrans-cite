@@ -51,9 +51,9 @@ export const DevfestNantesGrandEcran = () => {
         left: "15%",
         bottom: "5%",
       }}>
-        <DirectionComponent large direction={{nom: "Jules Verne", sens: "bas-gauche"}}/>
+        <DirectionComponent large direction={{nom: "Jules Verne", sens: "gauche"}}/>
         {currentDate.getDate() == 19 &&
-          <DirectionComponent large direction={{nom: "After Party", sens: "bas-gauche"}}/>}
+          <DirectionComponent large direction={{nom: "After Party", sens: "gauche"}}/>}
       </div>
       <div style={{
         position: "absolute",

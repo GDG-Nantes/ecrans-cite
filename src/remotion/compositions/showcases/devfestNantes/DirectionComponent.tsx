@@ -5,21 +5,22 @@ import {BsArrowReturnLeft} from "react-icons/bs";
 
 export const DirectionComponent: React.FC<{ direction: Direction, large?: boolean }> = ({direction, large}) => {
   let fleche: React.ReactElement
+  const size = large ? "6rem" : "5rem";
   switch (direction.sens) {
     case "haut":
-      fleche = <AiOutlineArrowUp size={"5rem"}/>
+      fleche = <AiOutlineArrowUp size={size}/>
       break
     case "bas":
-      fleche = <AiOutlineArrowDown size={"5rem"}/>
+      fleche = <AiOutlineArrowDown size={size}/>
       break
     case "gauche":
-      fleche = <AiOutlineArrowLeft size={"5rem"}/>
+      fleche = <AiOutlineArrowLeft size={size}/>
       break
     case "droite":
-      fleche = <AiOutlineArrowRight size={"5rem"}/>
+      fleche = <AiOutlineArrowRight size={size}/>
       break
     case "bas-gauche":
-      fleche = <BsArrowReturnLeft size={"5rem"}/>
+      fleche = <BsArrowReturnLeft size={size}/>
       break
     default:
       fleche = <></>
@@ -34,8 +35,9 @@ export const DirectionComponent: React.FC<{ direction: Direction, large?: boolea
   }}>
     {fleche}
     <h1 style={{
-      fontSize: large ? "4rem" : "3rem",
-      margin: "0 0 0 50px"
+      fontSize: large ? size : direction.nom === "Replay Tour Bretagne" ? "2rem" : "3rem",
+      margin: "0 0 0 50px",
+      flexWrap: "nowrap"
     }}>
       {direction.nom}
     </h1>

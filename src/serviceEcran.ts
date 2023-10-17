@@ -106,22 +106,6 @@ export const ECRANS_SALLES: ConfigEcran[] = [
     resolution: '1080x1920',
     orientation: 'portrait',
     tags: ['room'],
-  },
-  {
-    id: 'GA05',
-    nom: 'Jules Verne',
-    ratio: '16_9',
-    resolution: '1920x1080',
-    orientation: 'landscape',
-    tags: ['room'],
-  },
-  {
-    id: 'GA06',
-    nom: 'Jules Verne',
-    ratio: '16_9',
-    resolution: '1920x1080',
-    orientation: 'landscape',
-    tags: ['room'],
   }
 ]
 
@@ -189,6 +173,10 @@ export const ECRANS_DIRECTION: ConfigEcran[] = [
       {
         nom: 'Terrasse',
         sens: 'droite'
+      },
+      {
+        nom: 'Espace Fumeur',
+        sens: 'droite'
       }
     ]
   },
@@ -205,12 +193,12 @@ export const ECRANS_DIRECTION: ConfigEcran[] = [
         sens: 'gauche'
       },
       {
-        nom: 'Tour Bretagne',
-        sens: 'droite'
-      },
-      {
         nom: 'Goodies',
         sens: 'gauche'
+      },
+      {
+        nom: 'Tour Bretagne',
+        sens: 'droite'
       }
     ]
   },
@@ -272,7 +260,7 @@ export const ECRANS_DIRECTION: ConfigEcran[] = [
     orientation: 'landscape',
     tags: [],
     directions: [{
-      nom: 'Salle speaker',
+      nom: 'Salle speaker (1er étage)',
       sens: 'bas'
     }]
   },
@@ -313,7 +301,21 @@ export const ECRANS_DIRECTION: ConfigEcran[] = [
     ]
   },
   {
-    id: 'R202',
+    id: 'R001',
+    nom: 'Salle R0',
+    ratio: '16_9',
+    resolution: '1920x1080',
+    orientation: 'landscape',
+    tags: [],
+    directions: [
+      {
+        nom: 'DeLorean',
+        sens: 'bas'
+      }
+    ]
+  },
+  {
+    id: 'R201',
     nom: 'R2',
     ratio: '16_9',
     resolution: '1920x1080',
@@ -331,6 +333,46 @@ export const ECRANS_DIRECTION: ConfigEcran[] = [
       {
         nom: 'Communautés Nantaises',
         sens: 'bas'
+      }
+    ]
+  },
+  {
+    id: 'R202',
+    nom: 'R2',
+    ratio: '16_9',
+    resolution: '1920x1080',
+    orientation: 'landscape',
+    tags: [],
+    directions: [
+      {
+        nom: 'Devfest Safe',
+        sens: 'droite'
+      },
+      {
+        nom: 'Lounge',
+        sens: 'droite'
+      },
+      {
+        nom: 'Communautés Nantaises',
+        sens: 'droite'
+      },
+      {
+        nom: 'Salles 1er étage',
+        sens: 'droite'
+      }
+    ]
+  },
+  {
+    id: 'R101',
+    nom: 'R1',
+    ratio: '16_9',
+    resolution: '1920x1080',
+    orientation: 'landscape',
+    tags: [],
+    directions: [
+      {
+        nom: 'Salle Speaker',
+        sens: 'droite'
       }
     ]
   },
@@ -369,14 +411,6 @@ export const ECRANS_AUTRES: ConfigEcran[] = [
     resolution: '1080x1920',
     orientation: 'portrait',
     tags: []
-  },
-  {
-    id: 'R001',
-    nom: 'Salle R0',
-    ratio: '16_9',
-    resolution: '1920x1080',
-    orientation: 'landscape',
-    tags: [],
   },
   {
     id: 'R002',
@@ -431,7 +465,7 @@ export const ECRANS_AUTRES: ConfigEcran[] = [
     nom: 'Podcast google',
     ratio: '16_9',
     resolution: '1920x1080',
-    orientation: 'landscape',
+    orientation: 'portrait',
     tags: [],
   },
   {
@@ -522,6 +556,30 @@ export const ECRANS_AUTRES: ConfigEcran[] = [
     orientation: 'landscape',
     tags: [],
   },
+  {
+    id: 'GA05',
+    nom: 'Bar Jules Verne',
+    ratio: '16_9',
+    resolution: '1920x1080',
+    orientation: 'landscape',
+    tags: [],
+  },
+  {
+    id: 'GA06',
+    nom: 'Bar Jules Verne',
+    ratio: '16_9',
+    resolution: '1920x1080',
+    orientation: 'landscape',
+    tags: [],
+  },
+  {
+    id: 'ascenseur',
+    nom: 'Ascenseur',
+    ratio: '16_9',
+    resolution: '1920x1080',
+    orientation: 'landscape',
+    tags: ['ascenseur'],
+  }
 ];
 
 export const ECRANS: ConfigEcran[] = [
