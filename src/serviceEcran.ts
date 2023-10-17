@@ -315,7 +315,7 @@ export const ECRANS_DIRECTION: ConfigEcran[] = [
     ]
   },
   {
-    id: 'R201',
+    id: 'R202',
     nom: 'R2',
     ratio: '16_9',
     resolution: '1920x1080',
@@ -337,7 +337,7 @@ export const ECRANS_DIRECTION: ConfigEcran[] = [
     ]
   },
   {
-    id: 'R202',
+    id: 'R2102',
     nom: 'R2',
     ratio: '16_9',
     resolution: '1920x1080',
@@ -573,7 +573,15 @@ export const ECRANS_AUTRES: ConfigEcran[] = [
     tags: [],
   },
   {
-    id: 'ascenseur',
+    id: 'ASC1',
+    nom: 'Ascenseur',
+    ratio: '16_9',
+    resolution: '1920x1080',
+    orientation: 'landscape',
+    tags: ['ascenseur'],
+  },
+  {
+    id: 'ASC2',
     nom: 'Ascenseur',
     ratio: '16_9',
     resolution: '1920x1080',
