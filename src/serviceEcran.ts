@@ -584,6 +584,14 @@ export const ECRANS_AUTRES: ConfigEcran[] = [
     resolution: '1920x1080',
     orientation: 'landscape',
     tags: ['ascenseur'],
+  },
+  {
+    id: 'ASC3',
+    nom: 'Ascenseur',
+    ratio: '16_9',
+    resolution: '1920x1080',
+    orientation: 'landscape',
+    tags: ['ascenseur'],
   }
 ];
 
