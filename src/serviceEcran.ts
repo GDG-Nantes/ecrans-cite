@@ -261,7 +261,7 @@ export const ECRANS_DIRECTION: ConfigEcran[] = [
     orientation: 'landscape',
     tags: [],
     directions: [{
-      nom: 'Salle speaker            Speaker Room                  🛗 Button 1',
+      nom: 'Salle speaker            Speaker Room                  Elevator Button 1',
       sens: 'bas'
     }]
   },
