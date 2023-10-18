@@ -3,7 +3,7 @@ import {Footer} from "./footer"
 import {getPlanning} from "./service"
 import {DevfestNantesTalk} from 'src/remotion/compositions/showcases/devfestNantes/DevfestNantesTalk.tsx';
 import {Player} from '@remotion/player';
-import React from "react";
+import React, {useState} from "react";
 import {useCurrentDate} from "./helpers.ts";
 import {format, formatISO} from "date-fns";
 import {DevfestNantesPhrase} from "./remotion/compositions/showcases/devfestNantes/DevfestNantesPhrase";
@@ -24,75 +24,83 @@ export const ComposantEcran: React.FC<ConfigEcran> = (configEcran) => {
 
   const {data: planning, error} = useQuery(['planning'], () => getPlanning())
   const currentDate = useCurrentDate()
+  const [dateDebounced, setDateDebounced] = useState(currentDate)
+  React.useEffect(() => {
+    const interval = setInterval(() => setDateDebounced(new Date()), 10000)
+    return () => clearInterval(interval)
+  }, [])
 
-  if (error || planning == null) {
-    return <Footer/>
-  }
 
   const isSalle = configEcran.tags?.includes("room");
 
-  let body: React.ReactElement;
-  const isPortrait = configEcran.orientation === "portrait";
-  body = <DefaultRemotion portrait={isPortrait}/>
-  if (configEcran.id == "A801") {
-    body = <GrandEcranTitanRemotion/>
-  } else if (configEcran.id === "GG01" || configEcran.id === "GG02") {
-    body = <EcranPlatGrandeGalerieRemotion/>
-  } else if (configEcran.directions) {
-    body = <DirectionRemotion directions={configEcran.directions} portrait={isPortrait}/>
-  } else if (configEcran.tags?.includes("vestiaire")) {
-    body = <PhraseRemotion
-      title={"Vestiaire"}
-      location={"Galerie Jules Verne"}
-      portrait={isPortrait}
-    />
-  } else if (format(currentDate, "HH:mm") > "18:30" && currentDate.getDate() == 19) {
-    body = <PhraseRemotion
-      title={"Rendez-vous à l'After Party !\nPrenez toutes vos affaires !"}
-      location={"Galerie Jules Verne"}
-      time={"18h30"}
-      portrait={isPortrait}
-    />
-  } else if (currentDate.getHours() >= 12 && format(currentDate, "HH:mm") < "13:30") {
-    body = <PhraseRemotion
-      title={"Bon appétit !"}
-      location={"Buffet par La Maison Hebel"}
-      time={"12h - 14h"}
-      portrait={isPortrait}
-    />
-  } else if (currentDate.getHours() >= 18 && currentDate.getDate() == 20) {
-    body = <PhraseRemotion
-      title={"À l'année prochaine !"}
-      portrait={isPortrait}/>
-  } else if (format(currentDate, "HH:mm") > "17:10" && currentDate.getDate() == 20 && configEcran.nom !== "Jules Verne") {
-    body = <PhraseRemotion
-      title={"Rendez-vous à la Keynote de clôture !\nPrenez vos affaires !"}
-      location={"Jules Verne"}
-      time={"17h20"}
-      portrait={isPortrait}/>
-  } else if (formatISO(currentDate) < "2023-10-19T09:40" && configEcran.nom !== "Jules Verne") {
-    body = <PhraseRemotion
-      title={"Rendez-vous en Jules Verne pour la Keynote !"}
-      portrait={isPortrait}/>
-  } else if (isSalle) {
-    const talksSalle = planning
-      .filter(talk => talk.room?.name === configEcran.nom)
-      .sort((a, b) => new Date(a.startsAt).getTime() - new Date(b.startsAt).getTime())
-    const talkEnCours = talksSalle.find(talk =>
-      new Date(talk.startsAt) <= currentDate &&
-      new Date(talk.endsAt) >= currentDate)
+  const body = React.useMemo(() => {
 
-    const prochainTalk = talksSalle.find(talk =>
-      (new Date(talk.startsAt).getDate() === currentDate.getDate() || configEcran.nom === 'Jules Verne') &&
-      new Date(talk.startsAt) > currentDate)
-
-
-    if (talkEnCours) {
-      body = <TalkRemotion talk={talkEnCours} portrait={isPortrait}/>
-    } else if (prochainTalk) {
-      body = <TalkRemotion talk={prochainTalk} portrait={isPortrait}/>
+    if (error || planning == null) {
+      return <></>
     }
-  }
+
+    const isPortrait = configEcran.orientation === "portrait";
+    if (configEcran.id == "A801") {
+      return <GrandEcranTitanRemotion/>
+    } else if (configEcran.id === "GG01" || configEcran.id === "GG02") {
+      return <EcranPlatGrandeGalerieRemotion/>
+    } else if (configEcran.directions) {
+      return <DirectionRemotion directions={configEcran.directions} portrait={isPortrait}/>
+    } else if (configEcran.tags?.includes("vestiaire")) {
+      return <PhraseRemotion
+        title={"Vestiaire"}
+        location={"Galerie Jules Verne"}
+        portrait={isPortrait}
+      />
+    } else if (format(currentDate, "HH:mm") > "18:30" && currentDate.getDate() == 19) {
+      return <PhraseRemotion
+        title={"Rendez-vous à l'After Party !\nPrenez toutes vos affaires !"}
+        location={"Galerie Jules Verne"}
+        time={"18h30"}
+        portrait={isPortrait}
+      />
+    } else if (currentDate.getHours() >= 12 && format(currentDate, "HH:mm") < "13:30") {
+      return <PhraseRemotion
+        title={"Bon appétit !"}
+        location={"Buffet par La Maison Hebel"}
+        time={"12h - 14h"}
+        portrait={isPortrait}
+      />
+    } else if (currentDate.getHours() >= 18 && currentDate.getDate() == 20) {
+      return <PhraseRemotion
+        title={"À l'année prochaine !"}
+        portrait={isPortrait}/>
+    } else if (format(currentDate, "HH:mm") > "17:10" && currentDate.getDate() == 20 && configEcran.nom !== "Jules Verne") {
+      return <PhraseRemotion
+        title={"Rendez-vous à la Keynote de clôture !\nPrenez vos affaires !"}
+        location={"Jules Verne"}
+        time={"17h20"}
+        portrait={isPortrait}/>
+    } else if (formatISO(currentDate) < "2023-10-19T09:40" && configEcran.nom !== "Jules Verne") {
+      return <PhraseRemotion
+        title={"Rendez-vous en Jules Verne pour la Keynote !"}
+        portrait={isPortrait}/>
+    } else if (isSalle) {
+      const talksSalle = planning
+        .filter(talk => talk.room?.name === configEcran.nom)
+        .sort((a, b) => new Date(a.startsAt).getTime() - new Date(b.startsAt).getTime())
+      const talkEnCours = talksSalle.find(talk =>
+        new Date(talk.startsAt) <= currentDate &&
+        new Date(talk.endsAt) >= currentDate)
+
+      const prochainTalk = talksSalle.find(talk =>
+        (new Date(talk.startsAt).getDate() === currentDate.getDate() || configEcran.nom === 'Jules Verne') &&
+        new Date(talk.startsAt) > currentDate)
+
+
+      if (talkEnCours) {
+        return <TalkRemotion talk={talkEnCours} portrait={isPortrait}/>
+      } else if (prochainTalk) {
+        return <TalkRemotion talk={prochainTalk} portrait={isPortrait}/>
+      }
+    }
+    return <DefaultRemotion portrait={isPortrait}/>
+  }, [dateDebounced, error, planning])
 
   return <>
     {body}

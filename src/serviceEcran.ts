@@ -197,7 +197,7 @@ export const ECRANS_DIRECTION: ConfigEcran[] = [
         sens: 'gauche'
       },
       {
-        nom: 'Tour Bretagne',
+        nom: 'Tour de Bretagne',
         sens: 'droite'
       }
     ]
@@ -215,7 +215,7 @@ export const ECRANS_DIRECTION: ConfigEcran[] = [
         sens: 'gauche'
       },
       {
-        nom: 'Tour Bretagne',
+        nom: 'Tour de Bretagne',
         sens: 'droite'
       },
       {
@@ -247,7 +247,7 @@ export const ECRANS_DIRECTION: ConfigEcran[] = [
     tags: [],
     directions: [
       {
-        nom: 'Tour Bretagne',
+        nom: 'Tour de Bretagne',
         sens: 'droite'
       }
     ]
@@ -387,10 +387,6 @@ export const ECRANS_DIRECTION: ConfigEcran[] = [
       {
         nom: "Titan",
         sens: "gauche"
-      },
-      {
-        nom: "Grande Hall",
-        sens: "droite"
       }
     ]
   },
@@ -425,7 +421,7 @@ export const ECRANS_AUTRES: ConfigEcran[] = [
     nom: 'Stockage Foyer Bas',
     ratio: '16_9',
     resolution: '1920x1080',
-    orientation: 'portrait',
+    orientation: 'landscape',
     tags: [],
   },
   {
