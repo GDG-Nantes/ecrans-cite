@@ -7,7 +7,8 @@ import React, {useState} from "react";
 import {useCurrentDate} from "./helpers.ts";
 import {format, formatISO} from "date-fns";
 import {DevfestNantesPhrase} from "./remotion/compositions/showcases/devfestNantes/DevfestNantesPhrase";
-import {ConfigEcran, Direction, Talk} from "src/types";
+import {ConfigAfficheShortVid, ConfigEcran, Direction, Talk} from "src/types";
+import {AFFICHES_ZONE} from "./serviceAffichageZone.ts";
 import {DefaultProps} from "src/remotion/types/defaultProps.types.ts";
 import {DevfestNantesDirection} from "src/remotion/compositions/showcases/devfestNantes/DevfestNantesDirection.tsx";
 import {DevfestNantesDefault} from "src/remotion/compositions/showcases/devfestNantes/DevfestNantesDefault.tsx";
@@ -47,11 +48,17 @@ export const ComposantEcran: React.FC<ConfigEcran> = (configEcran) => {
     } else if (configEcran.directions) {
       return <DirectionRemotion directions={configEcran.directions} portrait={isPortrait}/>
     } else if (configEcran.tags?.includes("vestiaire")) {
-      return <PhraseRemotion
-        title={"Vestiaire"}
-        location={"Galerie Jules Verne"}
-        portrait={isPortrait}
-      />
+    if (currentDate.getDate() == 19) {
+      body = <AffichageZoneRemotion configAffiche={findAfficheZone("vestiaireJ1")} portrait={isPortrait}/>
+  } else if (currentDate.getDate() == 20) {
+      body = <AffichageZoneRemotion configAffiche={findAfficheZone("vestiaireJ2")} portrait={isPortrait}/>
+  } else {
+    body = <PhraseRemotion
+      title={"Vestiaire"}
+      location={"Galerie Jules Verne"}
+      portrait={isPortrait}
+    />
+  }
     } else if (format(currentDate, "HH:mm") > "18:30" && currentDate.getDate() == 19) {
       return <PhraseRemotion
         title={"Rendez-vous à l'After Party !\nPrenez toutes vos affaires !"}
@@ -160,6 +167,11 @@ function formatTalkToShortvid(talk: Talk) {
     location: talk.room?.name,
   }
 }
+
+function findAfficheZone(idAfficheZone: string) {
+  return AFFICHES_ZONE.find((afficheZone: ConfigAfficheShortVid) => afficheZone.id === idAfficheZone)!;
+}
+
 
 const PhraseRemotion: React.FC<DefaultProps & { portrait?: boolean }> = ({portrait, ...props}) => {
 
@@ -304,3 +316,35 @@ const EcranPlatGrandeGalerieRemotion: React.FC = () => {
     inputProps={{}}
   />
 }
+
+const AffichageZoneRemotion: React.FC<{ configAffiche: ConfigAfficheShortVid, portrait?: boolean }> = ({configAffiche, portrait}) => {
+  const currentTemplate = portrait ? {
+    compositionName: 'DevfestNantesTalkLoopTotem',
+    component: DevfestNantesLoopTotem,
+    width: 720,
+    height: 1280,
+    durationInFrames: 350,
+  } : {
+    compositionName: 'DevfestNantesLoop',
+    component: DevfestNantesTalk,
+    width: 1280,
+    height: 720,
+    durationInFrames: 350,
+  };
+  return <Player
+    autoPlay
+    controls={false}
+    loop
+    style={{
+      width: '100%',
+      aspectRatio: '16/9',
+    }}
+    durationInFrames={currentTemplate.durationInFrames}
+    compositionWidth={currentTemplate.width}
+    compositionHeight={currentTemplate.height}
+    fps={30}
+    component={currentTemplate.component as never}
+    inputProps={configAffiche}
+  />
+}
+
