@@ -34,7 +34,7 @@ export const TalkTitle: React.FC<{
 				width: isTotemDisplayMode ? '95%' : '75%',
 				left: '50%',
 				transform: 'translateX(-50%)',
-				fontSize: '50px',
+				fontSize: '45px',
 				lineHeight: '1.5',
 				letterSpacing: '0.1rem',
 				textAlign: 'center',
@@ -44,7 +44,7 @@ export const TalkTitle: React.FC<{
 				bottom: isTotemDisplayMode ? '600px' : '170px',
 				opacity: titleOpacity,
 				filter: `blur(${titleDeblur}px)`,
-				WebkitLineClamp: isTotemDisplayMode ? '10' : '2',
+				WebkitLineClamp: isTotemDisplayMode ? '10' : '3',
 				...style,
 			}}
 		>
