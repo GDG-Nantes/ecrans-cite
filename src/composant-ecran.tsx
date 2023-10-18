@@ -48,14 +48,14 @@ export const ComposantEcran: React.FC<ConfigEcran> = (configEcran) => {
     />
   } else if (format(currentDate, "HH:mm") > "18:30" && currentDate.getDate() == 19) {
     body = <PhraseRemotion
-      title={"Rendez-vous à l'After Party !\nPrenez toutes vos affaires !"}
+      title={"Rendez-vous à l'After Party !\nPrenez toutes vos affaires !"}
       location={"Galerie Jules Verne"}
       time={"18h30"}
       portrait={isPortrait}
     />
   } else if (currentDate.getHours() >= 12 && format(currentDate, "HH:mm") < "13:30") {
     body = <PhraseRemotion
-      title={"Bon appetit !"}
+      title={"Bon appétit !"}
       location={"Buffet par La Maison Hebel"}
       time={"12h - 14h"}
       portrait={isPortrait}
@@ -66,13 +66,13 @@ export const ComposantEcran: React.FC<ConfigEcran> = (configEcran) => {
       portrait={isPortrait}/>
   } else if (format(currentDate, "HH:mm") > "17:10" && currentDate.getDate() == 20 && configEcran.nom !== "Jules Verne") {
     body = <PhraseRemotion
-      title={"Rendez-vous à la keynote de cloture !\nPrenez vos affaires !"}
+      title={"Rendez-vous à la Keynote de clôture !\nPrenez vos affaires !"}
       location={"Jules Verne"}
       time={"17h20"}
       portrait={isPortrait}/>
   } else if (formatISO(currentDate) < "2023-10-19T09:40" && configEcran.nom !== "Jules Verne") {
     body = <PhraseRemotion
-      title={"Rendez-vous en Jules Verne pour la Keynote"}
+      title={"Rendez-vous en Jules Verne pour la Keynote !"}
       portrait={isPortrait}/>
   } else if (isSalle) {
     const talksSalle = planning
