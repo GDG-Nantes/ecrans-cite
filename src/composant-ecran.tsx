@@ -36,77 +36,80 @@ export const ComposantEcran: React.FC<ConfigEcran> = (configEcran) => {
 
   const body = React.useMemo(() => {
 
-    if (error || planning == null) {
-      return <></>
-    }
+      if (error || planning == null) {
+        return <></>
+      }
 
-    const isPortrait = configEcran.orientation === "portrait";
-    if (configEcran.id == "A801") {
-      return <GrandEcranTitanRemotion/>
-    } else if (configEcran.id === "GG01" || configEcran.id === "GG02") {
-      return <EcranPlatGrandeGalerieRemotion/>
-    } else if (configEcran.directions) {
-      return <DirectionRemotion directions={configEcran.directions} portrait={isPortrait}/>
-    } else if (configEcran.tags?.includes("vestiaire")) {
-    if (currentDate.getDate() == 19) {
-      body = <AffichageZoneRemotion configAffiche={findAfficheZone("vestiaireJ1")} portrait={isPortrait}/>
-  } else if (currentDate.getDate() == 20) {
-      body = <AffichageZoneRemotion configAffiche={findAfficheZone("vestiaireJ2")} portrait={isPortrait}/>
-  } else {
-    body = <PhraseRemotion
-      title={"Vestiaire"}
-      location={"Galerie Jules Verne"}
-      portrait={isPortrait}
-    />
-  }
-    } else if (format(currentDate, "HH:mm") > "18:30" && currentDate.getDate() == 19) {
-      return <PhraseRemotion
-        title={"Rendez-vous à l'After Party !\nPrenez toutes vos affaires !"}
-        location={"Galerie Jules Verne"}
-        time={"18h30"}
-        portrait={isPortrait}
-      />
-    } else if (currentDate.getHours() >= 12 && format(currentDate, "HH:mm") < "13:30") {
-      return <PhraseRemotion
-        title={"Bon appétit !"}
-        location={"Buffet par La Maison Hebel"}
-        time={"12h - 14h"}
-        portrait={isPortrait}
-      />
-    } else if (currentDate.getHours() >= 18 && currentDate.getDate() == 20) {
-      return <PhraseRemotion
-        title={"À l'année prochaine !"}
-        portrait={isPortrait}/>
-    } else if (format(currentDate, "HH:mm") > "17:10" && currentDate.getDate() == 20 && configEcran.nom !== "Jules Verne") {
-      return <PhraseRemotion
-        title={"Rendez-vous à la Keynote de clôture !\nPrenez vos affaires !"}
-        location={"Jules Verne"}
-        time={"17h20"}
-        portrait={isPortrait}/>
-    } else if (formatISO(currentDate) < "2023-10-19T09:40" && configEcran.nom !== "Jules Verne") {
-      return <PhraseRemotion
-        title={"Rendez-vous en Jules Verne pour la Keynote !"}
-        portrait={isPortrait}/>
-    } else if (isSalle) {
-      const talksSalle = planning
-        .filter(talk => talk.room?.name === configEcran.nom)
-        .sort((a, b) => new Date(a.startsAt).getTime() - new Date(b.startsAt).getTime())
-      const talkEnCours = talksSalle.find(talk =>
-        new Date(talk.startsAt) <= currentDate &&
-        new Date(talk.endsAt) >= currentDate)
+      const isPortrait = configEcran.orientation === "portrait";
+      if (configEcran.id == "A801") {
+        return <GrandEcranTitanRemotion/>
+      } else if (configEcran.id === "GG01" || configEcran.id === "GG02") {
+        return <EcranPlatGrandeGalerieRemotion/>
+      } else if (configEcran.directions) {
+        return <DirectionRemotion directions={configEcran.directions} portrait={isPortrait}/>
+      } else if (configEcran.tags?.includes("vestiaire")) {
+        if (currentDate.getDate() == 19) {
+          return <AffichageZoneRemotion configAffiche={findAfficheZone("vestiaireJ1")} portrait={isPortrait}/>
+        } else if (currentDate.getDate() == 20) {
+          return <AffichageZoneRemotion configAffiche={findAfficheZone("vestiaireJ2")} portrait={isPortrait}/>
+        } else {
+          return <PhraseRemotion
+            title={"Vestiaire"}
+            location={"Galerie Jules Verne"}
+            portrait={isPortrait}
+          />
+        }
+      } else if (format(currentDate, "HH:mm") > "18:30" && currentDate.getDate() == 19) {
+        return <PhraseRemotion
+          title={"Rendez-vous à l'After Party !\nPrenez toutes vos affaires !"}
+          location={"Galerie Jules Verne"}
+          time={"18h30"}
+          portrait={isPortrait}
+        />
+      } else if (currentDate.getHours() >= 12 && format(currentDate, "HH:mm") < "13:30") {
+        return <PhraseRemotion
+          title={"Bon appétit !"}
+          location={"Buffet par La Maison Hebel"}
+          time={"12h - 14h"}
+          portrait={isPortrait}
+        />
+      } else if (currentDate.getHours() >= 18 && currentDate.getDate() == 20) {
+        return <PhraseRemotion
+          title={"À l'année prochaine !"}
+          portrait={isPortrait}/>
+      } else if (format(currentDate, "HH:mm") > "17:10" && currentDate.getDate() == 20 && configEcran.nom !== "Jules Verne") {
+        return <PhraseRemotion
+          title={"Rendez-vous à la Keynote de clôture !\nPrenez vos affaires !"}
+          location={"Jules Verne"}
+          time={"17h20"}
+          portrait={isPortrait}/>
+      } else if (formatISO(currentDate) < "2023-10-19T09:40" && configEcran.nom !== "Jules Verne") {
+        return <PhraseRemotion
+          title={"Rendez-vous en Jules Verne pour la Keynote !"}
+          portrait={isPortrait}/>
+      } else if (isSalle) {
+        const talksSalle = planning
+          .filter(talk => talk.room?.name === configEcran.nom)
+          .sort((a, b) => new Date(a.startsAt).getTime() - new Date(b.startsAt).getTime())
+        const talkEnCours = talksSalle.find(talk =>
+          new Date(talk.startsAt) <= currentDate &&
+          new Date(talk.endsAt) >= currentDate)
 
-      const prochainTalk = talksSalle.find(talk =>
-        (new Date(talk.startsAt).getDate() === currentDate.getDate() || configEcran.nom === 'Jules Verne') &&
-        new Date(talk.startsAt) > currentDate)
+        const prochainTalk = talksSalle.find(talk =>
+          (new Date(talk.startsAt).getDate() === currentDate.getDate() || configEcran.nom === 'Jules Verne') &&
+          new Date(talk.startsAt) > currentDate)
 
 
-    if (talkEnCours) {
-      body = <TalkRemotion talk={talkEnCours} portrait={isPortrait} displayName={configEcran.displayName}/>
-    } else if (prochainTalk) {
-      body = <TalkRemotion talk={prochainTalk} portrait={isPortrait} displayName={configEcran.displayName}/>
-    }
-    return <DefaultRemotion portrait={isPortrait}/>
-  }, [dateDebounced, error, planning])
+        if (talkEnCours) {
+          return <TalkRemotion talk={talkEnCours} portrait={isPortrait} displayName={configEcran.displayName}/>
+        } else if (prochainTalk) {
+          return <TalkRemotion talk={prochainTalk} portrait={isPortrait} displayName={configEcran.displayName}/>
+        }
+        return <DefaultRemotion portrait={isPortrait}/>
+      }
+    },
+    [dateDebounced, error, planning]
+  )
 
   return <>
     {body}
@@ -115,7 +118,11 @@ export const ComposantEcran: React.FC<ConfigEcran> = (configEcran) => {
 }
 
 
-const TalkRemotion: React.FC<{ talk: Talk, portrait?: boolean, displayName?: RoomName }> = ({talk, portrait, displayName}) => {
+const TalkRemotion: React.FC<{ talk: Talk, portrait?: boolean, displayName?: RoomName }> = ({
+                                                                                              talk,
+                                                                                              portrait,
+                                                                                              displayName
+                                                                                            }) => {
   const currentTemplate = portrait ? {
     compositionName: 'DevfestNantesTalkLoopTotem',
     component: DevfestNantesLoopTotem,
@@ -130,7 +137,7 @@ const TalkRemotion: React.FC<{ talk: Talk, portrait?: boolean, displayName?: Roo
     durationInFrames: 350,
   };
   const inputShortVid = formatTalkToShortvid(talk);
-  if(displayName) inputShortVid.location = displayName;
+  if (displayName) inputShortVid.location = displayName;
   return <Player
     autoPlay
     controls={false}
@@ -318,7 +325,10 @@ const EcranPlatGrandeGalerieRemotion: React.FC = () => {
   />
 }
 
-const AffichageZoneRemotion: React.FC<{ configAffiche: ConfigAfficheShortVid, portrait?: boolean }> = ({configAffiche, portrait}) => {
+const AffichageZoneRemotion: React.FC<{ configAffiche: ConfigAfficheShortVid, portrait?: boolean }> = ({
+                                                                                                         configAffiche,
+                                                                                                         portrait
+                                                                                                       }) => {
   const currentTemplate = portrait ? {
     compositionName: 'DevfestNantesTalkLoopTotem',
     component: DevfestNantesLoopTotem,
