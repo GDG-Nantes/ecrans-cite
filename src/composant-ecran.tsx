@@ -49,7 +49,13 @@ export const ComposantEcran: React.FC<ConfigEcran> = (configEcran) => {
         return <DirectionRemotion directions={configEcran.directions} portrait={isPortrait}/>
       } else if (configEcran.tags?.includes("vestiaire")) {
         if (currentDate.getDate() == 19) {
-          return <AffichageZoneRemotion configAffiche={findAfficheZone("vestiaireJ1")} portrait={isPortrait}/>
+          if(format(currentDate, "HH:mm") > "21:00") {
+            return <AffichageZoneRemotion  configAffiche={findAfficheZone("after-bars")} portrait={isPortrait}/>
+          } else if(format(currentDate, "HH:mm") > "18:15") {
+            return <AffichageZoneRemotion configAffiche={findAfficheZone("after-annonce")} portrait={isPortrait}/>
+          } else {
+            return <AffichageZoneRemotion configAffiche={findAfficheZone("vestiaireJ1")} portrait={isPortrait}/>
+          }
         } else if (currentDate.getDate() == 20) {
           return <AffichageZoneRemotion configAffiche={findAfficheZone("vestiaireJ2")} portrait={isPortrait}/>
         } else {
