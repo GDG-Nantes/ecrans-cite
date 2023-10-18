@@ -38,6 +38,7 @@ export const ECRANS_SALLES: ConfigEcran[] = [
   {
     id: 'FH05',
     nom: 'Tour de Bretagne',
+    displayName: 'Replay Tour de Bretagne',
     ratio: '16_9',
     resolution: '1920x1080',
     orientation: 'landscape',
