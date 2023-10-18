@@ -2,6 +2,7 @@ export type RoomName =
   'Titan'
   | 'Belem'
   | 'Tour de Bretagne'
+  | 'Replay Tour de Bretagne'
   | 'Hangar'
   | 'Jules Verne'
   | 'L\'Atelier'
@@ -34,8 +35,9 @@ export type Direction = {
   sens: "haut" | "bas" | "gauche" | "droite" | "haut-gauche" | "haut-droite" | "bas-gauche" | "bas-droite"
 }
 export type ConfigEcran = {
-  id: string,
+  id: string
   tags?: Tag[]
+  displayName?: RoomName
   nom: RoomName | string
   ratio?: string
   resolution?: string

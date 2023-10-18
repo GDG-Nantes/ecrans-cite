@@ -7,7 +7,7 @@ import React from "react";
 import {useCurrentDate} from "./helpers.ts";
 import {format, formatISO} from "date-fns";
 import {DevfestNantesPhrase} from "./remotion/compositions/showcases/devfestNantes/DevfestNantesPhrase";
-import {ConfigAfficheShortVid, ConfigEcran, Direction, Talk} from "src/types";
+import {ConfigAfficheShortVid, ConfigEcran, Direction, RoomName, Talk} from "src/types";
 import {AFFICHES_ZONE} from "./serviceAffichageZone.ts";
 import {DefaultProps} from "src/remotion/types/defaultProps.types.ts";
 import {DevfestNantesDirection} from "src/remotion/compositions/showcases/devfestNantes/DevfestNantesDirection.tsx";
@@ -95,20 +95,20 @@ export const ComposantEcran: React.FC<ConfigEcran> = (configEcran) => {
 
 
     if (talkEnCours) {
-      body = <TalkRemotion talk={talkEnCours} portrait={isPortrait}/>
+      body = <TalkRemotion talk={talkEnCours} portrait={isPortrait} displayName={configEcran.displayName}/>
     } else if (prochainTalk) {
-      body = <TalkRemotion talk={prochainTalk} portrait={isPortrait}/>
+      body = <TalkRemotion talk={prochainTalk} portrait={isPortrait} displayName={configEcran.displayName}/>
     }
   }
 
   return <>
     {body}
-    <Footer room={isSalle ? configEcran.nom : undefined}/>
+    <Footer room={isSalle ? configEcran.displayName || configEcran.nom : undefined}/>
   </>
 }
 
 
-const TalkRemotion: React.FC<{ talk: Talk, portrait?: boolean }> = ({talk, portrait}) => {
+const TalkRemotion: React.FC<{ talk: Talk, portrait?: boolean, displayName?: RoomName }> = ({talk, portrait, displayName}) => {
   const currentTemplate = portrait ? {
     compositionName: 'DevfestNantesTalkLoopTotem',
     component: DevfestNantesLoopTotem,
@@ -122,6 +122,8 @@ const TalkRemotion: React.FC<{ talk: Talk, portrait?: boolean }> = ({talk, portr
     height: 720,
     durationInFrames: 350,
   };
+  const inputShortVid = formatTalkToShortvid(talk);
+  if(displayName) inputShortVid.location = displayName;
   return <Player
     autoPlay
     controls={false}
@@ -135,7 +137,7 @@ const TalkRemotion: React.FC<{ talk: Talk, portrait?: boolean }> = ({talk, portr
     compositionHeight={currentTemplate.height}
     fps={30}
     component={currentTemplate.component as never}
-    inputProps={formatTalkToShortvid(talk)}
+    inputProps={inputShortVid}
   />
 }
 
