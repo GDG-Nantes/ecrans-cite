@@ -45,13 +45,17 @@ export const ComposantEcran: React.FC<ConfigEcran> = (configEcran) => {
         return <GrandEcranTitanRemotion/>
       } else if (configEcran.id === "GG01" || configEcran.id === "GG02") {
         return <EcranPlatGrandeGalerieRemotion/>
+      } else if (configEcran.id === "ASC1" || configEcran.id === "ASC2") {
+        return <PhraseRemotion
+          title={"Level 1:  Speaker Room"}
+        />
       } else if (configEcran.directions) {
         return <DirectionRemotion directions={configEcran.directions} portrait={isPortrait}/>
       } else if (configEcran.tags?.includes("vestiaire")) {
         if (currentDate.getDate() == 19) {
-          if(format(currentDate, "HH:mm") > "21:00") {
-            return <AffichageZoneRemotion  configAffiche={findAfficheZone("after-bars")} portrait={isPortrait}/>
-          } else if(format(currentDate, "HH:mm") > "18:15") {
+          if (format(currentDate, "HH:mm") > "21:00") {
+            return <AffichageZoneRemotion configAffiche={findAfficheZone("after-bars")} portrait={isPortrait}/>
+          } else if (format(currentDate, "HH:mm") > "18:15") {
             return <AffichageZoneRemotion configAffiche={findAfficheZone("after-annonce")} portrait={isPortrait}/>
           } else {
             return <AffichageZoneRemotion configAffiche={findAfficheZone("vestiaireJ1")} portrait={isPortrait}/>
@@ -111,8 +115,8 @@ export const ComposantEcran: React.FC<ConfigEcran> = (configEcran) => {
         } else if (prochainTalk) {
           return <TalkRemotion talk={prochainTalk} portrait={isPortrait} displayName={configEcran.displayName}/>
         }
-        return <DefaultRemotion portrait={isPortrait}/>
       }
+      return <DefaultRemotion portrait={isPortrait}/>
     },
     [dateDebounced, error, planning]
   )

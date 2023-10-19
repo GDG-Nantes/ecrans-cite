@@ -324,7 +324,7 @@ export const ECRANS_DIRECTION: ConfigEcran[] = [
     tags: [],
     directions: [
       {
-        nom: 'Salle Speaker',
+        nom: 'Salle speaker            Speaker Room                 ',
         sens: 'droite'
       }
     ]
