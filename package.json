@@ -46,7 +46,7 @@
     "eslint-plugin-react-refresh": "^0.4.1",
     "remotion": "4.0.46",
     "typescript": "^5.0.2",
-    "vite": "^4.4.0",
+    "vite": "^4.4.12",
     "vite-tsconfig-paths": "^4.2.1"
   }
 }
