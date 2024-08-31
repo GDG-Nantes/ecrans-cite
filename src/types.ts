@@ -1,8 +1,8 @@
 export type RoomName =
   'Titan'
   | 'Belem'
-  | 'Tour de Bretagne'
-  | 'Replay Tour de Bretagne'
+  | 'Tour Bretagne'
+  | 'Replay Tour Bretagne'
   | 'Hangar'
   | 'Jules Verne'
   | 'L\'Atelier'

@@ -3,7 +3,7 @@ import {ConfigEcran, RoomName} from "src/types.ts";
 export const ROOMS: RoomName[] = [
   'Titan',
   'Belem',
-  'Tour de Bretagne',
+  'Tour Bretagne',
   'Hangar',
   'Jules Verne',
   'L\'Atelier',
@@ -21,7 +21,7 @@ export const ECRANS_SALLES: ConfigEcran[] = [
   },
   {
     id: 'S300',
-    nom: 'Tour de Bretagne',
+    nom: 'Tour Bretagne',
     ratio: '16_9',
     resolution: '1920x1080',
     orientation: 'landscape',
@@ -37,8 +37,8 @@ export const ECRANS_SALLES: ConfigEcran[] = [
   },
   {
     id: 'S200',
-    nom: 'Tour de Bretagne',
-    displayName: 'Replay Tour de Bretagne',
+    nom: 'Tour Bretagne',
+    displayName: 'Replay Tour Bretagne',
     ratio: '16_9',
     resolution: '1920x1080',
     orientation: 'landscape',
@@ -178,7 +178,7 @@ export const ECRANS_DIRECTION: ConfigEcran[] = [
   },
   {
     id: 'FH08',
-    nom: 'vers Belem, l\'atelier, le hangar et le replay Tour de Bretagne',
+    nom: 'vers Belem, l\'atelier, le hangar et le replay Tour Bretagne',
     ratio: '16_9',
     resolution: '1920x1080',
     orientation: 'landscape',
@@ -237,7 +237,7 @@ export const ECRANS_DIRECTION: ConfigEcran[] = [
         sens: 'gauche'
       },
       {
-        nom: 'Tour de Bretagne',
+        nom: 'Tour Bretagne',
         sens: 'droite'
       }
     ]
@@ -255,7 +255,7 @@ export const ECRANS_DIRECTION: ConfigEcran[] = [
         sens: 'gauche'
       },
       {
-        nom: 'Tour de Bretagne',
+        nom: 'Tour Bretagne',
         sens: 'droite'
       },
       {
@@ -287,7 +287,7 @@ export const ECRANS_DIRECTION: ConfigEcran[] = [
     tags: [],
     directions: [
       {
-        nom: 'Tour de Bretagne',
+        nom: 'Tour Bretagne',
         sens: 'droite'
       }
     ]
