@@ -1,11 +1,16 @@
 import {Talk} from "./types.ts";
 import {ApolloClient, gql, InMemoryCache} from "@apollo/client";
+import {persistCacheSync, SessionStorageWrapper} from "apollo3-cache-persist";
+
+const inMemoryCache = new InMemoryCache();
+
+persistCacheSync({cache: inMemoryCache, storage: new SessionStorageWrapper(sessionStorage)})
 
 const client = new ApolloClient({
   uri: 'https://confetti-app.dev/graphql',
-  cache: new InMemoryCache(),
+  cache: inMemoryCache,
   headers: {
-    conference: 'devfestnantes2023'
+    conference: 'devfestnantes2024'
   }
 });
 
@@ -33,5 +38,4 @@ export async function getPlanning() {
         }
     }`
   }).then((data) => data.data.sessions.nodes);
-  // return import('./data.json').then((data) => data.default.data.sessions.nodes) as Promise<Talk[]>;
 }
