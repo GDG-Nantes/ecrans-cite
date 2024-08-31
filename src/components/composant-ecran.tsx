@@ -5,6 +5,7 @@ import {format} from "date-fns";
 import {ConfigEcran, Talk} from "src/types.ts";
 import {AFFICHES_ZONE} from "src/data/configsAffichagesZones.ts";
 import {
+  ASCENSEUR_EFFRAYANT,
   ECRAN_ESCALIER_TITAN,
   ECRANS_ASCENSEUR_SPEAKER,
   ECRANS_COULOIR_GRANDE_HALL,
@@ -17,6 +18,7 @@ import {DefaultRemotion} from "src/remotion/components/default-remotion.tsx";
 import {GrandEcranTitanRemotion} from "src/remotion/components/grand-ecran-titan-remotion.tsx";
 import {EcranPlatGrandeGalerieRemotion} from "src/remotion/components/ecran-plat-grande-galerie-remotion.tsx";
 import {AffichageZoneRemotion} from "src/remotion/components/affichage-zone-remotion.tsx";
+import {ScaryElevatorRemotion} from "src/remotion/components/scary-elevator-remotion.tsx";
 
 export const ComposantEcran: React.FC<{ planning?: Talk[] } & ConfigEcran> = ({planning, ...configEcran}) => {
 
@@ -45,6 +47,9 @@ export const ComposantEcran: React.FC<{ planning?: Talk[] } & ConfigEcran> = ({p
       }
       if (estParmisEcrans(configEcran.id, ECRANS_ASCENSEUR_SPEAKER)) {
         return <PhraseRemotion title={"Level 1:  Speaker Room"}/>
+      }
+      if (configEcran.id == ASCENSEUR_EFFRAYANT.id) {
+        return <ScaryElevatorRemotion/>
       }
       if (configEcran.directions) {
         return <DirectionRemotion directions={configEcran.directions} portrait={isPortrait}/>

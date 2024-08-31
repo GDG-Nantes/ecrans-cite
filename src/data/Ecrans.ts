@@ -413,16 +413,17 @@ export const ECRANS_ASCENSEUR_SPEAKER: ConfigEcran[] = [
     tags: ['ascenseur'],
   }
 ]
+export const ASCENSEUR_EFFRAYANT: ConfigEcran = {
+  id: 'ASC3',
+  nom: 'Ascenseur',
+  ratio: '16_9',
+  resolution: '1920x1080',
+  orientation: 'landscape',
+  tags: ['ascenseur'],
+};
 export const ECRANS_ASCENSEUR: ConfigEcran[] = [
   ...ECRANS_ASCENSEUR_SPEAKER,
-  {
-    id: 'ASC3',
-    nom: 'Ascenseur',
-    ratio: '16_9',
-    resolution: '1920x1080',
-    orientation: 'landscape',
-    tags: ['ascenseur'],
-  }
+  ASCENSEUR_EFFRAYANT
 ]
 
 export const ECRANS_VESTIAIRE: ConfigEcran[] = [

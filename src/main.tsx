@@ -12,11 +12,9 @@ import {Superviseur} from "src/components/superviseur.tsx";
 let buildTime: string
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <QueryClientProvider client={new QueryClient()}>
-      <App/>
-    </QueryClientProvider>
-  </React.StrictMode>,
+  <QueryClientProvider client={new QueryClient()}>
+    <App/>
+  </QueryClientProvider>
 )
 
 function App() {

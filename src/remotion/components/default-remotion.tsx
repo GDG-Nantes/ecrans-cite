@@ -5,6 +5,7 @@ import {
 import {DevfestNantesDefault} from "src/remotion/compositions/showcases/devfestNantes/DevfestNantesDefault.tsx";
 import {Player} from "@remotion/player";
 
+
 export const DefaultRemotion: React.FC<{ portrait?: boolean }> = ({portrait}) => {
   const currentTemplate = portrait ? {
     compositionName: 'DevfestNantesDefaultTotem',

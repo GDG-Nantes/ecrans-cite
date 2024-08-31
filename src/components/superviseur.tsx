@@ -1,4 +1,12 @@
-import {ECRANS, ECRANS_AUTRES, ECRANS_DIRECTION, ECRANS_SALLES} from "src/data/Ecrans.ts";
+import {
+  ECRANS,
+  ECRANS_ASCENSEUR,
+  ECRANS_AUTRES,
+  ECRANS_BARS,
+  ECRANS_DIRECTION,
+  ECRANS_SALLES,
+  ECRANS_VESTIAIRE
+} from "src/data/Ecrans.ts";
 import React from "react";
 import {ConfigEcran} from "src/types.ts";
 import {useSearchParams} from "react-router-dom";
@@ -21,24 +29,34 @@ export function Superviseur() {
                   style={{marginRight: '10px'}}>[{ecran.id}] {ecran.nom}</a>
       })
     }</div>
-    <h1>Salles</h1>
-    <div className={"superviseur"}>
-      {ECRANS_SALLES.map((ecran) => {
-        return <IframeEcran key={ecran.id} ecran={ecran}/>;
-      })}
-    </div>
-    <h1>Directions</h1>
-    <div className={"superviseur"}>
-      {ECRANS_DIRECTION.map((ecran) => {
-        return <IframeEcran key={ecran.id} ecran={ecran}/>;
-      })}
-    </div>
-    <h1>Autres</h1>
-    <div className={"superviseur"}>
-      {ECRANS_AUTRES.map((ecran) => {
-        return <IframeEcran key={ecran.id} ecran={ecran}/>;
-      })}
-    </div>
+    {[{
+      title: "Salles",
+      ecrans: ECRANS_SALLES
+    }, {
+      title: "Directions",
+      ecrans: ECRANS_DIRECTION
+    }, {
+      title: "Autres",
+      ecrans: ECRANS_AUTRES
+    }, {
+      title: "Ascenseurs",
+      ecrans: ECRANS_ASCENSEUR
+    }, {
+      title: "Bars",
+      ecrans: ECRANS_BARS
+    }, {
+      title: "Vestiaire",
+      ecrans: ECRANS_VESTIAIRE
+    }].map(({title, ecrans}) => (
+      <>
+        <h1>{title}</h1>
+        <div className={"superviseur"}>
+          {ecrans.map((ecran) => {
+            return <IframeEcran key={ecran.id} ecran={ecran}/>;
+          })}
+        </div>
+      </>
+    ))}
   </>;
 }
 
