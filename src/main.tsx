@@ -29,7 +29,9 @@ function App() {
 
   React.useEffect(() => {
     const intervalReload = setInterval(() => {
-      void fetch('/buildTime.txt').then(async (response) => {
+      void fetch('/buildTime.txt', {
+        cache: "no-store"
+      }).then(async (response) => {
         const dateText = await response.text();
         if (buildTime == null) {
           buildTime = dateText
