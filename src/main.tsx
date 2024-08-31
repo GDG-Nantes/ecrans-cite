@@ -8,6 +8,7 @@ import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
 import {ComposantEcran} from "src/components/composant-ecran.tsx";
 import {Superviseur} from "src/components/superviseur.tsx";
 
+
 let buildTime: string
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
@@ -20,7 +21,11 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 
 function App() {
 
-  const {data: planning, error} = useQuery(['planning'], () => getPlanning(), {refetchInterval: 30000})
+  const {data: planning, error} = useQuery({
+    queryKey: ['planning'],
+    queryFn: () => getPlanning(),
+    refetchInterval: 30000
+  })
 
   React.useEffect(() => {
     const intervalReload = setInterval(() => {
