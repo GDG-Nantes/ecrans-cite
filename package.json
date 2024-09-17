@@ -44,7 +44,7 @@
     "@vitejs/plugin-react": "^4.3.1",
     "remotion": "4.0.206",
     "typescript": "^5.5.4",
-    "vite": "^5.4.2",
+    "vite": "^5.4.6",
     "vite-tsconfig-paths": "^5.0.1"
   }
 }
