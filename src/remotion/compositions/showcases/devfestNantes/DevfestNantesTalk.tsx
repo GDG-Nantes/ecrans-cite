@@ -71,9 +71,6 @@ export const DevfestNantesTalk = ({
           <Speakers speakers={speakers ?? []} />
           <TalkTitle
             title={title}
-            style={{
-              fontSize: 35,
-            }}
           />
         </Sequence>
         <Sequence from={70}>

@@ -35,7 +35,7 @@ export const TalkTitle: React.FC<{
         width: "95%",
         left: "50%",
         transform: "translateX(-50%)",
-        fontSize: "35px",
+        fontSize: "30px",
         lineHeight: "2.2",
         letterSpacing: "0.2rem",
         textAlign: "center",

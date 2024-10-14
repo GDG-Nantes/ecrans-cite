@@ -47,7 +47,7 @@ export const Speakers: React.FC<{
         display: "flex",
         flexDirection: "row",
         justifyContent: "center",
-        gap: 100,
+        gap: isTotemDisplayMode ? 50 : 100,
       }}
     >
       {speakers.map((speaker) => {
