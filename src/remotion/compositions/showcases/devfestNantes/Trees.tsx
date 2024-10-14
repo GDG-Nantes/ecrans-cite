@@ -1,10 +1,4 @@
-import {
-  Easing,
-  Img,
-  interpolate,
-  staticFile,
-  useCurrentFrame,
-} from "remotion";
+import {Easing, Img, interpolate, staticFile, useCurrentFrame,} from "remotion";
 
 export const Trees = () => {
   const frame = useCurrentFrame();
@@ -29,7 +23,7 @@ export const Trees = () => {
   return (
     <>
       <Img
-        src={staticFile("/images/showcases/devfestNantes/backgroundTrees.png")}
+        src={staticFile("/images/showcases/devfestNantes/backgroundTrees.webp")}
         width={backgroundTreesWidth}
         height="70%"
         style={{
@@ -41,7 +35,7 @@ export const Trees = () => {
         }}
       />
       <Img
-        src={staticFile("/images/showcases/devfestNantes/trees.png")}
+        src={staticFile("/images/showcases/devfestNantes/trees.webp")}
         width={treesWidth}
         height="100%"
         style={{

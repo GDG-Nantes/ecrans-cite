@@ -1,32 +1,25 @@
-import { loadFont } from "@remotion/google-fonts/CrimsonText";
-import {
-  AbsoluteFill,
-  Easing,
-  interpolate,
-  Sequence,
-  useCurrentFrame,
-  staticFile,
-} from "remotion";
+import {loadFont} from "@remotion/google-fonts/CrimsonText";
+import {AbsoluteFill, Easing, interpolate, Sequence, staticFile, useCurrentFrame,} from "remotion";
 
-import { DefaultProps } from "../../../types/defaultProps.types";
-import { BackgroundFiller } from "../../../design/atoms/BackgroundFiller";
-import { Details } from "./Details";
-import { Logo } from "./Logo";
-import { Speakers } from "./Speakers";
-import { TalkTitle } from "./TalkTitle";
-import { GhostBackground } from "./GhostBackground";
-import { Moon } from "./Moon";
-import { Trees } from "./Trees";
+import {DefaultProps} from "../../../types/defaultProps.types";
+import {BackgroundFiller} from "../../../design/atoms/BackgroundFiller";
+import {Details} from "./Details";
+import {Logo} from "./Logo";
+import {Speakers} from "./Speakers";
+import {TalkTitle} from "./TalkTitle";
+import {GhostBackground} from "./GhostBackground";
+import {Moon} from "./Moon";
+import {Trees} from "./Trees";
 
-const { fontFamily } = loadFont();
+const {fontFamily} = loadFont();
 
 export const DevfestNantesLoopTotem = ({
-  title,
-  speakers,
-  date,
-  time,
-  location,
-}: DefaultProps) => {
+                                         title,
+                                         speakers,
+                                         date,
+                                         time,
+                                         location,
+                                       }: DefaultProps) => {
   const frame = useCurrentFrame();
 
   const SlideDown = interpolate(frame, [300, 330], [0, 1300], {
@@ -46,7 +39,7 @@ export const DevfestNantesLoopTotem = ({
       <Sequence>
         <BackgroundFiller
           imageUrl={staticFile(
-            "/images/showcases/devfestNantes/background-filler-totem.png"
+            "/images/showcases/devfestNantes/background-filler-totem.webp"
           )}
           style={{
             transform: "scale(1)",
@@ -65,16 +58,16 @@ export const DevfestNantesLoopTotem = ({
         />
       </Sequence>
       <Sequence>
-        <Logo isTotemDisplayMode />
+        <Logo isTotemDisplayMode/>
       </Sequence>
       <Sequence from={30}>
-        <GhostBackground />
+        <GhostBackground/>
       </Sequence>
       <Sequence from={30}>
-        <Trees />
+        <Trees/>
       </Sequence>
       <Sequence from={110}>
-        <Moon isTotemDisplayMode />
+        <Moon isTotemDisplayMode/>
       </Sequence>
       <div
         style={{
@@ -83,7 +76,7 @@ export const DevfestNantesLoopTotem = ({
         }}
       >
         <Sequence name="Speakers" from={30}>
-          <Speakers speakers={speakers ?? []} isTotemDisplayMode />
+          <Speakers speakers={speakers ?? []} isTotemDisplayMode/>
           <TalkTitle
             title={title}
             style={{

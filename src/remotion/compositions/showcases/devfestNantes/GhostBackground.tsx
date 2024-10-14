@@ -1,16 +1,10 @@
-import {
-  Img,
-  interpolate,
-  staticFile,
-  useCurrentFrame,
-  useVideoConfig,
-} from "remotion";
+import {Img, interpolate, staticFile, useCurrentFrame, useVideoConfig,} from "remotion";
 
-import { ComponentDisplayMode } from "../../../types/defaultProps.types";
+import {ComponentDisplayMode} from "../../../types/defaultProps.types";
 
 export const GhostBackground = ({}: //isTotemDisplayMode = false,
-ComponentDisplayMode) => {
-  const { durationInFrames } = useVideoConfig();
+                                  ComponentDisplayMode) => {
+  const {durationInFrames} = useVideoConfig();
   const frame = useCurrentFrame();
   const logoWidth = 350;
 
@@ -24,7 +18,7 @@ ComponentDisplayMode) => {
 
   return (
     <Img
-      src={staticFile("/images/showcases/devfestNantes/ghost.png")}
+      src={staticFile("/images/showcases/devfestNantes/ghost.webp")}
       width={logoWidth}
       height="auto"
       style={{

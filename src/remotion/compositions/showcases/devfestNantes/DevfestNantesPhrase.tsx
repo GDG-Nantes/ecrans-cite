@@ -1,21 +1,21 @@
-import { loadFont } from "@remotion/google-fonts/CrimsonText";
-import { AbsoluteFill, Sequence, staticFile } from "remotion";
-import { BackgroundFiller } from "../../../design/atoms/BackgroundFiller";
-import { DefaultProps } from "../../../types/defaultProps.types";
-import { TalkTitle } from "./TalkTitle";
+import {loadFont} from "@remotion/google-fonts/CrimsonText";
+import {AbsoluteFill, Sequence, staticFile} from "remotion";
+import {BackgroundFiller} from "../../../design/atoms/BackgroundFiller";
+import {DefaultProps} from "../../../types/defaultProps.types";
+import {TalkTitle} from "./TalkTitle";
 
-import { Logo } from "./Logo";
-import { Details } from "./Details";
-import { GhostBackground } from "./GhostBackground";
-import { Moon } from "./Moon";
-import { Trees } from "./Trees";
+import {Logo} from "./Logo";
+import {Details} from "./Details";
+import {GhostBackground} from "./GhostBackground";
+import {Moon} from "./Moon";
+import {Trees} from "./Trees";
 
-const { fontFamily } = loadFont();
+const {fontFamily} = loadFont();
 export const DevfestNantesPhrase = ({
-  title,
-  location,
-  time,
-}: DefaultProps) => {
+                                      title,
+                                      location,
+                                      time,
+                                    }: DefaultProps) => {
   return (
     <AbsoluteFill
       style={{
@@ -27,7 +27,7 @@ export const DevfestNantesPhrase = ({
       <Sequence>
         <BackgroundFiller
           imageUrl={staticFile(
-            "/images/showcases/devfestNantes/background-filler-paysage.png"
+            "/images/showcases/devfestNantes/background-filler-paysage.webp"
           )}
           style={{
             transform: "scale(1)",
@@ -35,16 +35,16 @@ export const DevfestNantesPhrase = ({
         />
       </Sequence>
       <Sequence from={30}>
-        <GhostBackground />
+        <GhostBackground/>
       </Sequence>
       <Sequence from={110}>
-        <Moon />
+        <Moon/>
       </Sequence>
       <Sequence from={30}>
-        <Trees />
+        <Trees/>
       </Sequence>
       <Sequence>
-        <Logo />
+        <Logo/>
       </Sequence>
       <Sequence name="Speakers" from={30}>
         <TalkTitle
@@ -55,7 +55,7 @@ export const DevfestNantesPhrase = ({
         />
       </Sequence>
       <Sequence from={70}>
-        <Details time={time} location={location} isTotemDisplayMode={false} />
+        <Details time={time} location={location} isTotemDisplayMode={false}/>
       </Sequence>
     </AbsoluteFill>
   );

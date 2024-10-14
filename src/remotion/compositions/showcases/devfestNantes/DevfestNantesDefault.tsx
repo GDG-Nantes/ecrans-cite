@@ -1,13 +1,13 @@
-import { loadFont } from "@remotion/google-fonts/CrimsonText";
-import { AbsoluteFill, Img, Sequence, staticFile } from "remotion";
-import { BackgroundFiller } from "../../../design/atoms/BackgroundFiller";
+import {loadFont} from "@remotion/google-fonts/CrimsonText";
+import {AbsoluteFill, Img, Sequence, staticFile} from "remotion";
+import {BackgroundFiller} from "../../../design/atoms/BackgroundFiller";
 
-import { GhostBackground } from "./GhostBackground";
-import { Logo } from "./Logo";
-import { Moon } from "./Moon";
-import { Trees } from "./Trees";
+import {GhostBackground} from "./GhostBackground";
+import {Logo} from "./Logo";
+import {Moon} from "./Moon";
+import {Trees} from "./Trees";
 
-const { fontFamily } = loadFont();
+const {fontFamily} = loadFont();
 
 export const DevfestNantesDefault = () => {
   return (
@@ -21,7 +21,7 @@ export const DevfestNantesDefault = () => {
       <Sequence>
         <BackgroundFiller
           imageUrl={staticFile(
-            "/images/showcases/devfestNantes/background-filler-paysage.png"
+            "/images/showcases/devfestNantes/background-filler-paysage.webp"
           )}
           style={{
             transform: "scale(1)",
@@ -29,16 +29,16 @@ export const DevfestNantesDefault = () => {
         />
       </Sequence>
       <Sequence from={30}>
-        <GhostBackground />
+        <GhostBackground/>
       </Sequence>
       <Sequence from={110}>
-        <Moon />
+        <Moon/>
       </Sequence>
       <Sequence from={30}>
-        <Trees />
+        <Trees/>
       </Sequence>
       <Sequence>
-        <Logo />
+        <Logo/>
       </Sequence>
       <div
         style={{

@@ -1,18 +1,10 @@
-import {
-  Easing,
-  Img,
-  interpolate,
-  spring,
-  staticFile,
-  useCurrentFrame,
-  useVideoConfig,
-} from "remotion";
+import {Easing, Img, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig,} from "remotion";
 
-import { ComponentDisplayMode } from "../../../types/defaultProps.types";
+import {ComponentDisplayMode} from "../../../types/defaultProps.types";
 
-export const Logo = ({ isTotemDisplayMode = false }: ComponentDisplayMode) => {
+export const Logo = ({isTotemDisplayMode = false}: ComponentDisplayMode) => {
   const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
+  const {fps} = useVideoConfig();
   const logoWidth = 150;
 
   const pictureSlide = spring({
@@ -31,7 +23,7 @@ export const Logo = ({ isTotemDisplayMode = false }: ComponentDisplayMode) => {
 
   return (
     <Img
-      src={staticFile("/images/showcases/devfestNantes/logo-devfest-2024.png")}
+      src={staticFile("/images/showcases/devfestNantes/logo-devfest-2024.webp")}
       width={logoWidth}
       height="auto"
       style={{

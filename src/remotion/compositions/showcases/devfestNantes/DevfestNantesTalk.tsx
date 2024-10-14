@@ -1,31 +1,24 @@
-import { loadFont } from "@remotion/google-fonts/CrimsonText";
-import {
-  AbsoluteFill,
-  Easing,
-  interpolate,
-  Sequence,
-  useCurrentFrame,
-  staticFile,
-} from "remotion";
+import {loadFont} from "@remotion/google-fonts/CrimsonText";
+import {AbsoluteFill, Easing, interpolate, Sequence, staticFile, useCurrentFrame,} from "remotion";
 
-import { DefaultProps } from "../../../types/defaultProps.types";
-import { BackgroundFiller } from "../../../design/atoms/BackgroundFiller";
-import { Details } from "./Details";
-import { GhostBackground } from "./GhostBackground";
-import { Logo } from "./Logo";
-import { Moon } from "./Moon";
-import { Speakers } from "./Speakers";
-import { TalkTitle } from "./TalkTitle";
-import { Trees } from "./Trees";
+import {DefaultProps} from "../../../types/defaultProps.types";
+import {BackgroundFiller} from "../../../design/atoms/BackgroundFiller";
+import {Details} from "./Details";
+import {GhostBackground} from "./GhostBackground";
+import {Logo} from "./Logo";
+import {Moon} from "./Moon";
+import {Speakers} from "./Speakers";
+import {TalkTitle} from "./TalkTitle";
+import {Trees} from "./Trees";
 
-const { fontFamily } = loadFont();
+const {fontFamily} = loadFont();
 export const DevfestNantesTalk = ({
-  title,
-  speakers,
-  date,
-  time,
-  location,
-}: DefaultProps) => {
+                                    title,
+                                    speakers,
+                                    date,
+                                    time,
+                                    location,
+                                  }: DefaultProps) => {
   const frame = useCurrentFrame();
 
   const SlideDown = interpolate(frame, [300, 330], [0, 650], {
@@ -45,7 +38,7 @@ export const DevfestNantesTalk = ({
       <Sequence>
         <BackgroundFiller
           imageUrl={staticFile(
-            "/images/showcases/devfestNantes/background-filler-paysage.png"
+            "/images/showcases/devfestNantes/background-filler-paysage.webp"
           )}
           style={{
             transform: "scale(1)",
@@ -53,13 +46,13 @@ export const DevfestNantesTalk = ({
         />
       </Sequence>
       <Sequence from={30}>
-        <GhostBackground />
+        <GhostBackground/>
       </Sequence>
       <Sequence from={110}>
-        <Moon />
+        <Moon/>
       </Sequence>
       <Sequence from={30}>
-        <Trees />
+        <Trees/>
       </Sequence>
       <div
         style={{
@@ -68,17 +61,17 @@ export const DevfestNantesTalk = ({
         }}
       >
         <Sequence name="Speakers" from={30}>
-          <Speakers speakers={speakers ?? []} />
+          <Speakers speakers={speakers ?? []}/>
           <TalkTitle
             title={title}
           />
         </Sequence>
         <Sequence from={70}>
-          <Details date={date} time={time} location={location} />
+          <Details date={date} time={time} location={location}/>
         </Sequence>
       </div>
       <Sequence>
-        <Logo />
+        <Logo/>
       </Sequence>
     </AbsoluteFill>
   );

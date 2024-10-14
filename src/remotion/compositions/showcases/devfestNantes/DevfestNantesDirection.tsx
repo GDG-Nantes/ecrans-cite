@@ -1,17 +1,17 @@
-import { loadFont } from "@remotion/google-fonts/CrimsonText";
-import { AbsoluteFill, Sequence, staticFile } from "remotion";
-import { BackgroundFiller } from "../../../design/atoms/BackgroundFiller";
-import { Logo } from "./Logo";
-import { Direction } from "src/types.ts";
-import { DirectionComponent } from "src/remotion/compositions/showcases/devfestNantes/DirectionComponent.tsx";
-import { Trees } from "./Trees";
-import { Moon } from "./Moon";
+import {loadFont} from "@remotion/google-fonts/CrimsonText";
+import {AbsoluteFill, Sequence, staticFile} from "remotion";
+import {BackgroundFiller} from "../../../design/atoms/BackgroundFiller";
+import {Logo} from "./Logo";
+import {Direction} from "src/types.ts";
+import {DirectionComponent} from "src/remotion/compositions/showcases/devfestNantes/DirectionComponent.tsx";
+import {Trees} from "./Trees";
+import {Moon} from "./Moon";
 
-const { fontFamily } = loadFont();
+const {fontFamily} = loadFont();
 
 export const DevfestNantesDirection = ({
-  directions,
-}: {
+                                         directions,
+                                       }: {
   directions: Direction[];
 }) => {
   return (
@@ -25,7 +25,7 @@ export const DevfestNantesDirection = ({
       <Sequence>
         <BackgroundFiller
           imageUrl={staticFile(
-            "/images/showcases/devfestNantes/background-filler-paysage.png"
+            "/images/showcases/devfestNantes/background-filler-paysage.webp"
           )}
           style={{
             transform: "scale(1)",
@@ -33,13 +33,13 @@ export const DevfestNantesDirection = ({
         />
       </Sequence>
       <Sequence from={30}>
-        <Trees />
+        <Trees/>
       </Sequence>
       <Sequence from={110}>
-        <Moon />
+        <Moon/>
       </Sequence>
       <Sequence>
-        <Logo />
+        <Logo/>
       </Sequence>
       <div
         style={{
@@ -53,7 +53,7 @@ export const DevfestNantesDirection = ({
         }}
       >
         {directions.map((direction, index) => (
-          <DirectionComponent direction={direction} key={index} />
+          <DirectionComponent direction={direction} key={index}/>
         ))}
       </div>
     </AbsoluteFill>

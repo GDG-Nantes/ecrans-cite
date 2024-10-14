@@ -1,8 +1,8 @@
-import { Img, interpolate, staticFile, useCurrentFrame } from "remotion";
+import {Img, interpolate, staticFile, useCurrentFrame} from "remotion";
 
-import { ComponentDisplayMode } from "../../../types/defaultProps.types";
+import {ComponentDisplayMode} from "../../../types/defaultProps.types";
 
-export const Moon = ({ isTotemDisplayMode = false }: ComponentDisplayMode) => {
+export const Moon = ({isTotemDisplayMode = false}: ComponentDisplayMode) => {
   const frame = useCurrentFrame();
   const logoWidth = 200;
 
@@ -30,7 +30,7 @@ export const Moon = ({ isTotemDisplayMode = false }: ComponentDisplayMode) => {
 
   return (
     <Img
-      src={staticFile("/images/showcases/devfestNantes/moon.png")}
+      src={staticFile("/images/showcases/devfestNantes/moon.webp")}
       width={logoWidth}
       height="auto"
       style={{

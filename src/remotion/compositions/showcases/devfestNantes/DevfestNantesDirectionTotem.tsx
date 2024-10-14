@@ -1,17 +1,17 @@
-import { loadFont } from "@remotion/google-fonts/CrimsonText";
-import { AbsoluteFill, Sequence, staticFile } from "remotion";
-import { BackgroundFiller } from "../../../design/atoms/BackgroundFiller";
-import { Moon } from "./Moon";
-import { Trees } from "./Trees";
-import { Logo } from "./Logo";
-import { DirectionComponent } from "src/remotion/compositions/showcases/devfestNantes/DirectionComponent.tsx";
-import { Direction } from "src/types.ts";
+import {loadFont} from "@remotion/google-fonts/CrimsonText";
+import {AbsoluteFill, Sequence, staticFile} from "remotion";
+import {BackgroundFiller} from "../../../design/atoms/BackgroundFiller";
+import {Moon} from "./Moon";
+import {Trees} from "./Trees";
+import {Logo} from "./Logo";
+import {DirectionComponent} from "src/remotion/compositions/showcases/devfestNantes/DirectionComponent.tsx";
+import {Direction} from "src/types.ts";
 
-const { fontFamily } = loadFont();
+const {fontFamily} = loadFont();
 
 export const DevfestNantesDirectionTotem = ({
-  directions,
-}: {
+                                              directions,
+                                            }: {
   directions: Direction[];
 }) => {
   return (
@@ -25,7 +25,7 @@ export const DevfestNantesDirectionTotem = ({
       <Sequence>
         <BackgroundFiller
           imageUrl={staticFile(
-            "/images/showcases/devfestNantes/background-filler-totem.png"
+            "/images/showcases/devfestNantes/background-filler-totem.webp"
           )}
           style={{
             transform: "scale(1)",
@@ -33,13 +33,13 @@ export const DevfestNantesDirectionTotem = ({
         />
       </Sequence>
       <Sequence from={30}>
-        <Trees />
+        <Trees/>
       </Sequence>
       <Sequence from={110}>
-        <Moon isTotemDisplayMode />
+        <Moon isTotemDisplayMode/>
       </Sequence>
       <Sequence>
-        <Logo isTotemDisplayMode />
+        <Logo isTotemDisplayMode/>
       </Sequence>
       <div
         style={{
@@ -53,7 +53,7 @@ export const DevfestNantesDirectionTotem = ({
         }}
       >
         {directions.map((direction, index) => (
-          <DirectionComponent direction={direction} key={index} />
+          <DirectionComponent direction={direction} key={index}/>
         ))}
       </div>
     </AbsoluteFill>
