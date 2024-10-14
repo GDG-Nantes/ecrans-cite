@@ -1,7 +1,6 @@
 import {loadFont} from '@remotion/google-fonts/CrimsonText';
-import {AbsoluteFill, Sequence, staticFile,} from 'remotion';
+import {AbsoluteFill, Sequence} from 'remotion';
 
-import {BackgroundFiller} from '../../../design/atoms/BackgroundFiller';
 import {Logo} from './Logo';
 import {Direction} from "src/types.ts";
 import {DirectionComponent} from "src/remotion/compositions/showcases/devfestNantes/DirectionComponent.tsx";

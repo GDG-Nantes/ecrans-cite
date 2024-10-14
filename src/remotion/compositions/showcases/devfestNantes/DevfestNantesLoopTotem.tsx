@@ -1,5 +1,5 @@
 import {loadFont} from '@remotion/google-fonts/CrimsonText';
-import {AbsoluteFill, Easing, interpolate, Sequence, staticFile, useCurrentFrame,} from 'remotion';
+import {AbsoluteFill, Easing, interpolate, Sequence, useCurrentFrame,} from 'remotion';
 
 import {DefaultProps} from '../../../types/defaultProps.types';
 
@@ -59,7 +59,7 @@ return (
       }}
     >
       <Sequence name="Speakers" from={30}>
-        <Speakers speakers={speakers} isTotemDisplayMode />
+        <Speakers speakers={speakers ?? []} isTotemDisplayMode />
         <TalkTitle
           title={title}
           style={{

@@ -1,5 +1,5 @@
 import {loadFont} from '@remotion/google-fonts/CrimsonText';
-import {AbsoluteFill, Img, Sequence, staticFile,} from 'remotion';
+import {AbsoluteFill, Img, staticFile,} from 'remotion';
 
 
 import {DirectionComponent} from "src/remotion/compositions/showcases/devfestNantes/DirectionComponent.tsx";

@@ -4,11 +4,9 @@ import {
     Easing,
     interpolate,
     Sequence,
-    staticFile,
     useCurrentFrame,
 } from 'remotion';
 
-import { BackgroundFiller } from '../../../design/atoms/BackgroundFiller';
 import { DefaultProps } from '../../../types/defaultProps.types';
 
 import {Logo} from './Logo';

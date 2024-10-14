@@ -1,9 +1,5 @@
-import React from 'react';
 import {loadFont} from '@remotion/google-fonts/CrimsonText';
-import {AbsoluteFill, Img, Sequence, staticFile, 
-	Easing,
-	interpolate,
-	useCurrentFrame,} from 'remotion';
+import {AbsoluteFill, Img, Sequence, staticFile} from 'remotion';
 
 import {GhostBackground} from './GhostBackground';
 import {Logo} from './Logo';
@@ -13,14 +9,7 @@ import {Trees} from './Trees';
 const {fontFamily} = loadFont();
 
 export const DevfestNantesDefaultTotem = () => {
-	const frame = useCurrentFrame();
-
-	const SlideDown = interpolate(frame, [300, 330], [0, 1300], {
-		extrapolateRight: 'clamp',
-		extrapolateLeft: 'clamp',
-		easing: Easing.bezier(0.51, -0.75, 0.99, 0.75),
-	});
-
+	
 	return (
 		<AbsoluteFill
 			style={{

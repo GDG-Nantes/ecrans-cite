@@ -1,9 +1,5 @@
 import {continueRender, delayRender, staticFile} from 'remotion';
 
-type RemotionFont = {
-	loadFont: () => void;
-};
-
 export function loadLocalFont(
 	fontName: string,
 	fontLocalPath: string,

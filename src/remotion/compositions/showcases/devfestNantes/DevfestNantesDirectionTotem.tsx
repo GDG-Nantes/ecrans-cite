@@ -1,7 +1,5 @@
 import {loadFont} from '@remotion/google-fonts/CrimsonText';
-import {AbsoluteFill, Sequence, staticFile,} from 'remotion';
-
-import {BackgroundFiller} from '../../../design/atoms/BackgroundFiller';
+import {AbsoluteFill, Sequence} from 'remotion';
 
 import { Moon } from './Moon';
 import { Trees } from './Trees';

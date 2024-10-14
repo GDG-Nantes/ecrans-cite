@@ -1,7 +1,6 @@
 import {loadFont} from '@remotion/google-fonts/CrimsonText';
-import {AbsoluteFill, Img, Sequence, staticFile,} from 'remotion';
+import {AbsoluteFill, Img, staticFile,} from 'remotion';
 
-import {BackgroundFiller} from '../../../design/atoms/BackgroundFiller';
 
 const {fontFamily} = loadFont();
 

@@ -20,7 +20,7 @@ export const ScaryElevatorRemotion: typeof DefaultRemotion = (props) => {
   //   }
   // }, [])
   return <>
-    <div style={{height: '100%', width: '100%', position: 'absolute', zIndex: 1000}} onClick={() => sound.play()}></div>
+    <div style={{height: '100%', width: '100%', position: 'absolute', zIndex: 1000}} /*onClick={() => sound.play()}*/></div>
     <DefaultRemotion {...props}/>
   </>
 }

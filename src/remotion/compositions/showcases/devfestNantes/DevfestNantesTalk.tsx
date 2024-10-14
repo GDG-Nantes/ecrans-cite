@@ -55,7 +55,7 @@ export const DevfestNantesTalk = ({
 				}}
 			>
 				<Sequence name="Speakers" from={30}>
-					<Speakers speakers={speakers} />
+					<Speakers speakers={speakers ?? []} />
 					<TalkTitle
 						title={title}
 						style={{

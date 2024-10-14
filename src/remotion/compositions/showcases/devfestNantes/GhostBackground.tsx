@@ -9,7 +9,7 @@ import {
 import {ComponentDisplayMode} from '../../../types/defaultProps.types';
 
 export const GhostBackground = ({
-	isTotemDisplayMode = false,
+	//isTotemDisplayMode = false,
 }: ComponentDisplayMode) => {
 	const {durationInFrames} = useVideoConfig();
 	const frame = useCurrentFrame();

@@ -1,4 +1,3 @@
-import {loadFont} from '@remotion/google-fonts/Creepster';
 import {loadLocalFont} from '../../../../../src/utils/loadFont';
 
 import {interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
