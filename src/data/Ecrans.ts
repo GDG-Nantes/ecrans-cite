@@ -233,6 +233,10 @@ export const ECRANS_DIRECTION: ConfigEcran[] = [
         sens: 'gauche'
       },
       {
+        nom: 'Code in the Dark',
+        sens: 'gauche'
+      },
+      {
         nom: 'Goodies',
         sens: 'gauche'
       },
@@ -255,6 +259,10 @@ export const ECRANS_DIRECTION: ConfigEcran[] = [
         sens: 'gauche'
       },
       {
+        nom: 'Code in the Dark',
+        sens: 'haut'
+      },
+      {
         nom: 'Tour Bretagne',
         sens: 'droite'
       },
@@ -274,6 +282,10 @@ export const ECRANS_DIRECTION: ConfigEcran[] = [
     directions: [
       {
         nom: 'Les Machines',
+        sens: 'gauche'
+      },
+      {
+        nom: 'Code in the Dark',
         sens: 'gauche'
       }
     ]
@@ -301,7 +313,7 @@ export const ECRANS_DIRECTION: ConfigEcran[] = [
     tags: [],
     directions: [{
       nom: 'Salle speaker            Speaker Room                  Elevator Button 1',
-      sens: 'bas'
+      sens: 'haut'
     }]
   },
   {
@@ -313,7 +325,7 @@ export const ECRANS_DIRECTION: ConfigEcran[] = [
     tags: [],
     directions: [
       {
-        nom: 'DeLorean', // TODO animation R0
+        nom: 'Animation Fouloscopie                 La science des Rumeurs!                  Jeudi 10h & 14h',
         sens: 'bas'
       }
     ]
@@ -532,7 +544,7 @@ export const ECRANS_AUTRES: ConfigEcran[] = [
   },
   {
     id: 'SALB',
-    nom: 'Stockage Foyer Bas',
+    nom: 'Code In The Dark',
     ratio: '16_9',
     resolution: '1920x1080',
     orientation: 'portrait',
@@ -540,7 +552,7 @@ export const ECRANS_AUTRES: ConfigEcran[] = [
   },
   {
     id: 'SALC',
-    nom: 'Stockage Foyer Bas',
+    nom: 'Code In The Dark',
     ratio: '16_9',
     resolution: '1920x1080',
     orientation: 'portrait',

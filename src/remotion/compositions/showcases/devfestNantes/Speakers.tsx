@@ -1,24 +1,18 @@
-import { loadFont } from "@remotion/google-fonts/Creepster";
-import {
-  AbsoluteFill,
-  interpolate,
-  spring,
-  useCurrentFrame,
-  useVideoConfig,
-} from "remotion";
+import {loadFont} from "@remotion/google-fonts/Creepster";
+import {AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig,} from "remotion";
 
-import { Text } from "../../../design/atoms/Text";
-import { AvatarWithCaption } from "../../../design/molecules/AvatarWithCaption";
-import { Speaker } from "../../../types/defaultProps.types";
+import {Text} from "../../../design/atoms/Text";
+import {AvatarWithCaption} from "../../../design/molecules/AvatarWithCaption";
+import {Speaker} from "../../../types/defaultProps.types";
 
-const { fontFamily } = loadFont();
+const {fontFamily} = loadFont();
 
 export const Speakers: React.FC<{
   speakers: Speaker[];
   isTotemDisplayMode?: boolean;
-}> = ({ speakers, isTotemDisplayMode = false }) => {
+}> = ({speakers, isTotemDisplayMode = false}) => {
   const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
+  const {fps} = useVideoConfig();
 
   const pictureUp = spring({
     frame: frame,
@@ -44,6 +38,7 @@ export const Speakers: React.FC<{
     <AbsoluteFill
       style={{
         width: "100%",
+        marginTop: isTotemDisplayMode ? "0" : "20px",
         display: "flex",
         flexDirection: "row",
         justifyContent: "center",

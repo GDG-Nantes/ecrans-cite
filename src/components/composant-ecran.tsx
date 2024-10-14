@@ -19,6 +19,7 @@ import {GrandEcranTitanRemotion} from "src/remotion/components/grand-ecran-titan
 import {EcranPlatGrandeGalerieRemotion} from "src/remotion/components/ecran-plat-grande-galerie-remotion.tsx";
 import {AffichageZoneRemotion} from "src/remotion/components/affichage-zone-remotion.tsx";
 import {ScaryElevatorRemotion} from "src/remotion/components/scary-elevator-remotion.tsx";
+import {PlanningCitd} from "src/remotion/components/planning-citd.tsx";
 
 export const ComposantEcran: React.FC<{ planning?: Talk[] } & ConfigEcran> = ({planning, ...configEcran}) => {
 
@@ -32,7 +33,7 @@ export const ComposantEcran: React.FC<{ planning?: Talk[] } & ConfigEcran> = ({p
   }, [])
 
   const isSalle = configEcran.tags?.includes("room");
-  const estPremierJour = currentDate.getDate() <= 17;
+  const estPremierJour = currentDate.getDate() == 17;
   const estDeuxiemeJour = currentDate.getDate() == 18;
   const heure = format(currentDate, "HH:mm");
 
@@ -56,6 +57,9 @@ export const ComposantEcran: React.FC<{ planning?: Talk[] } & ConfigEcran> = ({p
       }
       if (configEcran.tags?.includes("vestiaire")) {
         return EcranVestiaire(estPremierJour, currentDate, isPortrait, estDeuxiemeJour);
+      }
+      if (configEcran.nom == 'Code In The Dark') {
+        return <PlanningCitd portrait={isPortrait}/>
       }
 
       if (heure > "18:30" && estPremierJour) {
@@ -90,8 +94,6 @@ export const ComposantEcran: React.FC<{ planning?: Talk[] } & ConfigEcran> = ({p
 
       if (isSalle) {
         const {talkEnCours, prochainTalk} = calculerTalksSalle(configEcran, currentDate, planning);
-
-        // TODO Gérer Annulation
 
         if (talkEnCours) {
           return <TalkRemotion talk={talkEnCours} portrait={isPortrait} displayName={configEcran.displayName}/>

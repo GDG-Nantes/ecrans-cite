@@ -1,20 +1,21 @@
-import { loadLocalFont } from "../../../../../src/utils/loadFont";
+import {loadLocalFont} from "../../../../../src/utils/loadFont";
 
-import { interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
+import {interpolate, spring, useCurrentFrame, useVideoConfig} from "remotion";
 
-import { Title } from "../../../design/atoms/Title";
+import {Title} from "../../../design/atoms/Title";
 import React from "react";
 
 loadLocalFont("HigherJump", "font/HigherJump.ttf", "truetype");
 
 export const TalkTitle: React.FC<{
-  title: string;
+  title?: string;
+  children?: React.ReactNode;
   style?: React.CSSProperties;
   delay?: number;
   isTotemDisplayMode?: boolean;
-}> = ({ title, style, delay = 0, isTotemDisplayMode }) => {
+}> = ({title, children, style, delay = 0, isTotemDisplayMode}) => {
   const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
+  const {fps} = useVideoConfig();
 
   const titleOpacity = spring({
     frame: frame - delay,
@@ -32,10 +33,10 @@ export const TalkTitle: React.FC<{
     <Title
       style={{
         fontFamily: "HigherJump",
-        width: "95%",
+        width: isTotemDisplayMode ? "95%" : "80%",
         left: "50%",
         transform: "translateX(-50%)",
-        fontSize: "30px",
+        fontSize: "24px",
         lineHeight: "2.2",
         letterSpacing: "0.2rem",
         textAlign: "center",
@@ -43,16 +44,18 @@ export const TalkTitle: React.FC<{
         textShadow:
           "-2px 0 #1B2C2C, 0 2px #1B2C2C, 2px 0 #1B2C2C, 0 -2px #1B2C2C",
         textWrap: "balance",
+        wordWrap: "break-word",
         position: "absolute",
         minHeight: 150,
-        bottom: isTotemDisplayMode ? "450px" : "450px",
+        bottom: isTotemDisplayMode ? "400px" : "450px",
         opacity: titleOpacity,
         filter: `blur(${titleDeblur}px)`,
-        WebkitLineClamp: isTotemDisplayMode ? "10" : "2",
+        WebkitLineClamp: isTotemDisplayMode ? "10" : "3",
         ...style,
       }}
     >
       {title}
+      {children}
     </Title>
   );
 };

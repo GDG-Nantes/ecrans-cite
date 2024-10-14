@@ -1,7 +1,7 @@
-import { loadLocalFont } from "../../../../../src/utils/loadFont";
-import { interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
+import {loadLocalFont} from "../../../../../src/utils/loadFont";
+import {interpolate, spring, useCurrentFrame, useVideoConfig} from "remotion";
 
-import { TalkDetails } from "../../../design/molecules/TalkDetails";
+import {TalkDetails} from "../../../design/molecules/TalkDetails";
 
 loadLocalFont("HigherJump", "font/HigherJump.ttf", "truetype");
 
@@ -11,14 +11,14 @@ export const Details: React.FC<{
   location?: string;
   style?: React.CSSProperties;
   isTotemDisplayMode?: boolean;
-}> = ({ date, time, location, style, isTotemDisplayMode }) => {
+}> = ({date, time, location, style, isTotemDisplayMode}) => {
   const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
+  const {fps} = useVideoConfig();
 
   const drop = spring({
     frame: frame,
     from: -40,
-    to: isTotemDisplayMode ? 150 : 20,
+    to: isTotemDisplayMode ? 100 : 20,
     fps,
     durationInFrames: 40,
   });

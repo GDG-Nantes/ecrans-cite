@@ -60,7 +60,7 @@ export const DevfestNantesTalk = ({
           transform: `translateY(${SlideDown}px)`,
         }}
       >
-        <Sequence name="Speakers" from={30}>
+        <Sequence name="Speakers" from={30} style={{inset: "20px"}}>
           <Speakers speakers={speakers ?? []}/>
           <TalkTitle
             title={title}
