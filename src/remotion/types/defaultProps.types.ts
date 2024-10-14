@@ -5,7 +5,7 @@ export type Speaker = {
 
 export type DefaultProps = {
   title: string;
-  speakers?: Speaker[];
+  speakers: Speaker[];
   date?: string;
   time?: string;
   location?: string;
@@ -14,3 +14,7 @@ export type DefaultProps = {
 export type ComponentDisplayMode = {
 	isTotemDisplayMode?: boolean;
 };
+
+export const ShowcaseDevfestNantes2024Schema = DefaultProps.extend({
+	titleFontSize: z.number().optional(),
+});

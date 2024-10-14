@@ -1,9 +1,8 @@
-import {loadFont} from '@remotion/google-fonts/YanoneKaffeesatz';
+import {loadFont} from '@remotion/google-fonts/Creepster';
 import {
 	AbsoluteFill,
 	interpolate,
 	spring,
-	staticFile,
 	useCurrentFrame,
 	useVideoConfig,
 } from 'remotion';
@@ -14,15 +13,15 @@ import {Speaker} from '../../../types/defaultProps.types';
 
 const {fontFamily} = loadFont();
 
-export const Speakers: React.FC<{speakers: Speaker[], isTotemDisplayMode?: boolean;}> = ({speakers, isTotemDisplayMode}) => {
+export const Speakers: React.FC<{speakers: Speaker[], isTotemDisplayMode?: boolean;}> = ({speakers, isTotemDisplayMode = false}) => {
 	const frame = useCurrentFrame();
 	const {fps} = useVideoConfig();
 
-	const pictureDrop = spring({
+	const pictureUp = spring({
 		frame: frame,
 		fps,
-		from: -600,
-		to: 80,
+		from: isTotemDisplayMode ? -480 : -430,
+		to: -280,
 		durationInFrames: 60,
 	});
 
@@ -58,18 +57,13 @@ export const Speakers: React.FC<{speakers: Speaker[], isTotemDisplayMode?: boole
 						}}
 					>
 						<AvatarWithCaption
-							avatarPictureUrl={
-								speaker.picture ||
-								staticFile(
-									'images/showcases/campingDesSpeakers/campingDesSpeakersLogo.png',
-								)
-							}
+							avatarPictureUrl={speaker.picture}
 							avatarStyle={{
-								width: isTotemDisplayMode? 100 : 180,
-								height: isTotemDisplayMode? 100 : 180,
+								width: 180,
+								height: 180,
 								border: 'none',
-								boxShadow: '0 0 0 5px white, 0 0 0 8px #e7804d',
-								top: pictureDrop,
+								boxShadow: '0 0 0 5px #1B2C2C',
+								bottom: pictureUp,
 							}}
 							style={{
 								gap: 0,
@@ -79,14 +73,16 @@ export const Speakers: React.FC<{speakers: Speaker[], isTotemDisplayMode?: boole
 								<Text
 									style={{
 										fontFamily,
+										color: '#1B2C2C',
 										textShadow:
-											'-2px 0 black, 0 2px black, 2px 0 black, 0 -2px black',
+											'-2px 0 #FFF8F0, 0 2px #FFF8F0, 2px 0 #FFF8F0, 0 -2px #FFF8F0',
 										letterSpacing: '0.1rem',
 										position: 'relative',
-										bottom: '-40%',
-										width: isTotemDisplayMode ? 150 : 320,
-										height: isTotemDisplayMode ? 150 : 100,
-										fontSize: isTotemDisplayMode ? 25 : 35,
+										bottom: isTotemDisplayMode ? '-105%' : '-110%',
+										lineHeight: '2.2rem',
+										width: 350,
+										height: 100,
+										fontSize: 40,
 										fontWeight: 700,
 										opacity: nameOpacity,
 										filter: `blur(${nameUnblur}px)`,

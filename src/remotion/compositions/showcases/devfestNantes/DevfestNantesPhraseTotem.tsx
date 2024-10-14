@@ -11,11 +11,12 @@ import {
 import { BackgroundFiller } from '../../../design/atoms/BackgroundFiller';
 import { DefaultProps } from '../../../types/defaultProps.types';
 
-import { Android } from './Android';
-import { Details } from './Details';
-import { Dino } from './Dino';
-import { Logo } from './Logo';
-import { TalkTitle } from './TalkTitle';
+import {Logo} from './Logo';
+import {Details} from "./Details";
+import {TalkTitle} from './TalkTitle';
+import {GhostBackground} from './GhostBackground';
+import {Moon} from './Moon';
+import {Trees} from './Trees';
 
 const { fontFamily } = loadFont();
 
@@ -34,45 +35,45 @@ export const DevfestNantesPhraseTotem = ({
 
     return (
         <AbsoluteFill
-            style={{
-                backgroundColor: 'white',
-                overflow: 'hidden',
-                fontFamily,
-                textTransform: 'uppercase',
-            }}
+          style={{
+            backgroundColor: '#e4595c',
+            overflow: 'hidden',
+            fontFamily,
+            textTransform: 'uppercase',
+            boxShadow:
+              'inset 0 0px 200px rgba(0, 0, 0, 0.9), inset 0 -2px 4px rgba(0, 0, 0, 0.5)',
+          }}
         >
-            <Sequence>
-                <BackgroundFiller
-                    imageUrl={staticFile(
-                        '/images/showcases/devfestNantes/fond-visuel-etoiles.png',
-                    )}
-                    style={{
-                        position: 'absolute',
-                        width: '100%',
-                        height: '100%',
-                    }}
-                />
+          <Sequence>
+            <Logo isTotemDisplayMode />
+          </Sequence>
+          <Sequence from={30}>
+            <GhostBackground />
+          </Sequence>
+          <Sequence from={30}>
+            <Trees />
+          </Sequence>
+          <Sequence from={110}>
+            <Moon isTotemDisplayMode />
+          </Sequence>
+          <div
+            style={{
+              height: '100%',
+              transform: `translateY(${SlideDown}px)`,
+            }}
+          >
+            <Sequence name="Speakers" from={30}>
+                <TalkTitle title={title} style={{top: '400px'}} isTotemDisplayMode />
             </Sequence>
-            <Sequence from={30}>
-                <Dino />
-            </Sequence>
-            <Sequence from={110}>
-                <Android isTotemDisplayMode />
-            </Sequence>
-            <Sequence>
-                <Logo isTotemDisplayMode />
-            </Sequence>
-            <div
-                style={{
-                    height: '100%',
-                    transform: `translateY(${SlideDown}px)`,
-                }}
-            >
-                <Sequence name="Speakers" from={30}>
-                    <TalkTitle title={title} style={{top: '400px'}} isTotemDisplayMode />
-                </Sequence>
-                {location && <Details time={time} location={location}/>}
-            </div>
+            <Sequence from={70}>
+					<Details
+						time={time}
+						location={location}
+						isTotemDisplayMode
+					/>
+			</Sequence>
+          </div>
         </AbsoluteFill>
-    );
-};
+      );
+      };
+      

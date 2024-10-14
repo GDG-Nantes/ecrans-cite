@@ -3,7 +3,7 @@ import {ConfigAfficheShortVid} from "src/types.ts";
 type typesAffiches = 'vestiaireJ1' | 'vestiaireJ2' | 'afterAnnonce' | 'afterBars';
 export const AFFICHES_ZONE: Record<typesAffiches, ConfigAfficheShortVid> = { // TODO mettre à jour les messages
   vestiaireJ1: {
-    "title": "Vestiaire gratuit disponible ! Déposez vos affaires.",
+    "title": "Vestiaire gratuit disponible ! Déposez vos affaires.",
     "speakers": [{
       "name": "Devfest Nantes",
       "picture": "https://github.com/GDG-Nantes/Devfest2023/assets/525974/f96a0968-1079-447c-8c39-490cb8c64089"
@@ -13,7 +13,7 @@ export const AFFICHES_ZONE: Record<typesAffiches, ConfigAfficheShortVid> = { // 
     "location": "Galerie Jules Verne",
   },
   vestiaireJ2: {
-    "title": "Vestiaire gratuit disponible ! Déposez vos affaires.",
+    "title": "Vestiaire gratuit disponible ! Déposez vos affaires.",
     "speakers": [{
       "name": "Devfest Nantes",
       "picture": "https://github.com/GDG-Nantes/Devfest2023/assets/525974/f96a0968-1079-447c-8c39-490cb8c64089"

@@ -13,7 +13,7 @@ import {ComponentDisplayMode} from '../../../types/defaultProps.types';
 export const Logo = ({isTotemDisplayMode = false}: ComponentDisplayMode) => {
 	const frame = useCurrentFrame();
 	const {fps} = useVideoConfig();
-	const logoWidth = 250;
+	const logoWidth = 150;
 
 	const pictureSlide = spring({
 		frame,
@@ -32,7 +32,7 @@ export const Logo = ({isTotemDisplayMode = false}: ComponentDisplayMode) => {
 	return (
 		<Img
 			src={staticFile(
-				'/images/showcases/devfestNantes/logo-devfest-mgm_transparent.svg',
+				'/images/showcases/devfestNantes/logo-devfest-2024.png',
 			)}
 			width={logoWidth}
 			height="auto"

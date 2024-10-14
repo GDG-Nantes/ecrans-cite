@@ -1,15 +1,15 @@
 import {loadFont} from '@remotion/google-fonts/CrimsonText';
 import {AbsoluteFill, Easing, interpolate, Sequence, staticFile, useCurrentFrame,} from 'remotion';
 
-import {BackgroundFiller} from '../../../design/atoms/BackgroundFiller';
 import {DefaultProps} from '../../../types/defaultProps.types';
 
-import {Android} from './Android';
 import {Details} from './Details';
-import {Dino} from './Dino';
 import {Logo} from './Logo';
 import {Speakers} from './Speakers';
 import {TalkTitle} from './TalkTitle';
+import {GhostBackground} from './GhostBackground';
+import {Moon} from './Moon';
+import {Trees} from './Trees';
 
 const {fontFamily} = loadFont();
 
@@ -28,55 +28,56 @@ export const DevfestNantesLoopTotem = ({
     easing: Easing.bezier(0.51, -0.75, 0.99, 0.75),
   });
 
-  return (
-    <AbsoluteFill
+
+return (
+  <AbsoluteFill
+    style={{
+      backgroundColor: '#e4595c',
+      overflow: 'hidden',
+      fontFamily,
+      textTransform: 'uppercase',
+      boxShadow:
+        'inset 0 0px 200px rgba(0, 0, 0, 0.9), inset 0 -2px 4px rgba(0, 0, 0, 0.5)',
+    }}
+  >
+    <Sequence>
+      <Logo isTotemDisplayMode />
+    </Sequence>
+    <Sequence from={30}>
+      <GhostBackground />
+    </Sequence>
+    <Sequence from={30}>
+      <Trees />
+    </Sequence>
+    <Sequence from={110}>
+      <Moon isTotemDisplayMode />
+    </Sequence>
+    <div
       style={{
-        backgroundColor: 'white',
-        overflow: 'hidden',
-        fontFamily,
-        textTransform: 'uppercase',
+        height: '100%',
+        transform: `translateY(${SlideDown}px)`,
       }}
     >
-      <Sequence>
-        <BackgroundFiller
-          imageUrl={staticFile(
-            '/images/showcases/devfestNantes/fond-visuel-etoiles.png',
-          )}
+      <Sequence name="Speakers" from={30}>
+        <Speakers speakers={speakers} isTotemDisplayMode />
+        <TalkTitle
+          title={title}
           style={{
-            position: 'absolute',
-            width: '100%',
-            height: '100%',
+            fontSize: 35,
+            maxHeight: '300px'
           }}
+          isTotemDisplayMode
         />
       </Sequence>
-      <Sequence from={30}>
-        <Dino/>
+      <Sequence from={70}>
+        <Details
+          date={date}
+          time={time}
+          location={location}
+          isTotemDisplayMode
+        />
       </Sequence>
-      <Sequence from={110}>
-        <Android isTotemDisplayMode/>
-      </Sequence>
-      <Sequence>
-        <Logo isTotemDisplayMode/>
-      </Sequence>
-      <div
-        style={{
-          height: '100%',
-          transform: `translateY(${SlideDown}px)`,
-        }}
-      >
-        {speakers && <Sequence name="Speakers" from={30}>
-          <Speakers speakers={speakers} isTotemDisplayMode/>
-          <TalkTitle title={title} style={{}} isTotemDisplayMode/>
-        </Sequence>}
-        <Sequence from={70}>
-          <Details
-            date={date}
-            time={time}
-            location={location}
-            isTotemDisplayMode
-          />
-        </Sequence>
-      </div>
-    </AbsoluteFill>
-  );
+    </div>
+  </AbsoluteFill>
+);
 };
