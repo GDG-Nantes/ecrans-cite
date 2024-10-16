@@ -57,7 +57,9 @@ const DevfestNantesPlanningCitdTotem = () => {
                    isTotemDisplayMode={true}>
           <p>C'est fini pour cette année</p>
           <p>Mais essayez chez vous !</p>
-          <QRCodeSVG value={"https://citd.gdgnantes.com"} size={300} bgColor={"#e4585cba"}/>
+          <br/>
+          <QRCodeSVG value={"https://citd.gdgnantes.com"} size={300} bgColor={"#e4585cba"}
+                     fgColor={"rgb(34,2,4)"}/>
         </TalkTitle>
 
       </>
@@ -65,9 +67,9 @@ const DevfestNantesPlanningCitdTotem = () => {
       <TalkTitle isTotemDisplayMode={true} style={{textAlign: "left", width: "80%"}}>
         <p>Prochaines séances:</p>
         <ul>
-          <li className={classnames(estDeuxiemeJour || (estPremierJour && heure >= '12:00') && 'crossed')}>Jeudi 11h10
+          <li className={classnames((estDeuxiemeJour || (estPremierJour && heure >= '12:00')) && 'crossed')}>Jeudi 11h10
           </li>
-          <li className={classnames(estDeuxiemeJour || (estPremierJour && heure >= '16:00') && 'crossed')}>Jeudi 15h10
+          <li className={classnames((estDeuxiemeJour || (estPremierJour && heure >= '16:00')) && 'crossed')}>Jeudi 15h10
           </li>
           <li>Vendredi 11h10</li>
         </ul>
