@@ -560,7 +560,7 @@ export const ECRANS_AUTRES: ConfigEcran[] = [
   },
   {
     id: 'SALD',
-    nom: 'Code In The Dark Salle D',
+    nom: 'Code In The Dark',
     ratio: '16_9',
     resolution: '1920x1080',
     orientation: 'portrait',
@@ -568,7 +568,7 @@ export const ECRANS_AUTRES: ConfigEcran[] = [
   },
   {
     id: 'SALE',
-    nom: 'Stockage Foyer Bas',
+    nom: 'Code In The Dark Salle E',
     ratio: '16_9',
     resolution: '1920x1080',
     orientation: 'portrait',

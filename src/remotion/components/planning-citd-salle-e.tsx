@@ -13,7 +13,7 @@ import classnames from "classnames";
 import {QRCodeSVG} from "qrcode.react";
 import {AiOutlineArrowLeft} from "react-icons/ai";
 
-export const PlanningCitdSalleD: React.FC<{ portrait?: boolean}> = ({portrait}) => {
+export const PlanningCitdSalleE: React.FC<{ portrait?: boolean }> = ({portrait}) => {
 
   const currentTemplate = portrait ? {
     compositionName: 'DevfestNantesPlanningCitdTotemSalleD',
@@ -65,8 +65,9 @@ const DevfestNantesPlanningCitdTotem = () => {
 
       </>
       :
-      <TalkTitle isTotemDisplayMode={true} style={{overflow: "visible", textAlign: "left", width: "80%", bottom: "300px"}}>
-        <p>Prochaines séances :</p>
+      <TalkTitle isTotemDisplayMode={true}
+                 style={{overflow: "visible", textAlign: "left", width: "80%", bottom: "300px"}}>
+        <p>Prochaines séances :</p>
         <ul>
           <li className={classnames((estDeuxiemeJour || (estPremierJour && heure >= '12:00')) && 'crossed')}>Jeudi 11h10
           </li>
@@ -86,10 +87,10 @@ const DevfestNantesPlanningCitdTotem = () => {
             position: "relative",
           }}
         >
-          <AiOutlineArrowLeft size={"5rem"} 
-            style={{
-              filter: "drop-shadow(2px 2px 2px #1B2C2C)",
-            }}/>
+          <AiOutlineArrowLeft size={"5rem"}
+                              style={{
+                                filter: "drop-shadow(2px 2px 2px #1B2C2C)",
+                              }}/>
           <h1
             style={{
               paddingLeft: "30px",
@@ -125,7 +126,7 @@ const DevfestNantesPlanningCitd = () => {
       </>
       :
       <TalkTitle isTotemDisplayMode={true} style={{top: "250px", width: "60%"}}>
-        <p>Prochaines séances :</p>
+        <p>Prochaines séances :</p>
         <ul>
           <li className={classnames(estDeuxiemeJour || (estPremierJour && heure >= '12:00') && 'crossed')}>Jeudi 11h10
           </li>
