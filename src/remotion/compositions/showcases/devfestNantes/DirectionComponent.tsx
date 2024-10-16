@@ -14,21 +14,24 @@ export const DirectionComponent: React.FC<{
 }> = ({ direction, large }) => {
   let fleche: React.ReactElement;
   const size = large ? "6rem" : "5rem";
+  const style = {
+    filter: "drop-shadow(2px 2px 2px #1B2C2C)",
+  }
   switch (direction.sens) {
     case "haut":
-      fleche = <AiOutlineArrowUp size={size} />;
+      fleche = <AiOutlineArrowUp size={size} style={style}/>;
       break;
     case "bas":
-      fleche = <AiOutlineArrowDown size={size} />;
+      fleche = <AiOutlineArrowDown size={size} style={style}/>;
       break;
     case "gauche":
-      fleche = <AiOutlineArrowLeft size={size} />;
+      fleche = <AiOutlineArrowLeft size={size} style={style}/>;
       break;
     case "droite":
-      fleche = <AiOutlineArrowRight size={size} />;
+      fleche = <AiOutlineArrowRight size={size} style={style}/>;
       break;
     case "bas-gauche":
-      fleche = <BsArrowReturnLeft size={size} />;
+      fleche = <BsArrowReturnLeft size={size} style={style}/>;
       break;
     default:
       fleche = <></>;
@@ -54,6 +57,8 @@ export const DirectionComponent: React.FC<{
             : "3rem",
           margin: "0 0 0 50px",
           flexWrap: "nowrap",
+          textShadow:
+					'-1px 0 #1B2C2C, 0 1px #1B2C2C, 1px 0 #1B2C2C, 0 -1px #1B2C2C',
         }}
       >
         {direction.nom}

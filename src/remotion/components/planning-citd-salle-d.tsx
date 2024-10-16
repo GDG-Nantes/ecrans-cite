@@ -11,18 +11,18 @@ import {useCurrentDate} from "src/helpers.ts";
 import {format} from "date-fns";
 import classnames from "classnames";
 import {QRCodeSVG} from "qrcode.react";
-import {HiMiniArrowUturnLeft} from "react-icons/hi2";
+import {AiOutlineArrowLeft} from "react-icons/ai";
 
-export const PlanningCitd: React.FC<{ portrait?: boolean}> = ({portrait}) => {
+export const PlanningCitdSalleD: React.FC<{ portrait?: boolean}> = ({portrait}) => {
 
   const currentTemplate = portrait ? {
-    compositionName: 'DevfestNantesPlanningCitdTotem',
+    compositionName: 'DevfestNantesPlanningCitdTotemSalleD',
     component: DevfestNantesPlanningCitdTotem,
     width: 720,
     height: 1280,
     durationInFrames: 350,
   } : {
-    compositionName: 'DevfestNantesPlanningCitd',
+    compositionName: 'DevfestNantesPlanningCitdSalleD',
     component: DevfestNantesPlanningCitd,
     width: 1280,
     height: 720,
@@ -86,19 +86,19 @@ const DevfestNantesPlanningCitdTotem = () => {
             position: "relative",
           }}
         >
+          <AiOutlineArrowLeft size={"5rem"} 
+            style={{
+              filter: "drop-shadow(2px 2px 2px #1B2C2C)",
+            }}/>
           <h1
             style={{
-              paddingRight: "30px",
+              paddingLeft: "30px",
               flexWrap: "nowrap",
               fontSize: "30px",
             }}
           >
             Entrée
           </h1>
-          <HiMiniArrowUturnLeft size={"5rem"}
-            style={{
-              filter: "drop-shadow(2px 2px 2px #1B2C2C)",
-            }}/>
         </div>
       </TalkTitle>
     }

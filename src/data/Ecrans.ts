@@ -354,28 +354,6 @@ export const ECRANS_DIRECTION: ConfigEcran[] = [
     directions: [
       {
         nom: 'Devfest Safe',
-        sens: 'bas'
-      },
-      {
-        nom: 'Lounge',
-        sens: 'bas'
-      },
-      {
-        nom: 'Communautés Nantaises',
-        sens: 'bas'
-      }
-    ]
-  },
-  {
-    id: 'R202',
-    nom: 'R2',
-    ratio: '16_9',
-    resolution: '1920x1080',
-    orientation: 'landscape',
-    tags: [],
-    directions: [
-      {
-        nom: 'Devfest Safe',
         sens: 'droite'
       },
       {
@@ -389,6 +367,28 @@ export const ECRANS_DIRECTION: ConfigEcran[] = [
       {
         nom: 'Salles 1er étage',
         sens: 'droite'
+      }
+    ]
+  },
+  {
+    id: 'R202',
+    nom: 'R2',
+    ratio: '16_9',
+    resolution: '1920x1080',
+    orientation: 'landscape',
+    tags: [],
+    directions: [
+      {
+        nom: 'Devfest Safe',
+        sens: 'bas'
+      },
+      {
+        nom: 'Lounge',
+        sens: 'bas'
+      },
+      {
+        nom: 'Communautés Nantaises',
+        sens: 'bas'
       }
     ]
   },
@@ -560,7 +560,7 @@ export const ECRANS_AUTRES: ConfigEcran[] = [
   },
   {
     id: 'SALD',
-    nom: 'Stockage Foyer Bas',
+    nom: 'Code In The Dark Salle D',
     ratio: '16_9',
     resolution: '1920x1080',
     orientation: 'portrait',

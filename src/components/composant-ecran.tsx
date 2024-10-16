@@ -20,6 +20,7 @@ import {EcranPlatGrandeGalerieRemotion} from "src/remotion/components/ecran-plat
 import {AffichageZoneRemotion} from "src/remotion/components/affichage-zone-remotion.tsx";
 import {ScaryElevatorRemotion} from "src/remotion/components/scary-elevator-remotion.tsx";
 import {PlanningCitd} from "src/remotion/components/planning-citd.tsx";
+import {PlanningCitdSalleD} from "src/remotion/components/planning-citd-salle-d.tsx";
 
 export const ComposantEcran: React.FC<{ planning?: Talk[] } & ConfigEcran> = ({planning, ...configEcran}) => {
 
@@ -60,6 +61,9 @@ export const ComposantEcran: React.FC<{ planning?: Talk[] } & ConfigEcran> = ({p
       }
       if (configEcran.nom == 'Code In The Dark') {
         return <PlanningCitd portrait={isPortrait}/>
+      }
+      if (configEcran.nom == 'Code In The Dark Salle D') {
+        return <PlanningCitdSalleD portrait={isPortrait}/>
       }
 
       if (heure > "18:30" && estPremierJour) {
