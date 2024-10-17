@@ -445,7 +445,7 @@ export const ECRANS_VESTIAIRE: ConfigEcran[] = [
     ratio: '16_9',
     resolution: '1920x1080',
     orientation: 'landscape',
-    tags: ['vestiaire'],
+    tags: ['vestiaire', 'vin'],
   },
   {
     id: 'GG04',
@@ -489,7 +489,7 @@ export const ECRANS_BARS: ConfigEcran[] = [
     ratio: '16_9',
     resolution: '1920x1080',
     orientation: 'landscape',
-    tags: [],
+    tags: ['vestiaire', 'vin'],
   },
   {
     id: 'GA05',

@@ -141,3 +141,4 @@ export type Tag =
   | 'titan'
   | 'vestiaire'
   | 'direction'
+  | 'vin'

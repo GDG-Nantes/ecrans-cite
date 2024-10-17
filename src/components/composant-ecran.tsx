@@ -21,6 +21,7 @@ import {AffichageZoneRemotion} from "src/remotion/components/affichage-zone-remo
 import {ScaryElevatorRemotion} from "src/remotion/components/scary-elevator-remotion.tsx";
 import {PlanningCitd} from "src/remotion/components/planning-citd.tsx";
 import {PlanningCitdSalleE} from "src/remotion/components/planning-citd-salle-e.tsx";
+import {PlanningBar} from "src/remotion/components/bar-afterparty.tsx";
 
 export const ComposantEcran: React.FC<{ planning?: Talk[] } & ConfigEcran> = ({planning, ...configEcran}) => {
 
@@ -55,6 +56,9 @@ export const ComposantEcran: React.FC<{ planning?: Talk[] } & ConfigEcran> = ({p
       }
       if (configEcran.directions) {
         return <DirectionRemotion directions={configEcran.directions} portrait={isPortrait}/>
+      }
+      if (estPremierJour && configEcran.tags?.includes("vin") && (heure > "18:30") && (heure < "21:30")) {
+        return <PlanningBar portrait={isPortrait}/>
       }
       if (configEcran.tags?.includes("vestiaire")) {
         return EcranVestiaire(estPremierJour, currentDate, isPortrait, estDeuxiemeJour);

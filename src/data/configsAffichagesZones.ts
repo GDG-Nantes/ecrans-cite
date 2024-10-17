@@ -47,5 +47,8 @@ export const AFFICHES_ZONE: Record<typesAffiches, ConfigAfficheShortVid> = { // 
     "date": "17 Octobre",
     "time": "22h",
     "location": "Bars Partenaires",
+  },
+  vin: {
+    "title": "Afterparty : bar et vin",
   }
 };
