@@ -74,20 +74,20 @@ const IframeEcran: React.FC<{ ecran: ConfigEcran, date?: string }> = ({ecran, da
 
 function SupervisionEcranUnique(ecranId: string) {
   const dates = [
-    "2024-10-17T08:00:00",
-    "2024-10-17T09:01:00",
-    "2024-10-17T10:49:30",
-    "2024-10-17T12:40:00",
-    "2024-10-17T13:29:30",
-    "2024-10-17T18:20:00",
-    "2024-10-17T18:49:00",
+    "2025-10-16T08:00:00",
+    "2025-10-16T09:01:00",
+    "2025-10-16T10:49:30",
+    "2025-10-16T12:40:00",
+    "2025-10-16T13:29:30",
+    "2025-10-16T18:20:00",
+    "2025-10-16T18:49:00",
 
-    "2024-10-18T08:00:00",
-    "2024-10-18T09:01:00",
-    "2024-10-18T10:49:30",
-    "2024-10-18T12:49:00",
-    "2024-10-18T17:20:00",
-    "2024-10-18T18:49:00",
+    "2025-10-17T08:00:00",
+    "2025-10-17T09:01:00",
+    "2025-10-17T10:49:30",
+    "2025-10-17T12:49:00",
+    "2025-10-17T17:20:00",
+    "2025-10-17T18:49:00",
   ]
   const ecran = ECRANS.find(e => e.id === ecranId)
   if (!ecran) return <div>ecran non trouvé</div>
@@ -100,13 +100,13 @@ function SupervisionEcranUnique(ecranId: string) {
     }</div>
     <h1>Jeudi</h1>
     <div className={"superviseur"}>
-      {dates.filter(d => d.startsWith("2024-10-17")).map((date) => {
+      {dates.filter(d => d.startsWith("2025-10-16")).map((date) => {
         return <IframeEcran key={date} ecran={ecran} date={date}/>;
       })}
     </div>
     <h1>Vendredi</h1>
     <div className={"superviseur"}>
-      {dates.filter(d => d.startsWith("2024-10-18")).map((date) => {
+      {dates.filter(d => d.startsWith("2025-10-17")).map((date) => {
         return <IframeEcran key={date} ecran={ecran} date={date}/>;
       })}
     </div>

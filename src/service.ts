@@ -10,7 +10,7 @@ const client = new ApolloClient({
   uri: 'https://confetti-app.dev/graphql',
   cache: inMemoryCache,
   headers: {
-    conference: 'devfestnantes2024'
+    conference: 'devfestnantes2025'
   }
 });
 

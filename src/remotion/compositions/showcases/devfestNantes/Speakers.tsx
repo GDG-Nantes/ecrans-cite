@@ -18,7 +18,7 @@ export const Speakers: React.FC<{
     frame: frame,
     fps,
     from: isTotemDisplayMode ? -480 : -430,
-    to: -280,
+    to: 0,
     durationInFrames: 60,
   });
 
@@ -38,11 +38,15 @@ export const Speakers: React.FC<{
     <AbsoluteFill
       style={{
         width: "100%",
+        height: isTotemDisplayMode ? "700px" : "800px",
         marginTop: isTotemDisplayMode ? "0" : "20px",
         display: "flex",
         flexDirection: "row",
+        flexWrap: "wrap",
         justifyContent: "center",
-        gap: isTotemDisplayMode ? 50 : 100,
+        alignItems: "center",
+        alignContent: "center",
+        gap: isTotemDisplayMode ? 20 : 100,
       }}
     >
       {speakers.map((speaker) => {
@@ -57,8 +61,8 @@ export const Speakers: React.FC<{
             <AvatarWithCaption
               avatarPictureUrl={speaker.picture}
               avatarStyle={{
-                width: 180,
-                height: 180,
+                width: 170,
+                height: 170,
                 border: "none",
                 boxShadow: "0 0 0 5px #1B2C2C",
                 bottom: pictureUp,
@@ -76,10 +80,9 @@ export const Speakers: React.FC<{
                       "-2px 0 #FFF8F0, 0 2px #FFF8F0, 2px 0 #FFF8F0, 0 -2px #FFF8F0",
                     letterSpacing: "0.1rem",
                     position: "relative",
-                    bottom: isTotemDisplayMode ? "-105%" : "-110%",
                     lineHeight: "2.2rem",
+                    marginTop: "10px",
                     width: 350,
-                    height: 100,
                     fontSize: 40,
                     fontWeight: 700,
                     opacity: nameOpacity,

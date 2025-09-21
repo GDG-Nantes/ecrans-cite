@@ -35,12 +35,11 @@ export const ComposantEcran: React.FC<{ planning?: Talk[] } & ConfigEcran> = ({p
   }, [])
 
   const isSalle = configEcran.tags?.includes("room");
-  const estPremierJour = currentDate.getDate() == 17;
-  const estDeuxiemeJour = currentDate.getDate() == 18;
+  const estPremierJour = currentDate.getDate() == 16;
+  const estDeuxiemeJour = currentDate.getDate() == 17;
   const heure = format(currentDate, "HH:mm");
 
   const body = React.useMemo(() => {
-
       const isPortrait = configEcran.orientation === "portrait";
       if (configEcran.id == ECRAN_ESCALIER_TITAN.id) {
         return <GrandEcranTitanRemotion/>
@@ -139,8 +138,6 @@ function EcranVestiaire(estPremierJour: boolean, currentDate: Date, isPortrait: 
   if (estPremierJour) {
     if (format(currentDate, "HH:mm") > "21:00") {
       return <AffichageZoneRemotion configAffiche={AFFICHES_ZONE.afterBars} portrait={isPortrait}/>
-    } else if (format(currentDate, "HH:mm") > "18:15") {
-      return <AffichageZoneRemotion configAffiche={AFFICHES_ZONE.afterAnnonce} portrait={isPortrait}/>
     } else {
       return <AffichageZoneRemotion configAffiche={AFFICHES_ZONE.vestiaireJ1} portrait={isPortrait}/>
     }

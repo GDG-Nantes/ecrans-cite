@@ -1,7 +1,7 @@
 import {ConfigAfficheShortVid} from "src/types.ts";
 
-type typesAffiches = 'vestiaireJ1' | 'vestiaireJ2' | 'afterAnnonce' | 'afterBars';
-export const AFFICHES_ZONE: Record<typesAffiches, ConfigAfficheShortVid> = { // TODO mettre à jour les messages
+type typesAffiches = 'vestiaireJ1' | 'vestiaireJ2' | 'afterBars';
+export const AFFICHES_ZONE: Record<typesAffiches, ConfigAfficheShortVid> = {
   vestiaireJ1: {
     "title": "Vestiaire gratuit disponible ! Déposez vos affaires.",
     "speakers": [{
@@ -20,16 +20,6 @@ export const AFFICHES_ZONE: Record<typesAffiches, ConfigAfficheShortVid> = { // 
     }],
     "date": "18 Octobre",
     "time": "08h-18h30",
-    "location": "Galerie Jules Verne",
-  },
-  afterAnnonce: {
-    "title": "Afterparty ce soir by Proginov !",
-    "speakers": [{
-      "name": "Proginov",
-      "picture": "https://github.com/GDG-Nantes/Devfest2023/assets/525974/e648a5a2-b9b7-422e-8e0a-61f335bdc30c"
-    }],
-    "date": "Vestiaire jusqu'à 22h",
-    "time": "18h45",
     "location": "Galerie Jules Verne",
   },
   afterBars: {

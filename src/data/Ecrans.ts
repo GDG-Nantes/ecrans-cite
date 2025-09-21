@@ -8,6 +8,7 @@ export const ROOMS: RoomName[] = [
   'Jules Verne',
   'L\'Atelier',
   'Les Machines',
+  "Unconf"
 ];
 
 export const ECRANS_SALLES: ConfigEcran[] = [
@@ -37,8 +38,8 @@ export const ECRANS_SALLES: ConfigEcran[] = [
   },
   {
     id: 'S200',
-    nom: 'Tour Bretagne',
-    displayName: 'Replay Tour Bretagne',
+    nom: 'Unconf',
+    displayName: 'Unconf',
     ratio: '16_9',
     resolution: '1920x1080',
     orientation: 'landscape',
@@ -163,7 +164,7 @@ export const ECRANS_DIRECTION: ConfigEcran[] = [
         sens: 'haut'
       },
       {
-        nom: 'Replay Tour Bretagne',
+        nom: 'Unconference',
         sens: 'haut'
       },
       {
@@ -178,7 +179,7 @@ export const ECRANS_DIRECTION: ConfigEcran[] = [
   },
   {
     id: 'FH08',
-    nom: 'vers Belem, l\'atelier, le hangar et le replay Tour Bretagne',
+    nom: 'vers Belem, l\'atelier, le hangar et l\'unconference',
     ratio: '16_9',
     resolution: '1920x1080',
     orientation: 'landscape',
@@ -189,7 +190,7 @@ export const ECRANS_DIRECTION: ConfigEcran[] = [
         sens: 'gauche'
       },
       {
-        nom: 'Replay Tour Bretagne',
+        nom: 'Unconference',
         sens: 'droite'
       },
       {
@@ -315,20 +316,6 @@ export const ECRANS_DIRECTION: ConfigEcran[] = [
       nom: 'Salle speaker            Speaker Room                  Elevator Button 1',
       sens: 'haut'
     }]
-  },
-  {
-    id: 'R001',
-    nom: 'Salle R0',
-    ratio: '16_9',
-    resolution: '1920x1080',
-    orientation: 'landscape',
-    tags: [],
-    directions: [
-      {
-        nom: 'Animation Fouloscopie                 La science des Rumeurs!                  Jeudi 10h & 14h',
-        sens: 'bas'
-      }
-    ]
   },
   {
     id: 'R101',
@@ -525,6 +512,14 @@ export const ECRANS_AUTRES: ConfigEcran[] = [
     resolution: '1080x1920',
     orientation: 'portrait',
     tags: []
+  },
+  {
+    id: 'R001',
+    nom: 'Salle R0',
+    ratio: '16_9',
+    resolution: '1920x1080',
+    orientation: 'landscape',
+    tags: [],
   },
   {
     id: 'R002',

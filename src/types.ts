@@ -6,7 +6,8 @@ export type RoomName =
   | 'Hangar'
   | 'Jules Verne'
   | 'L\'Atelier'
-  | 'Les Machines';
+  | 'Les Machines'
+  | 'Unconf';
 
 export type Talk = {
   title: string
