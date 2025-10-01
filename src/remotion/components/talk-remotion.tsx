@@ -43,8 +43,8 @@ export const TalkRemotion: React.FC<{ talk: Talk, portrait?: boolean, displayNam
 
 function formatTalkToShortvid(talk: Talk) {
   let sessionDateStart: string
-  if (talk.startsAt?.startsWith("2024-10-18")) {
-    sessionDateStart = "18 Octobre"
+  if (talk.startsAt?.startsWith("2024-10-16")) {
+    sessionDateStart = "16 Octobre"
   } else {
     sessionDateStart = "17 Octobre"
   }

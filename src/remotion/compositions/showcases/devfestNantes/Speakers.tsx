@@ -54,14 +54,19 @@ export const Speakers: React.FC<{
 		extrapolateRight: 'clamp',
 	});
 
+	const isTooManySpeakersDisplay = isTotemDisplayMode && (speakers?.length ?? 0) > 2;
+
 	return (
 		<AbsoluteFill
 			style={{
 				width: '100%',
+				height: isTooManySpeakersDisplay ? "600px" : undefined,
 				display: 'flex',
+				flexWrap: isTooManySpeakersDisplay ? "wrap" : undefined,
 				flexDirection: 'row',
 				justifyContent: 'center',
-				gap: isTotemDisplayMode ? 0 : 100,
+				gap: isTotemDisplayMode ? isTooManySpeakersDisplay ? 0 : 20 : 100,
+				top: isTooManySpeakersDisplay ? "-30px" : 0,
 			}}
 		>
 			{speakers!.map((speaker) => {
@@ -74,20 +79,22 @@ export const Speakers: React.FC<{
 							position: 'relative',
 						}}
 					>
-						<Img
-							style={{
-								position: 'absolute',
-								bottom: plantseUp,
-								left: '50%',
-								transform: 'translateX(-50%)',
-								width: '180px',
-								filter: 'drop-shadow(0 0 20px rgba(0,0,0,0.22))',
-							}}
-							alt="plante"
-							src={staticFile(
-								'images/showcases/devfestNantes/plantes.png',
-							)}
-						/>
+						{ !isTooManySpeakersDisplay &&
+							<Img
+								style={{
+									position: 'absolute',
+									bottom: plantseUp,
+									left: '50%',
+									transform: 'translateX(-50%)',
+									width: '180px',
+									filter: 'drop-shadow(0 0 20px rgba(0,0,0,0.22))',
+								}}
+								alt="plante"
+								src={staticFile(
+									'images/showcases/devfestNantes/plantes.png',
+								)}
+							/>
+						}
 						<AvatarWithCaption
 							avatarPictureUrl={speaker.picture}
 							avatarStyle={{
