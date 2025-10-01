@@ -1,13 +1,6 @@
-import {loadFont} from "@remotion/google-fonts/CrimsonText";
-import {AbsoluteFill, Sequence, staticFile} from "remotion";
-import {BackgroundFiller} from "../../../design/atoms/BackgroundFiller";
-import {Logo} from "./Logo";
 import {Direction} from "src/types.ts";
 import {DirectionComponent} from "src/remotion/compositions/showcases/devfestNantes/DirectionComponent.tsx";
-import {Trees} from "./Trees";
-import {Moon} from "./Moon";
-
-const {fontFamily} = loadFont();
+import {DevfestNantesCustomContent} from "./DevfestNantesCustomContent.tsx";
 
 export const DevfestNantesDirection = ({
                                          directions,
@@ -15,32 +8,7 @@ export const DevfestNantesDirection = ({
   directions: Direction[];
 }) => {
   return (
-    <AbsoluteFill
-      style={{
-        overflow: "hidden",
-        fontFamily,
-        textTransform: "uppercase",
-      }}
-    >
-      <Sequence>
-        <BackgroundFiller
-          imageUrl={staticFile(
-            "/images/showcases/devfestNantes/background-filler-paysage.webp"
-          )}
-          style={{
-            transform: "scale(1)",
-          }}
-        />
-      </Sequence>
-      <Sequence from={30}>
-        <Trees/>
-      </Sequence>
-      <Sequence from={110}>
-        <Moon/>
-      </Sequence>
-      <Sequence>
-        <Logo/>
-      </Sequence>
+    <DevfestNantesCustomContent>
       <div
         style={{
           position: "absolute",
@@ -56,6 +24,6 @@ export const DevfestNantesDirection = ({
           <DirectionComponent direction={direction} key={index}/>
         ))}
       </div>
-    </AbsoluteFill>
+    </DevfestNantesCustomContent>
   );
 };

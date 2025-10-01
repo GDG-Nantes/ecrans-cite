@@ -14,6 +14,7 @@ export const AffichageZoneRemotion: React.FC<{ configAffiche: ConfigAfficheShort
     width: 720,
     height: 1280,
     durationInFrames: 350,
+    titleFontSize: 35
   } : {
     compositionName: 'DevfestNantesLoop',
     component: DevfestNantesTalk,

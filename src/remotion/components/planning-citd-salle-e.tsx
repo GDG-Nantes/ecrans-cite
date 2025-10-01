@@ -112,6 +112,7 @@ const DevfestNantesPlanningCitd = () => {
   const estDeuxiemeJour = currentDate.getDate() == 18;
   const heure = format(currentDate, "HH:mm");
   return <DevfestNantesCustomContent>
+    test
     <TalkTitle title={"Code In The Dark"} style={{bottom: "unset", top: "150px", fontSize: "30px"}}
                isTotemDisplayMode={true}/>
     {estDeuxiemeJour && heure > '12:00' ?

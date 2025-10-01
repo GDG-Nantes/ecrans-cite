@@ -1,44 +1,9 @@
-import {loadFont} from "@remotion/google-fonts/CrimsonText";
-import {AbsoluteFill, Img, Sequence, staticFile} from "remotion";
-import {BackgroundFiller} from "../../../design/atoms/BackgroundFiller";
-import {GhostBackground} from "./GhostBackground";
-import {Logo} from "./Logo";
-import {Moon} from "./Moon";
-import {Trees} from "./Trees";
-
-const {fontFamily} = loadFont();
+import {Img, staticFile} from "remotion";
+import {DevfestNantesCustomContentTotem} from "./DevfestNantesCustomContentTotem.tsx";
 
 export const DevfestNantesDefaultTotem = () => {
   return (
-    <AbsoluteFill
-      style={{
-        overflow: "hidden",
-        fontFamily,
-        textTransform: "uppercase",
-      }}
-    >
-      <Sequence>
-        <BackgroundFiller
-          imageUrl={staticFile(
-            "/images/showcases/devfestNantes/background-filler-totem.webp"
-          )}
-          style={{
-            transform: "scale(1)",
-          }}
-        />
-      </Sequence>
-      <Sequence>
-        <Logo isTotemDisplayMode/>
-      </Sequence>
-      <Sequence from={30}>
-        <GhostBackground/>
-      </Sequence>
-      <Sequence from={110}>
-        <Moon isTotemDisplayMode/>
-      </Sequence>
-      <Sequence from={30}>
-        <Trees/>
-      </Sequence>
+    <DevfestNantesCustomContentTotem>
       <div
         style={{
           position: "absolute",
@@ -58,6 +23,6 @@ export const DevfestNantesDefaultTotem = () => {
           height="auto"
         />
       </div>
-    </AbsoluteFill>
+    </DevfestNantesCustomContentTotem>
   );
 };

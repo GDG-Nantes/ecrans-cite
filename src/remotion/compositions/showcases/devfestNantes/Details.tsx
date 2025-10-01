@@ -1,64 +1,63 @@
-import {loadLocalFont} from "../../../../../src/utils/loadFont";
-import {interpolate, spring, useCurrentFrame, useVideoConfig} from "remotion";
+import {loadFont} from '@remotion/google-fonts/Cinzel';
+import {interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
 
 import {TalkDetails} from "../../../design/molecules/TalkDetails";
 
-loadLocalFont("HigherJump", "font/HigherJump.ttf", "truetype");
+
+const {fontFamily} = loadFont();
 
 export const Details: React.FC<{
-  date?: string;
-  time?: string;
-  location?: string;
-  style?: React.CSSProperties;
-  isTotemDisplayMode?: boolean;
-}> = ({date, time, location, style, isTotemDisplayMode}) => {
-  const frame = useCurrentFrame();
-  const {fps} = useVideoConfig();
+	date?: string;
+	time?: string;
+	location?: string;
+	isTotemDisplayMode?: boolean;
+	withLeaves?: boolean;
+}> = ({date, time, location, isTotemDisplayMode, withLeaves = true}) => {
+	const frame = useCurrentFrame();
+	const {fps} = useVideoConfig();
 
-  const drop = spring({
-    frame: frame,
-    from: -40,
-    to: isTotemDisplayMode ? 100 : 20,
-    fps,
-    durationInFrames: 40,
-  });
-  const opacity = spring({
-    frame: frame,
-    from: 0,
-    to: 1,
-    fps,
-    durationInFrames: 40,
-  });
-  const textUnblur = interpolate(frame, [0, 18], [5, 0], {
-    extrapolateRight: "clamp",
-  });
+	const drop = spring({
+		frame: frame,
+		from: -40,
+		to: isTotemDisplayMode ? 180 : 20,
+		fps,
+		durationInFrames: 40,
+	});
+	const opacity = spring({
+		frame: frame,
+		from: 0,
+		to: 1,
+		fps,
+		durationInFrames: 40,
+	});
+	const textUnblur = interpolate(frame, [0, 18], [5, 0], {
+		extrapolateRight: 'clamp',
+	});
 
-  return (
-    <TalkDetails
-      items={{
-        date,
-        time,
-        location,
-      }}
-      style={{
-        fontFamily: "HigherJump",
-        opacity,
-        bottom: `${drop}px`,
-        left: "50%",
-        width: isTotemDisplayMode ? "96%" : "90%",
-        fontSize: "20px",
-        letterSpacing: "0.3rem",
-        lineHeight: "2.8rem",
-        color: "#FFF8F0",
-        textShadow:
-          "-2px 0 #1B2C2C, 0 2px #1B2C2C, 2px 0 #1B2C2C, 0 -2px #1B2C2C",
-        transform: "translateX(-50%)",
-        filter: `blur(${textUnblur}px)`,
-        ...style,
-      }}
-      iconStyle={{
-        display: "none",
-      }}
-    />
-  );
+	return (
+		<TalkDetails
+			items={{
+				date,
+				time,
+				location,
+			}}
+			style={{
+				fontFamily,
+				opacity,
+				paddingLeft: isTotemDisplayMode ? '10px' : 0,
+				bottom: `${drop}px`,
+				left: '50%',
+				width: isTotemDisplayMode ? '96%' : '90%',
+				fontSize: '30px',
+				color: '#FFF8F0',
+				textShadow: '0 0 20px rgb(0,219,255)',
+				transform: 'translateX(-50%)',
+				filter: `blur(${textUnblur}px)`,
+			}}
+			iconStyle={{
+				display: 'none',
+			}}
+			withLeaves={withLeaves}
+		/>
+	);
 };

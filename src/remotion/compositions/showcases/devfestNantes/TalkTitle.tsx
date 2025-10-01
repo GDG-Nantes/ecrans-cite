@@ -1,61 +1,59 @@
-import {loadLocalFont} from "../../../../../src/utils/loadFont";
+import {loadFont} from '@remotion/google-fonts/Cinzel';
+import {interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
 
-import {interpolate, spring, useCurrentFrame, useVideoConfig} from "remotion";
+import {Title} from '../../../design/atoms/Title';
 
-import {Title} from "../../../design/atoms/Title";
-import React from "react";
-
-loadLocalFont("HigherJump", "font/HigherJump.ttf", "truetype");
+const {fontFamily} = loadFont();
 
 export const TalkTitle: React.FC<{
-  title?: string;
-  children?: React.ReactNode;
-  style?: React.CSSProperties;
-  delay?: number;
-  isTotemDisplayMode?: boolean;
-}> = ({title, children, style, delay = 0, isTotemDisplayMode}) => {
-  const frame = useCurrentFrame();
-  const {fps} = useVideoConfig();
+	title?: string;
+	children?: React.ReactNode;
+	style?: React.CSSProperties;
+	delay?: number;
+	isTotemDisplayMode?: boolean;
+}> = ({title, style, delay = 0, isTotemDisplayMode, children}) => {
+	const frame = useCurrentFrame();
+	const {fps} = useVideoConfig();
 
-  const titleOpacity = spring({
-    frame: frame - delay,
-    fps,
-    from: 0,
-    to: 1,
-    durationInFrames: 60,
-  });
+	const titleOpacity = spring({
+		frame: frame - delay,
+		fps,
+		from: 0,
+		to: 1,
+		durationInFrames: 60,
+	});
 
-  const titleDeblur = interpolate(frame - delay, [0, 20], [5, 0], {
-    extrapolateRight: "clamp",
-  });
+	const titleDeblur = interpolate(frame - delay, [0, 20], [5, 0], {
+		extrapolateRight: 'clamp',
+	});
 
-  return (
-    <Title
-      style={{
-        fontFamily: "HigherJump",
-        width: isTotemDisplayMode ? "95%" : "80%",
-        left: "50%",
-        transform: "translateX(-50%)",
-        fontSize: "24px",
-        lineHeight: "2.2",
-        letterSpacing: "0.2rem",
-        textAlign: "center",
-        color: "#FFF8F0", //'#1B2C2C',
-        textShadow:
-          "-2px 0 #1B2C2C, 0 2px #1B2C2C, 2px 0 #1B2C2C, 0 -2px #1B2C2C",
-        textWrap: "balance",
-        wordWrap: "break-word",
-        position: "absolute",
-        minHeight: 150,
-        bottom: isTotemDisplayMode ? "400px" : "450px",
-        opacity: titleOpacity,
-        filter: `blur(${titleDeblur}px)`,
-        WebkitLineClamp: isTotemDisplayMode ? "10" : "3",
-        ...style,
-      }}
-    >
-      {title}
-      {children}
-    </Title>
-  );
+	return (
+		<Title
+			style={{
+				fontFamily,
+				width: '95%',
+				fontSize: '35px',
+				fontWeight: 'bold',
+				textAlign: 'center',
+				textShadow: '0 0 20px rgb(0,219,255)',
+				color: '#FFF8F0',
+				textWrap: 'balance',
+				position: 'absolute',
+				top: isTotemDisplayMode ? '50%' : '10%',
+				left: '50%',
+				transform: isTotemDisplayMode
+					? 'translate(-50%, -50%)'
+					: 'translateX(-50%)',
+				minHeight: 150,
+				bottom: isTotemDisplayMode ? '500px' : '450px',
+				opacity: titleOpacity,
+				filter: `blur(${titleDeblur}px)`,
+				WebkitLineClamp: isTotemDisplayMode ? '10' : '2',
+				...style,
+			}}
+		>
+			{title}
+			{children}
+		</Title>
+	);
 };
