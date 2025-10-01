@@ -39,7 +39,7 @@ export const TalkTitle: React.FC<{
 				color: '#FFF8F0',
 				textWrap: 'balance',
 				position: 'absolute',
-				top: isTotemDisplayMode ? '50%' : '10%',
+				top: isTotemDisplayMode ? '60%' : '10%',
 				left: '50%',
 				transform: isTotemDisplayMode
 					? 'translate(-50%, -50%)'

@@ -13,7 +13,6 @@ import {
 import {BackgroundFiller} from '../../../design/atoms/BackgroundFiller';
 
 import {Details} from './Details';
-import {Logo} from './Logo';
 import {Speakers} from './Speakers';
 import {TalkTitle} from './TalkTitle';
 import { Fireflies } from './Fireflies';
@@ -203,9 +202,6 @@ export const DevfestNantesLoopTotem = ({
 					/>
 				</Sequence>
 			</div>
-			<Sequence>
-				<Logo isTotemDisplayMode />
-			</Sequence>
 			<Sequence>
 				<div
 					style={{

@@ -19,7 +19,7 @@ export const Details: React.FC<{
 	const drop = spring({
 		frame: frame,
 		from: -40,
-		to: isTotemDisplayMode ? 180 : 20,
+		to: 20,
 		fps,
 		durationInFrames: 40,
 	});
