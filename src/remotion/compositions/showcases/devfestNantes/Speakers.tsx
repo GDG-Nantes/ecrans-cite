@@ -64,7 +64,7 @@ export const Speakers: React.FC<{
 				gap: isTotemDisplayMode ? 0 : 100,
 			}}
 		>
-			{speakers.map((speaker) => {
+			{speakers!.map((speaker) => {
 				return (
 					<div
 						key={speaker.name}

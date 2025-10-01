@@ -6,7 +6,7 @@ import {
 import {TalkTitle} from "src/remotion/compositions/showcases/devfestNantes/TalkTitle.tsx";
 import {AiOutlineArrowDown} from "react-icons/ai";
 
-export const PlanningBar: React.FC<{ portrait?: boolean}> = ({portrait}) => {
+export const PlanningBar: React.FC<{ portrait?: boolean}> = () => {
 
   const currentTemplate = {
     compositionName: 'DevfestNantesBar',

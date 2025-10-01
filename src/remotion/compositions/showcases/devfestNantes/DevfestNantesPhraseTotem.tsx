@@ -1,17 +1,9 @@
-import {loadFont} from "@remotion/google-fonts/CrimsonText";
-import {AbsoluteFill, Easing, interpolate, Sequence, staticFile, useCurrentFrame,} from "remotion";
+import {Sequence} from "remotion";
 
 import {DefaultProps} from "../../../types/defaultProps.types";
-import {BackgroundFiller} from "../../../design/atoms/BackgroundFiller";
-import {Logo} from "./Logo";
 import {Details} from "./Details";
 import {TalkTitle} from "./TalkTitle";
-import {GhostBackground} from "./GhostBackground";
-import {Moon} from "./Moon";
-import {Trees} from "./Trees";
 import {DevfestNantesCustomContent} from "./DevfestNantesCustomContent.tsx";
-
-const {fontFamily} = loadFont();
 
 export const DevfestNantesPhraseTotem = ({
                                            title,
