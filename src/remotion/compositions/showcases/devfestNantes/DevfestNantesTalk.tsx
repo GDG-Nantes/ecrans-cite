@@ -76,7 +76,7 @@ export const DevfestNantesTalk = ({
 		},
 	);
 
-	const SlideDown = interpolate(frame, [300, 330], [0, 650], {
+	const SlideDown = interpolate(frame, [durationInFrames - 50, durationInFrames - 15], [0, 650], {
 		extrapolateRight: 'clamp',
 		extrapolateLeft: 'clamp',
 		easing: Easing.bezier(0.51, -0.75, 0.99, 0.75),

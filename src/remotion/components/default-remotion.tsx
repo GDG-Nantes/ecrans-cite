@@ -4,6 +4,7 @@ import {
 } from "src/remotion/compositions/showcases/devfestNantes/DevfestNantesDefaultTotem.tsx";
 import {DevfestNantesDefault} from "src/remotion/compositions/showcases/devfestNantes/DevfestNantesDefault.tsx";
 import {Player} from "@remotion/player";
+import {DEFAULT_DURATION_IN_FRAMES} from "../../data/Ecrans.ts";
 
 
 export const DefaultRemotion: React.FC<{ portrait?: boolean }> = ({portrait}) => {
@@ -12,13 +13,13 @@ export const DefaultRemotion: React.FC<{ portrait?: boolean }> = ({portrait}) =>
     component: DevfestNantesDefaultTotem,
     width: 720,
     height: 1280,
-    durationInFrames: 350,
+    durationInFrames: DEFAULT_DURATION_IN_FRAMES,
   } : {
     compositionName: 'DevfestNantesDefault',
     component: DevfestNantesDefault,
     width: 1280,
     height: 720,
-    durationInFrames: 350,
+    durationInFrames: DEFAULT_DURATION_IN_FRAMES,
   };
   return <Player
     autoPlay

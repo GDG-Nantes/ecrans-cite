@@ -3,6 +3,7 @@ import {DefaultProps} from "src/remotion/types/defaultProps.types.ts";
 import {DevfestNantesPhraseTotem} from "src/remotion/compositions/showcases/devfestNantes/DevfestNantesPhraseTotem.tsx";
 import {DevfestNantesPhrase} from "src/remotion/compositions/showcases/devfestNantes/DevfestNantesPhrase.tsx";
 import {Player} from "@remotion/player";
+import {DEFAULT_DURATION_IN_FRAMES} from "../../data/Ecrans.ts";
 
 export const PhraseRemotion: React.FC<DefaultProps & { portrait?: boolean }> = ({portrait, ...props}) => {
 
@@ -11,13 +12,13 @@ export const PhraseRemotion: React.FC<DefaultProps & { portrait?: boolean }> = (
     component: DevfestNantesPhraseTotem,
     width: 720,
     height: 1280,
-    durationInFrames: 350,
+    durationInFrames: DEFAULT_DURATION_IN_FRAMES,
   } : {
     compositionName: 'DevfestNantesPhrase',
     component: DevfestNantesPhrase,
     width: 1280,
     height: 720,
-    durationInFrames: 350,
+    durationInFrames: DEFAULT_DURATION_IN_FRAMES,
   };
   return <Player
     autoPlay

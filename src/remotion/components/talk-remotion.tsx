@@ -3,6 +3,7 @@ import React from "react";
 import {DevfestNantesLoopTotem} from "src/remotion/compositions/showcases/devfestNantes/DevfestNantesLoopTotem.tsx";
 import {DevfestNantesTalk} from "src/remotion/compositions/showcases/devfestNantes/DevfestNantesTalk.tsx";
 import {Player} from "@remotion/player";
+import {DEFAULT_DURATION_IN_FRAMES} from "../../data/Ecrans.ts";
 
 export const TalkRemotion: React.FC<{ talk: Talk, portrait?: boolean, displayName?: RoomName }> = ({
                                                                                                      talk,
@@ -14,13 +15,13 @@ export const TalkRemotion: React.FC<{ talk: Talk, portrait?: boolean, displayNam
     component: DevfestNantesLoopTotem,
     width: 720,
     height: 1280,
-    durationInFrames: 350,
+    durationInFrames: DEFAULT_DURATION_IN_FRAMES,
   } : {
     compositionName: 'DevfestNantesLoop',
     component: DevfestNantesTalk,
     width: 1280,
     height: 720,
-    durationInFrames: 350,
+    durationInFrames: DEFAULT_DURATION_IN_FRAMES,
   };
   const inputShortVid = formatTalkToShortvid(talk);
   if (displayName) inputShortVid.location = displayName;

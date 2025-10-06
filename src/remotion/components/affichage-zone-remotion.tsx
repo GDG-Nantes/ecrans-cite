@@ -3,6 +3,7 @@ import {ConfigAfficheShortVid} from "src/types.ts";
 import {DevfestNantesLoopTotem} from "src/remotion/compositions/showcases/devfestNantes/DevfestNantesLoopTotem.tsx";
 import {DevfestNantesTalk} from "src/remotion/compositions/showcases/devfestNantes/DevfestNantesTalk.tsx";
 import {Player} from "@remotion/player";
+import {DEFAULT_DURATION_IN_FRAMES} from "../../data/Ecrans.ts";
 
 export const AffichageZoneRemotion: React.FC<{ configAffiche: ConfigAfficheShortVid, portrait?: boolean }> = ({
                                                                                                                 configAffiche,
@@ -13,14 +14,14 @@ export const AffichageZoneRemotion: React.FC<{ configAffiche: ConfigAfficheShort
     component: DevfestNantesLoopTotem,
     width: 720,
     height: 1280,
-    durationInFrames: 350,
+    durationInFrames: DEFAULT_DURATION_IN_FRAMES,
     titleFontSize: 35
   } : {
     compositionName: 'DevfestNantesLoop',
     component: DevfestNantesTalk,
     width: 1280,
     height: 720,
-    durationInFrames: 350,
+    durationInFrames: DEFAULT_DURATION_IN_FRAMES,
   };
   return <Player
     autoPlay

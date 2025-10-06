@@ -18,7 +18,7 @@ export const DevfestNantesDefault = () => {
       >
         <Img
           src={staticFile(
-            "/images/showcases/devfestNantes/logo-devfest-2024.svg"
+            "/images/showcases/devfestNantes/logo-devfest-2025.png"
           )}
           width={"600px"}
           height="auto"

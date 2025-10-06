@@ -5,6 +5,7 @@ import {
 } from "src/remotion/compositions/showcases/devfestNantes/DevfestNantesCustomContent.tsx";
 import {TalkTitle} from "src/remotion/compositions/showcases/devfestNantes/TalkTitle.tsx";
 import {AiOutlineArrowDown} from "react-icons/ai";
+import {DEFAULT_DURATION_IN_FRAMES} from "../../data/Ecrans.ts";
 
 export const PlanningBar: React.FC<{ portrait?: boolean}> = () => {
 
@@ -13,7 +14,7 @@ export const PlanningBar: React.FC<{ portrait?: boolean}> = () => {
     component: DevfestNantesBar,
     width: 1280,
     height: 720,
-    durationInFrames: 350,
+    durationInFrames: DEFAULT_DURATION_IN_FRAMES,
   };
   return <Player
     autoPlay

@@ -12,6 +12,7 @@ import {format} from "date-fns";
 import classnames from "classnames";
 import {QRCodeSVG} from "qrcode.react";
 import {HiMiniArrowUturnLeft} from "react-icons/hi2";
+import {DEFAULT_DURATION_IN_FRAMES} from "../../data/Ecrans.ts";
 
 export const PlanningCitd: React.FC<{ portrait?: boolean}> = ({portrait}) => {
 
@@ -20,13 +21,13 @@ export const PlanningCitd: React.FC<{ portrait?: boolean}> = ({portrait}) => {
     component: DevfestNantesPlanningCitdTotem,
     width: 720,
     height: 1280,
-    durationInFrames: 350,
+    durationInFrames: DEFAULT_DURATION_IN_FRAMES,
   } : {
     compositionName: 'DevfestNantesPlanningCitd',
     component: DevfestNantesPlanningCitd,
     width: 1280,
     height: 720,
-    durationInFrames: 350,
+    durationInFrames: DEFAULT_DURATION_IN_FRAMES,
   };
   return <Player
     autoPlay

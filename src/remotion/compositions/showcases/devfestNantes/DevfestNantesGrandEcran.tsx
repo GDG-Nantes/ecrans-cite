@@ -93,7 +93,7 @@ export const DevfestNantesGrandEcran = () => {
       >
         <Img
           src={staticFile(
-            "/images/showcases/devfestNantes/logo-devfest-2024.svg"
+            "/images/showcases/devfestNantes/logo-devfest-2025.png"
           )}
           width={"1000px"}
           height="auto"

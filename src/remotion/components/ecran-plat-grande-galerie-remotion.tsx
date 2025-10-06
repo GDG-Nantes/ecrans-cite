@@ -1,6 +1,7 @@
 import React from "react";
 import {DevfestNantesEcranPlat} from "src/remotion/compositions/showcases/devfestNantes/DevfestNantesEcranPlats.tsx";
 import {Player} from "@remotion/player";
+import {DEFAULT_DURATION_IN_FRAMES} from "../../data/Ecrans.ts";
 
 export const EcranPlatGrandeGalerieRemotion: React.FC = () => {
   const currentTemplate = {
@@ -8,7 +9,7 @@ export const EcranPlatGrandeGalerieRemotion: React.FC = () => {
     component: DevfestNantesEcranPlat,
     width: 3840,
     height: 600,
-    durationInFrames: 350,
+    durationInFrames: DEFAULT_DURATION_IN_FRAMES,
   };
   return <Player
     autoPlay

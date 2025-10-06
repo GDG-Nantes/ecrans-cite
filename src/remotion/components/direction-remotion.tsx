@@ -5,6 +5,7 @@ import {
 } from "src/remotion/compositions/showcases/devfestNantes/DevfestNantesDirectionTotem.tsx";
 import {DevfestNantesDirection} from "src/remotion/compositions/showcases/devfestNantes/DevfestNantesDirection.tsx";
 import {Player} from "@remotion/player";
+import {DEFAULT_DURATION_IN_FRAMES} from "../../data/Ecrans.ts";
 
 export const DirectionRemotion: React.FC<{ directions: Direction[], portrait: boolean }> = ({directions, portrait}) => {
   const currentTemplate = portrait ? {
@@ -12,13 +13,13 @@ export const DirectionRemotion: React.FC<{ directions: Direction[], portrait: bo
     component: DevfestNantesDirectionTotem,
     width: 720,
     height: 1280,
-    durationInFrames: 350,
+    durationInFrames: DEFAULT_DURATION_IN_FRAMES,
   } : {
     compositionName: 'DevfestNantesDirection',
     component: DevfestNantesDirection,
     width: 1280,
     height: 720,
-    durationInFrames: 350,
+    durationInFrames: DEFAULT_DURATION_IN_FRAMES,
   };
   return <Player
     autoPlay
