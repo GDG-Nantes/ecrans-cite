@@ -79,7 +79,8 @@ export const ComposantEcran: React.FC<{ planning?: Talk[] } & ConfigEcran> = ({p
       } else if (heure >= '12' && heure < "13:30") {
         return <PhraseRemotion
           title={"Bon appétit !"}
-          location={"Buffet par La Maison Hebel"}
+          image={"/images/showcases/devfestNantes/qr-code-menu.png"}
+          location={"Le Carré des Délices / La Maison Hebel"}
           time={"12h - 14h"}
           portrait={isPortrait}
         />

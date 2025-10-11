@@ -10,6 +10,7 @@ export type DefaultProps = {
   time?: string;
   location?: string;
   titleFontSize?: number;
+  image?: string;
 };
 
 export type ComponentDisplayMode = {
