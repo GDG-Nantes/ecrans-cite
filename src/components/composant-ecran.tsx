@@ -64,7 +64,7 @@ export const ComposantEcran: React.FC<{ planning?: Talk[] } & ConfigEcran> = ({p
         return <PartenairesAfterParty portrait={isPortrait}/>
       }
       if (configEcran.tags?.includes("vestiaire")) {
-        return EcranVestiaire(estPremierJour, currentDate, isPortrait, estDeuxiemeJour);
+        return EcranVestiaire(estPremierJour, isPortrait, estDeuxiemeJour);
       }
       if (configEcran.nom == 'Code In The Dark') {
         return <PlanningCitd portrait={isPortrait}/>
@@ -139,13 +139,9 @@ function calculerTalksSalle(configEcran: ConfigEcran, currentDate: Date, plannin
   return {talkEnCours, prochainTalk};
 }
 
-function EcranVestiaire(estPremierJour: boolean, currentDate: Date, isPortrait: boolean, estDeuxiemeJour: boolean) {
+function EcranVestiaire(estPremierJour: boolean, isPortrait: boolean, estDeuxiemeJour: boolean) {
   if (estPremierJour) {
-    if (format(currentDate, "HH:mm") > "21:00") {
-      return <AffichageZoneRemotion configAffiche={AFFICHES_ZONE.afterBars} portrait={isPortrait}/>
-    } else {
-      return <AffichageZoneRemotion configAffiche={AFFICHES_ZONE.vestiaireJ1} portrait={isPortrait}/>
-    }
+    return <AffichageZoneRemotion configAffiche={AFFICHES_ZONE.vestiaireJ1} portrait={isPortrait}/>
   } else if (estDeuxiemeJour) {
     return <AffichageZoneRemotion configAffiche={AFFICHES_ZONE.vestiaireJ2} portrait={isPortrait}/>
   }

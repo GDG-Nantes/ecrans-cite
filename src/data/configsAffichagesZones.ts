@@ -1,6 +1,6 @@
 import {ConfigAfficheShortVid} from "src/types.ts";
 
-type typesAffiches = 'vestiaireJ1' | 'vestiaireJ2' | 'vin';
+type typesAffiches = 'vestiaireJ1' | 'vestiaireJ2';
 export const AFFICHES_ZONE: Record<typesAffiches, ConfigAfficheShortVid> = {
   vestiaireJ1: {
     "title": "Vestiaire gratuit disponible ! Déposez vos affaires.",
@@ -21,12 +21,5 @@ export const AFFICHES_ZONE: Record<typesAffiches, ConfigAfficheShortVid> = {
     "date": "17 Octobre",
     "time": "08h-18h30",
     "location": "Galerie Jules Verne",
-  },
-  vin: {
-    "title": "Afterparty : bar et vin",
-    "date": "16 Octobre",
-    "time": "18h30-21h30",
-    "location": "Galerie Jules Verne",
-    "speakers": []
   }
 };

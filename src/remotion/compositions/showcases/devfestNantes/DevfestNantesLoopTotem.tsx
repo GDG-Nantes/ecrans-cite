@@ -1,7 +1,6 @@
 import {loadFont} from '@remotion/google-fonts/CrimsonText';
 import {
 	AbsoluteFill,
-	Easing,
 	interpolate,
 	Sequence,
 	staticFile,
