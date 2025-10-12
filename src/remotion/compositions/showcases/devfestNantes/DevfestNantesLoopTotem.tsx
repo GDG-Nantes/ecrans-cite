@@ -77,11 +77,6 @@ export const DevfestNantesLoopTotem = ({
 		},
 	);
 
-	const SlideDown = interpolate(frame, [300, 330], [0, 650], {
-		extrapolateRight: 'clamp',
-		extrapolateLeft: 'clamp',
-		easing: Easing.bezier(0.51, -0.75, 0.99, 0.75),
-	});
 
 	return (
 		<AbsoluteFill
@@ -179,7 +174,6 @@ export const DevfestNantesLoopTotem = ({
 			<div
 				style={{
 					height: '100%',
-					transform: `translateY(${SlideDown}px)`,
 				}}
 			>
 				<Sequence name="Speakers" from={135}>
