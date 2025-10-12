@@ -633,4 +633,4 @@ export function estParmisEcrans(id: string, configsEcran: ConfigEcran[]) {
   return configsEcran.some((config) => config.id === id);
 }
 
-export const DEFAULT_DURATION_IN_FRAMES = 700; // ~11.6 secondes à 30fps
+export const DEFAULT_DURATION_IN_FRAMES = 700; // ~23s à 30fps

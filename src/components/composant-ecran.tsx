@@ -22,6 +22,7 @@ import {ScaryElevatorRemotion} from "src/remotion/components/scary-elevator-remo
 import {PlanningCitd} from "src/remotion/components/planning-citd.tsx";
 import {PlanningCitdSalleE} from "src/remotion/components/planning-citd-salle-e.tsx";
 import {PlanningBar} from "src/remotion/components/bar-afterparty.tsx";
+import {PartenairesAfterParty} from "../remotion/components/partenaires-after.tsx";
 
 export const ComposantEcran: React.FC<{ planning?: Talk[] } & ConfigEcran> = ({planning, ...configEcran}) => {
 
@@ -58,6 +59,9 @@ export const ComposantEcran: React.FC<{ planning?: Talk[] } & ConfigEcran> = ({p
       }
       if (estPremierJour && configEcran.tags?.includes("vin") && (heure > "18:30") && (heure < "21:30")) {
         return <PlanningBar portrait={isPortrait}/>
+      }
+      if (estPremierJour && heure >= "19:30") {
+        return <PartenairesAfterParty portrait={isPortrait}/>
       }
       if (configEcran.tags?.includes("vestiaire")) {
         return EcranVestiaire(estPremierJour, currentDate, isPortrait, estDeuxiemeJour);
