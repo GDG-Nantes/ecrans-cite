@@ -32,7 +32,7 @@ export const Logo = ({isTotemDisplayMode = false}: ComponentDisplayMode) => {
 	return (
 		<Img
 			src={staticFile(
-				'/images/showcases/devfestNantes/logo-devfest-2025.png',
+				'/images/showcases/devfestNantes/logo-devfest-2025.svg',
 			)}
 			width={logoWidth}
 			height="auto"
@@ -41,6 +41,7 @@ export const Logo = ({isTotemDisplayMode = false}: ComponentDisplayMode) => {
 				right: pictureSlide - pictureSlideBack,
 				top: isTotemDisplayMode ? undefined : 20,
 				bottom: isTotemDisplayMode ? 20 : undefined,
+        filter: 'drop-shadow(0 0 4px rgba(0,0,0,0.5))'
 			}}
 		/>
 	);

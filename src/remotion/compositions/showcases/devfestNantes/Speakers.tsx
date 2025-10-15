@@ -77,6 +77,7 @@ export const Speakers: React.FC<{
 							display: 'flex',
 							flexDirection: 'column',
 							position: 'relative',
+              top: isTotemDisplayMode && !isTooManySpeakersDisplay ? "100px" : !isTooManySpeakersDisplay ? "-30px" : undefined,
 						}}
 					>
 						{ !isTooManySpeakersDisplay &&

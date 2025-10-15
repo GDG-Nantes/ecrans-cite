@@ -28,6 +28,7 @@ export const DevfestNantesGrandEcran = () => {
         style={{
           transformOrigin: 'center center',
           opacity: 0.70,
+
         }}
       />
       <Fireflies count={50} opacity={1} />
@@ -93,10 +94,13 @@ export const DevfestNantesGrandEcran = () => {
       >
         <Img
           src={staticFile(
-            "/images/showcases/devfestNantes/logo-devfest-2025.png"
+            "/images/showcases/devfestNantes/logo-devfest-2025.svg"
           )}
           width={"1000px"}
           height="auto"
+          style={{
+            filter: 'drop-shadow(0 0 6px rgba(0,0,0,0.5))'
+          }}
         />
       </div>
     </AbsoluteFill>

@@ -49,10 +49,13 @@ export const DevfestNantesEcranPlat = () => {
       >
         <Img
           src={staticFile(
-            "/images/showcases/devfestNantes/logo-devfest-2025.png"
+            "/images/showcases/devfestNantes/logo-devfest-2025.svg"
           )}
           height={"500px"}
           width="auto"
+          style={{
+            filter: 'drop-shadow(0 0 6px rgba(0,0,0,0.5))'
+          }}
         />
       </div>
     </AbsoluteFill>
