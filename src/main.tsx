@@ -22,7 +22,7 @@ function App() {
   const {data: planning, error} = useQuery({
     queryKey: ['planning'],
     queryFn: () => getPlanning(),
-    refetchInterval: 30000
+    refetchInterval: 10000
   })
 
   React.useEffect(() => {

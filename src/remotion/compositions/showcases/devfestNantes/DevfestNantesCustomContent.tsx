@@ -9,7 +9,7 @@ const {fontFamily} = loadFont();
 export const DevfestNantesCustomContent: React.FC<React.PropsWithChildren> = ({children}) => {
 
   const frame = useCurrentFrame();
-	const videoOpacity = interpolate(frame, [0, 30], [0, 0.75], {
+	const videoOpacity = interpolate(frame, [0, 30], [0.2, 0.4], {
 		extrapolateRight: 'clamp',
 		extrapolateLeft: 'clamp',
 	});

@@ -58,7 +58,7 @@ export const DirectionComponent: React.FC<{
           margin: "0 0 0 50px",
           flexWrap: "nowrap",
           textShadow:
-					'-1px 0 #1B2C2C, 0 1px #1B2C2C, 1px 0 #1B2C2C, 0 -1px #1B2C2C',
+					'0px 0px 20px #000',
         }}
       >
         {direction.nom}
