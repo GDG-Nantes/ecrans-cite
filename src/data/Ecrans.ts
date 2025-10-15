@@ -376,6 +376,10 @@ export const ECRANS_DIRECTION: ConfigEcran[] = [
       {
         nom: 'Communautés Nantaises',
         sens: 'bas'
+      },
+      {
+        nom: 'Hackerspace',
+        sens: 'bas'
       }
     ]
   },
