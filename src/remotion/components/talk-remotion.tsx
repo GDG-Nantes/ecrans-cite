@@ -27,7 +27,7 @@ export const TalkRemotion: React.FC<{ talk: Talk, portrait?: boolean, displayNam
   if (displayName) inputShortVid.location = displayName;
   return <Player
     autoPlay
-    controls={true}
+    controls={false}
     loop
     style={{
       width: '100%',
