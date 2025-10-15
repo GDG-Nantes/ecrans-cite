@@ -2,7 +2,6 @@ import {loadFont} from "@remotion/google-fonts/CrimsonText";
 import {AbsoluteFill, interpolate, Sequence, staticFile, useCurrentFrame} from "remotion";
 import {BackgroundFiller} from "../../../design/atoms/BackgroundFiller";
 
-import { SweepFirefly } from "./SweepFirefly";
 import { Fireflies } from "./Fireflies";
 
 const {fontFamily} = loadFont();
@@ -50,44 +49,44 @@ export const DevfestNantesCustomContentTotem: React.FC<React.PropsWithChildren> 
         />
       </Sequence>
       <Sequence from={20}>
-        <Fireflies count={50} opacity={firefliesOpacity} />
+        <Fireflies count={25} opacity={firefliesOpacity} />
       </Sequence>
-      <Sequence from={22}>
-        <SweepFirefly
-          y={180}
-          size={70}
-          durationInFrames={120}
-          opacity={firefliesOpacity}
-          direction="ltr"
-          driftAmp={10}
-          driftFreq={1.2}
-          flickerAmp={0.18}
-        />
-      </Sequence>
-      <Sequence from={38}>
-        <SweepFirefly
-          y={420}
-          size={60}
-          durationInFrames={140}
-          opacity={firefliesOpacity}
-          direction="rtl"
-          driftAmp={6}
-          driftFreq={2.0}
-          flickerAmp={0.12}
-        />
-      </Sequence>
-      <Sequence from={50}>
-        <SweepFirefly
-          y={300}
-          size={52}
-          durationInFrames={120}
-          opacity={firefliesOpacity}
-          direction="ltr"
-          driftAmp={14}
-          driftFreq={0.9}
-          flickerAmp={0.2}
-        />
-      </Sequence>
+      {/*<Sequence from={22}>*/}
+      {/*  <SweepFirefly*/}
+      {/*    y={180}*/}
+      {/*    size={70}*/}
+      {/*    durationInFrames={120}*/}
+      {/*    opacity={firefliesOpacity}*/}
+      {/*    direction="ltr"*/}
+      {/*    driftAmp={10}*/}
+      {/*    driftFreq={1.2}*/}
+      {/*    flickerAmp={0.18}*/}
+      {/*  />*/}
+      {/*</Sequence>*/}
+      {/*<Sequence from={38}>*/}
+      {/*  <SweepFirefly*/}
+      {/*    y={420}*/}
+      {/*    size={60}*/}
+      {/*    durationInFrames={140}*/}
+      {/*    opacity={firefliesOpacity}*/}
+      {/*    direction="rtl"*/}
+      {/*    driftAmp={6}*/}
+      {/*    driftFreq={2.0}*/}
+      {/*    flickerAmp={0.12}*/}
+      {/*  />*/}
+      {/*</Sequence>*/}
+      {/*<Sequence from={50}>*/}
+      {/*  <SweepFirefly*/}
+      {/*    y={300}*/}
+      {/*    size={52}*/}
+      {/*    durationInFrames={120}*/}
+      {/*    opacity={firefliesOpacity}*/}
+      {/*    direction="ltr"*/}
+      {/*    driftAmp={14}*/}
+      {/*    driftFreq={0.9}*/}
+      {/*    flickerAmp={0.2}*/}
+      {/*  />*/}
+      {/*</Sequence>*/}
       {children}
     </AbsoluteFill>
   );
