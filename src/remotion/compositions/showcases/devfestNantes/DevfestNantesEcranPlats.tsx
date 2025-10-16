@@ -2,7 +2,6 @@ import { loadFont } from "@remotion/google-fonts/CrimsonText";
 import { AbsoluteFill, Img, staticFile } from "remotion";
 import {BackgroundFiller} from "../../../design/atoms/BackgroundFiller.tsx";
 import {Fireflies} from "./Fireflies.tsx";
-import {SweepFirefly} from "./SweepFirefly.tsx";
 
 const { fontFamily } = loadFont();
 
@@ -25,17 +24,7 @@ export const DevfestNantesEcranPlat = () => {
           opacity: 0.70,
         }}
       />
-      <Fireflies count={50} opacity={1} />
-      <SweepFirefly
-        y={420}
-        size={60}
-        durationInFrames={140}
-        opacity={1}
-        direction="rtl"
-        driftAmp={6}
-        driftFreq={2.0}
-        flickerAmp={0.12}
-      />
+      <Fireflies count={25} opacity={1} />
       <div
         style={{
           position: "absolute",

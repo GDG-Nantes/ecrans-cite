@@ -5,7 +5,6 @@ import { DirectionComponent } from "src/remotion/compositions/showcases/devfestN
 import { useCurrentDate } from "src/helpers.ts";
 import {BackgroundFiller} from "../../../design/atoms/BackgroundFiller.tsx";
 import {Fireflies} from "./Fireflies.tsx";
-import {SweepFirefly} from "./SweepFirefly.tsx";
 
 const { fontFamily } = loadFont();
 
@@ -31,17 +30,7 @@ export const DevfestNantesGrandEcran = () => {
 
         }}
       />
-      <Fireflies count={50} opacity={1} />
-      <SweepFirefly
-        y={420}
-        size={60}
-        durationInFrames={140}
-        opacity={1}
-        direction="rtl"
-        driftAmp={6}
-        driftFreq={2.0}
-        flickerAmp={0.12}
-      />
+      <Fireflies count={25} opacity={1} />
       <div
         style={{
           position: "absolute",

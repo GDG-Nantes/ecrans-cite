@@ -131,7 +131,7 @@ export const DevfestNantesLoopTotem = ({
 				/>
 			</Sequence>
 			<Sequence from={120}>
-				<Fireflies count={50} opacity={firefliesOpacity} />
+				<Fireflies count={25} opacity={firefliesOpacity} />
 			</Sequence>
 			<div
 				style={{

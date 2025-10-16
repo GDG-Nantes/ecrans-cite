@@ -16,7 +16,6 @@ import {Details} from './Details';
 import {Fireflies} from './Fireflies';
 import {Logo} from './Logo';
 import {Speakers} from './Speakers';
-import {SweepFirefly} from './SweepFirefly';
 import {TalkTitle} from './TalkTitle';
 import { DefaultProps } from 'src/remotion/types/defaultProps.types';
 
@@ -132,43 +131,7 @@ export const DevfestNantesTalk = ({
 				/>
 			</Sequence>
 			<Sequence from={120}>
-				<Fireflies count={50} opacity={firefliesOpacity} />
-			</Sequence>
-			<Sequence from={122}>
-				<SweepFirefly
-					y={180}
-					size={70}
-					durationInFrames={120}
-					opacity={firefliesOpacity}
-					direction="ltr"
-					driftAmp={10}
-					driftFreq={1.2}
-					flickerAmp={0.18}
-				/>
-			</Sequence>
-			<Sequence from={138}>
-				<SweepFirefly
-					y={420}
-					size={60}
-					durationInFrames={140}
-					opacity={firefliesOpacity}
-					direction="rtl"
-					driftAmp={6}
-					driftFreq={2.0}
-					flickerAmp={0.12}
-				/>
-			</Sequence>
-			<Sequence from={150}>
-				<SweepFirefly
-					y={300}
-					size={52}
-					durationInFrames={120}
-					opacity={firefliesOpacity}
-					direction="ltr"
-					driftAmp={14}
-					driftFreq={0.9}
-					flickerAmp={0.2}
-				/>
+				<Fireflies count={25} opacity={firefliesOpacity} />
 			</Sequence>
 			<div
 				style={{
